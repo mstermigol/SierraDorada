@@ -1,5 +1,22 @@
 :root {
-    --bs-body-bg: #fefaf9;
+    --bs-body-bg: #3a22be;
     --color-gold: #c38e00;
+    --color-gold-light: #e9a900;
     --color-red-wine: #bf2f48;
+}
+
+.active {
+    color: var(--color-gold) !important;
+}
+
+.navbar-nav .nav-link:active {
+    color: var(--color-gold);
+}
+
+.navbar-nav .nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: var(--color-gold-light);
 }
