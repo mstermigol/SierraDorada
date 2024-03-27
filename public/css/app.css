@@ -9,6 +9,19 @@
     color: var(--color-gold) !important;
 }
 
+h2,
+h1 {
+    color: var(--color-gold);
+}
+
+p {
+    color: white;
+}
+
+/*
+    Navigation bar
+*/
+
 .navbar-nav .nav-link:active {
     color: var(--color-gold);
 }
@@ -19,4 +32,24 @@
 
 .nav-link:hover {
     color: var(--color-gold-light);
+}
+
+/*
+    Hero section
+*/
+
+#hero {
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("/images/hero-sierra.jpg");
+    background-size: cover;
+    background-position: bottom;
+}
+
+#p-hero {
+    max-width: 45ch;
 }
