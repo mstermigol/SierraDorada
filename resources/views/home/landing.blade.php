@@ -5,7 +5,7 @@
 
 
 <!-- Hero section -->
-<section id ="hero"class="d-flex align-items-center justify-content-start">
+<section id ="hero" class="d-flex align-items-center justify-content-start">
     <div class="position-absolute top-0 container-fluid mt-3 mx-0 px-0">
         @include('subviews.navbar')
     </div>
@@ -29,4 +29,35 @@
 
     </div>
 </section>
+
+<!-- Services section -->
+
+<section id="services" class="container-fluid d-flex flex-column align-items-center justify-content-center">
+    <h2 class="my-subtitle-letter">NUESTROS SERVICIOS</h2>
+    <h1 class="my-title-letter">¿Qué ofrecemos?</h1>
+    <div class="row d-flex
+    justify-content-center">
+        <div class="col-12 col
+        -md-6 col-lg-4 d-flex flex-column align-items-center justify-content-center">
+            <img src="{{ asset('images/equitacion.jpg') }}" alt="Equitación" class="img-fluid rounded-circle">
+            <h3 class="my-subtitle-letter">Equitación</h3>
+            <p class="text-center">Clases de equitación para niños y adultos. Aprende a montar a caballo con nosotros.</p>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 d-flex flex-column align-items-center justify-content-center">
+            <img src="{{ asset('images/chalaneria.jpg') }}" alt="Chalanería" class="img-fluid rounded-circle">
+            <h3 class="my-subtitle-letter">Chalanería</h3>
+            <p class="text-center">Clases de chalanería para niños y adultos. Aprende a cuidar y montar a caballo con nosotros.</p>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 d-flex flex-column align-items-center justify-content-center">
+            <img src="{{ asset('images/equinoterapia.jpg') }}" alt="Equinoterapia" class="img-fluid rounded-circle">
+            <h3 class="my-subtitle-letter">Equinoterapia</h3>
+            <p class="text-center">Terapia asistida con caballos para niños y adultos. Mejora tu calidad de vida con nosotros.</p>
+
+        </div>
+
+    </div>
+</section>
+
 @endsection

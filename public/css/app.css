@@ -99,13 +99,16 @@ p {
     position: relative;
     top: 0;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     overflow: hidden;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)),
         url("/images/hero-sierra.jpg");
     background-size: cover;
     background-position: bottom;
+    max-height: 1150px;
 }
+
+
 
 #p-hero {
     text-align: justify;
@@ -115,6 +118,7 @@ p {
 #hero h1 {
     font-size: 110px;
     font-weight: bold;
+    line-height: 0.8;
 }
 
 @media screen and (max-width: 1040px) {
