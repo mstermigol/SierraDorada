@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md mt-2 mx-5">
     <div class="container-fluid">
         <a class="navbar-brand text-white" href="{{ route('home.landing') }}">
-            <img src="{{ asset('images/logo-sierra-nb.png') }}" alt="Club Sierra Dorada" width="100">
+            <img src="{{ asset('images/logo-sierra-nb.png') }}" alt="Club Sierra Dorada" width="120">
     
     </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

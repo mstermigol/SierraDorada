@@ -6,7 +6,7 @@
 
 <!-- Hero section -->
 <section id ="hero"class="d-flex align-items-center justify-content-start">
-    <div class="position-absolute top-0 container-fluid mt-5 mx-0 px-0">
+    <div class="position-absolute top-0 container-fluid mt-3 mx-0 px-0">
         @include('subviews.navbar')
     </div>
     
