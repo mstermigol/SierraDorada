@@ -1,4 +1,4 @@
-    <!-- Authors: Miguel Jaramillo, Sergio Córdoba and David Fonseca-->
+    <!-- Author: Miguel Jaramillo -->
     <!doctype html>
     <html lang="en">
 
