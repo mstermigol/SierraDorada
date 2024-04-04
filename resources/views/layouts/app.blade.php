@@ -9,6 +9,9 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- Main Stye sheet -->
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
 
         <title>@yield('title', 'Club Sierra Dorada')</title>
     </head>

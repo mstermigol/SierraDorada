@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
+
 :root {
     --bs-body-bg: #3a22be;
     --color-gold: #c38e00;
@@ -15,15 +17,66 @@ h1 {
 }
 
 p {
+    font-family: Alice, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: white;
+}
+
+.my-title-letter {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.my-subtitle-letter {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.btn-golden {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    background-color: var(--color-gold);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 6px 30px;
+    cursor: pointer;
+}
+
+.btn-golden:hover {
+    background-color: var(--color-gold-light);
+    color: white;
+}
+
+.btn-golden:active {
+    background-color: var(--color-gold) !important;
     color: white;
 }
 
 /*
     Navigation bar
 */
+.navbar-toggler {
+    border: none;
+}
+
+.fa-bars {
+    color: var(--color-gold);
+}
 
 .navbar-nav .nav-link:active {
     color: var(--color-gold);
+}
+
+.navbar-collapse.show,
+.navbar-collapse.collapsing {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-left: 15px;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
 }
 
 .navbar-nav .nav-link {
@@ -38,18 +91,80 @@ p {
     Hero section
 */
 
+.hero-content-margin {
+    margin-top: 160px;
+}
+
 #hero {
     position: relative;
     top: 0;
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)),
         url("/images/hero-sierra.jpg");
     background-size: cover;
     background-position: bottom;
 }
 
 #p-hero {
+    text-align: justify;
     max-width: 45ch;
+}
+
+#hero h1 {
+    font-size: 110px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1040px) {
+    #hero h1 {
+        font-size: 90px;
+    }
+}
+
+@media screen and (max-width: 873px) {
+    #hero h1 {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 622px) {
+    #hero h1 {
+        font-size: 50px;
+    }
+}
+
+#hero h2 {
+    font-size: 50px;
+    font-weight: normal;
+}
+
+@media screen and (max-width: 1040px) {
+    #hero h2 {
+        font-size: 45px;
+    }
+}
+
+@media screen and (max-width: 873px) {
+    #hero h2 {
+        font-size: 30px;
+    }
+}
+
+#hero p {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+@media screen and (max-width: 1040px) {
+    #hero p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 873px) {
+    #hero p {
+        font-size: 16px;
+    }
 }
