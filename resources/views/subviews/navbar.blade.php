@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md mt-2 mx-5">
+<nav class="navbar navbar-expand-md mt-0 mx-5">
     <div class="container-fluid">
         <a class="navbar-brand text-white" href="{{ route('home.landing') }}">
             <img src="{{ asset('images/logo-sierra-nb.png') }}" alt="Club Sierra Dorada" width="120">
