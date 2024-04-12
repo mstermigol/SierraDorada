@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
 
 :root {
-    --bs-body-bg: #3a22be;
+    --bs-body-bg: #ffffff;
     --color-gold: #c38e00;
     --color-gold-light: #e9a900;
     --color-red-wine: #bf2f48;
@@ -33,6 +33,14 @@ p {
     font-family: "Times New Roman", Times, serif;
     font-size: 22px;
     font-weight: normal;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.color-white {
+    color: white;
 }
 
 .btn-golden {
@@ -105,10 +113,9 @@ p {
         url("/images/hero-sierra.jpg");
     background-size: cover;
     background-position: bottom;
+    min-height: 700px;
     max-height: 1150px;
 }
-
-
 
 #p-hero {
     text-align: justify;
@@ -171,4 +178,33 @@ p {
     #hero p {
         font-size: 16px;
     }
+}
+
+/*
+    Services section
+*/
+
+.my-service-card {
+    border: none;
+    border-radius: 15px;
+    margin: 0;
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.my-service-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.my-service-card-body {
+    background-color: var(--color-gold);
+    border-radius: 0 0 15px 15px;
+}
+
+.my-service-image {
+    width: auto;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
 }
