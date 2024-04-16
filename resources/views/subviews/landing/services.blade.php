@@ -1,7 +1,10 @@
-<section class="container">
-    <h3>Nuestros</h3>
-    <h2>Servicios</h2>
-    <div class="row g-5">
+<section class="container pt-4 pb-3">
+    <!-- Title -->
+    <h3 class="my-subtitle-letter my-section-subtitle text-center">NUESTROS</h3>
+    <h2 class="my-title-letter my-section-title text-center mb-5">SERVICIOS</h2>
+
+    <!-- Service cards -->
+    <div class="row g-4">
         <div class="col-md">
             <a href="#" class="card text-decoration-none h-100 my-service-card mx-auto">
                 <img src="{{ url("images/servicio1.jpg") }}" class="card-img-top  my-service-image" alt="Card Image">
@@ -38,4 +41,14 @@
             </a>
         </div>
     </div>
+
+    <!-- Button -->
+    <div class="d-flex justify-content-center mt-4">
+        <button class="btn btn-wine">
+            <h2 class="text-white m-0 p-0">Ver mas</h2>
+        </button>
+    </div>
+
+    <!-- Background images -->
+
 </section>

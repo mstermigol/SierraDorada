@@ -7,6 +7,10 @@
     --color-red-wine: #bf2f48;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 .active {
     color: var(--color-gold) !important;
 }
@@ -25,7 +29,6 @@ p {
 
 .my-title-letter {
     font-family: "Times New Roman", Times, serif;
-    font-size: 24px;
     font-weight: bold;
 }
 
@@ -33,6 +36,29 @@ p {
     font-family: "Times New Roman", Times, serif;
     font-size: 22px;
     font-weight: normal;
+}
+
+.my-section-title {
+    font-size: 45px;
+    line-height: 0.8;
+    letter-spacing: 8px;
+}
+
+.my-section-subtitle {
+    font-size: 32px;
+    line-height: 0.8;
+    letter-spacing: 4px;
+}
+
+@media screen and (max-width: 330px) {
+    .my-section-title {
+        font-size: 36px;
+        letter-spacing: 4px;
+    }
+    .my-section-subtitle {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
 }
 
 .bold {
@@ -61,6 +87,27 @@ p {
 
 .btn-golden:active {
     background-color: var(--color-gold) !important;
+    color: white;
+}
+
+.btn-wine {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    background-color: var(--color-red-wine);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 6px 30px;
+    cursor: pointer;
+}
+
+.btn-wine:hover {
+    background-color: #a61b34;
+    color: white;
+}
+
+.btn-wine:active {
+    background-color: var(--color-red-wine) !important;
     color: white;
 }
 
