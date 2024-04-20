@@ -1,4 +1,6 @@
-<section class="container pt-4 pb-3 relative">
+<section class="container-fluid pt-4 pb-3 relative">
+
+    <div class="container">
     <!-- Title -->
     <h3 class="my-subtitle-letter my-section-subtitle text-center">NUESTROS</h3>
     <h2 class="my-title-letter my-section-title text-center mb-5">SERVICIOS</h2>
@@ -56,6 +58,5 @@
     <div class="my-right-horse">
         <img src="{{ url('images/caballo-servicios.png') }}">
     </div>
-
-
+    </div>
 </section>

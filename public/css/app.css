@@ -7,7 +7,7 @@
     --color-red-wine: #bf2f48;
 }
 
-html {
+html, body {
     overflow-x: hidden;
 }
 
@@ -54,7 +54,7 @@ p {
     position: relative;
 }
 
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 425px) {
     .my-section-title {
         font-size: 36px;
         letter-spacing: 4px;
@@ -263,14 +263,24 @@ p {
 .my-left-horse {
     position: absolute;
     top: 0;
-    left: -300px;
+    left: -200px;
     z-index: -1;
 }
 
 .my-right-horse {
     position: absolute;
     top: 0;
-    right: -300px;
+    right: -200px;
     z-index: -1;
     transform: scaleX(-1);
 }
+
+
+/*
+    Teachers section
+*/
+
+#teachers-section {
+    background-color: #fbf8ee;
+}
+
