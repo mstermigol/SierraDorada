@@ -1,10 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Alice&display=swap");
 
 :root {
-    --bs-body-bg: #3a22be;
+    --bs-body-bg: #ffffff;
     --color-gold: #c38e00;
     --color-gold-light: #e9a900;
     --color-red-wine: #bf2f48;
+}
+
+html {
+    overflow-x: hidden;
 }
 
 .active {
@@ -25,7 +29,6 @@ p {
 
 .my-title-letter {
     font-family: "Times New Roman", Times, serif;
-    font-size: 24px;
     font-weight: bold;
 }
 
@@ -33,6 +36,41 @@ p {
     font-family: "Times New Roman", Times, serif;
     font-size: 22px;
     font-weight: normal;
+}
+
+.my-section-title {
+    font-size: 45px;
+    line-height: 0.8;
+    letter-spacing: 8px;
+}
+
+.my-section-subtitle {
+    font-size: 32px;
+    line-height: 0.8;
+    letter-spacing: 4px;
+}
+
+.relative {
+    position: relative;
+}
+
+@media screen and (max-width: 330px) {
+    .my-section-title {
+        font-size: 36px;
+        letter-spacing: 4px;
+    }
+    .my-section-subtitle {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.color-white {
+    color: white;
 }
 
 .btn-golden {
@@ -53,6 +91,27 @@ p {
 
 .btn-golden:active {
     background-color: var(--color-gold) !important;
+    color: white;
+}
+
+.btn-wine {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    background-color: var(--color-red-wine);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 6px 30px;
+    cursor: pointer;
+}
+
+.btn-wine:hover {
+    background-color: #a61b34;
+    color: white;
+}
+
+.btn-wine:active {
+    background-color: var(--color-red-wine) !important;
     color: white;
 }
 
@@ -99,12 +158,14 @@ p {
     position: relative;
     top: 0;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     overflow: hidden;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)),
         url("/images/hero-sierra.jpg");
     background-size: cover;
     background-position: bottom;
+    min-height: 700px;
+    max-height: 1150px;
 }
 
 #p-hero {
@@ -115,6 +176,7 @@ p {
 #hero h1 {
     font-size: 110px;
     font-weight: bold;
+    line-height: 0.8;
 }
 
 @media screen and (max-width: 1040px) {
@@ -167,4 +229,48 @@ p {
     #hero p {
         font-size: 16px;
     }
+}
+
+/*
+    Services section
+*/
+
+.my-service-card {
+    border: none;
+    border-radius: 15px;
+    margin: 0;
+    max-width: 400px;
+    transition: transform 0.3s ease;
+}
+
+.my-service-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.my-service-card-body {
+    background-color: var(--color-gold);
+    border-radius: 0 0 15px 15px;
+}
+
+.my-service-image {
+    width: auto;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.my-left-horse {
+    position: absolute;
+    top: 0;
+    left: -300px;
+    z-index: -1;
+}
+
+.my-right-horse {
+    position: absolute;
+    top: 0;
+    right: -300px;
+    z-index: -1;
+    transform: scaleX(-1);
 }
