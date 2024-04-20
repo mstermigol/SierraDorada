@@ -50,6 +50,10 @@ p {
     letter-spacing: 4px;
 }
 
+.relative {
+    position: relative;
+}
+
 @media screen and (max-width: 330px) {
     .my-section-title {
         font-size: 36px;
@@ -254,4 +258,19 @@ p {
     height: 300px;
     object-fit: cover;
     border-radius: 15px 15px 0 0;
+}
+
+.my-left-horse {
+    position: absolute;
+    top: 0;
+    left: -300px;
+    z-index: -1;
+}
+
+.my-right-horse {
+    position: absolute;
+    top: 0;
+    right: -300px;
+    z-index: -1;
+    transform: scaleX(-1);
 }
