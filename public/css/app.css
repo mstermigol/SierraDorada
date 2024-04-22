@@ -263,14 +263,14 @@ p {
 .my-left-horse {
     position: absolute;
     top: 0;
-    left: -200px;
+    left: 0px;
     z-index: -1;
 }
 
 .my-right-horse {
     position: absolute;
     top: 0;
-    right: -200px;
+    right: 0px;
     z-index: -1;
     transform: scaleX(-1);
 }
