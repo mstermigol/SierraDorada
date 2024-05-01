@@ -73,6 +73,18 @@ p {
     color: white;
 }
 
+.color-gold {
+    color: var(--color-gold);
+}
+
+.color-gold-light {
+    color: var(--color-gold-light);
+}
+
+.color-red-wine {
+    color: var(--color-red-wine);
+}
+
 .btn-golden {
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
@@ -284,3 +296,26 @@ p {
     background-color: #fbf8ee;
 }
 
+.image-circle {
+    --width-teacher: 250px;
+    border-radius: 50%;
+    width: var(--width-teacher);
+    height: var(--width-teacher);
+    object-fit: cover;
+}
+
+.teacher-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+}
+
+.teacher-name-spacing {
+    line-height: 1.1;
+}
+
+.quote {
+    letter-spacing: 2px;
+}

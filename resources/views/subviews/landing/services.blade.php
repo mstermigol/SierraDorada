@@ -9,7 +9,7 @@
     <div class="row g-4">
         <div class="col-md">
             <a href="#" class="card text-decoration-none h-100 my-service-card mx-auto">
-                <img src="{{ url('images/servicio1.jpg') }}" class="card-img-top  my-service-image" alt="Card Image">
+                <img src="{{ url('images/servicio1.jpeg') }}" class="card-img-top  my-service-image" alt="Card Image">
                 <div class="card-body my-service-card-body">
                     <h4 class="card-title my-subtitle-letter bold color-white text-center">Terapia asistida</h4>
                     <p class="card-text px-3 text-center">Ofrecemos un enfoque personalizado que integra la colaboracion
