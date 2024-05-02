@@ -317,5 +317,21 @@ p {
 }
 
 .quote {
+    font-size: 45px;
     letter-spacing: 2px;
+    text-align: center;
 }
+
+
+@media screen and (max-width: 985px) {
+    .quote {
+        font-size: 36px;
+    }    
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
