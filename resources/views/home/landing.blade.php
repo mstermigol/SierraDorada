@@ -12,4 +12,8 @@
 
 @include('subviews.landing.services')
 
+<!-- Teachers section -->
+
+@include('subviews.landing.teachers')
+
 @endsection

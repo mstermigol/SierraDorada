@@ -7,7 +7,7 @@
     --color-red-wine: #bf2f48;
 }
 
-html {
+html, body {
     overflow-x: hidden;
 }
 
@@ -54,7 +54,7 @@ p {
     position: relative;
 }
 
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 425px) {
     .my-section-title {
         font-size: 36px;
         letter-spacing: 4px;
@@ -71,6 +71,18 @@ p {
 
 .color-white {
     color: white;
+}
+
+.color-gold {
+    color: var(--color-gold);
+}
+
+.color-gold-light {
+    color: var(--color-gold-light);
+}
+
+.color-red-wine {
+    color: var(--color-red-wine);
 }
 
 .btn-golden {
@@ -263,14 +275,93 @@ p {
 .my-left-horse {
     position: absolute;
     top: 0;
-    left: -300px;
+    left: 0px;
     z-index: -1;
 }
 
 .my-right-horse {
     position: absolute;
     top: 0;
-    right: -300px;
+    right: 0px;
     z-index: -1;
     transform: scaleX(-1);
 }
+
+
+/*
+    Teachers section
+*/
+
+#teachers-section {
+    background-color: #fbf8ee;
+}
+
+.image-circle {
+    --width-teacher: 250px;
+    border-radius: 50%;
+    width: var(--width-teacher);
+    height: var(--width-teacher);
+    object-fit: cover;
+}
+
+.teacher-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+}
+
+.teacher-name-spacing {
+    line-height: 1.1;
+}
+
+.quote {
+    font-size: 45px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 985px) {
+    .quote {
+        font-size: 36px;
+    }    
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.owl-nav .owl-prev {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+}
+
+.owl-nav .owl-next {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+}
+
+.owl-nav .owl-prev, .owl-nav .owl-next {
+    color: red !important;
+}
+
+.owl-nav .owl-prev:hover, .owl-nav .owl-next:hover {
+    background: none !important;
+    outline: none !important;
+}
+
+.owl-nav .owl-prev i, .owl-nav .owl-next i {
+    font-size: 70px;
+    opacity: 0.2;
+}
+
+
+
