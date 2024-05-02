@@ -338,14 +338,14 @@ p {
 .owl-nav .owl-prev {
     position: absolute;
     top: 50%;
-    left: 15px;
+    left: -15px;
     transform: translateY(-50%);
 }
 
 .owl-nav .owl-next {
     position: absolute;
     top: 50%;
-    right: 15px;
+    right: -15px;
     transform: translateY(-50%);
 }
 
