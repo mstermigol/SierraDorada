@@ -7,28 +7,28 @@
     <div class="owl-carousel owl-theme owl-loaded">
         <div class="item">
             <div class="teacher-container text-center">
-                <img src="{{ url('images/hero-sierra.jpg') }}" class="image-circle" alt="Circle Image">
+                <img src="{{ url('images/profe-camilo.jpeg') }}" class="image-circle" alt="Circle Image">
                 <p class="teacher-name text-dark mt-4 my-subtitle-letter my-section-subtitle teacher-name-spacing">Camilo Garcia Arbeláez</p>
             </div>
         </div>
 
         <div class="item">
             <div class="teacher-container text-center">
-                <img src="{{ url('images/hero-sierra.jpg') }}" class="image-circle" alt="Circle Image">
+                <img src="{{ url('images/profe-paula.png') }}" class="image-circle" alt="Circle Image">
                 <p class="teacher-name text-dark mt-4 my-subtitle-letter my-section-subtitle teacher-name-spacing">Paula Rueda Uzuga</p>
             </div>
         </div>
 
         <div class="item">
             <div class="teacher-container text-center">
-                <img src="{{ url('images/hero-sierra.jpg') }}" class="image-circle" alt="Circle Image">
+                <img src="{{ url('images/profe-camila.jpeg') }}" class="image-circle" alt="Circle Image">
                 <p class="teacher-name text-dark mt-4 my-subtitle-letter my-section-subtitle teacher-name-spacing">Camila Henao Correa</p>
             </div>
         </div>
 
         <div class="item">
             <div class="teacher-container text-center">
-                <img src="{{ url('images/hero-sierra.jpg') }}" class="image-circle" alt="Circle Image">
+                <img src="{{ url('images/profe-camila.jpeg') }}" class="image-circle" alt="Circle Image">
                 <p class="teacher-name text-dark mt-4 my-subtitle-letter my-section-subtitle teacher-name-spacing">Camila Henao Correa</p>
             </div>
         </div>
