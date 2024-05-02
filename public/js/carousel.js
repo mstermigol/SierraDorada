@@ -4,6 +4,8 @@ $(document).ready(function() {
         loop: true,
         nav: true, 
         dots: false,
+        stagePadding: 0,
+        margin: 0,
         navText: ["<i class='fa-solid fa-angle-left'></i>", "<i class='fa-solid fa-angle-right'></i>"],
         responsive: {
             0: {
