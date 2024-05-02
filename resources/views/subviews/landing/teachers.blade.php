@@ -4,7 +4,7 @@
     <h2 class="my-title-letter my-section-title text-center mb-5" id="teachers-title">PROFESORES</h2>
 
     <!-- Teacher Container -->
-    <div class="owl-carousel owl-theme">
+    <div class="owl-carousel owl-theme owl-loaded">
         <div class="item">
             <div class="teacher-container text-center">
                 <img src="{{ url('images/hero-sierra.jpg') }}" class="image-circle" alt="Circle Image">
@@ -25,6 +25,13 @@
                 <p class="teacher-name text-dark mt-4 my-subtitle-letter my-section-subtitle teacher-name-spacing">Camila Henao Correa</p>
             </div>
         </div>
+
+        <div class="item">
+            <div class="teacher-container text-center">
+                <img src="{{ url('images/hero-sierra.jpg') }}" class="image-circle" alt="Circle Image">
+                <p class="teacher-name text-dark mt-4 my-subtitle-letter my-section-subtitle teacher-name-spacing">Camila Henao Correa</p>
+            </div>
+        </div>
     </div>
 
     <!-- Quote -->
@@ -36,14 +43,11 @@
     <script>
         $(document).ready(function() {
             $('.owl-carousel').owlCarousel({
-                
                 autoplay: true,
-                pagination: false,
-                center: true,
                 loop: true,
-                margin: 10,
-                nav: false,
+                nav: true, 
                 dots: false,
+                navText: ["<i class='fa-solid fa-angle-left'></i>", "<i class='fa-solid fa-angle-right'></i>"],
                 responsive: {
                     0: {
                         items: 1
@@ -54,7 +58,6 @@
                     1000: {
                         items: 3
                     }
-
                 }
                 
                 
