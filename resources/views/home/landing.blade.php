@@ -16,4 +16,7 @@
 
 @include('subviews.landing.teachers')
 
+<!-- Testimonies section -->
+@include('subviews.landing.testimonies')
+
 @endsection
