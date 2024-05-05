@@ -363,5 +363,38 @@ p {
     opacity: 0.2;
 }
 
+/*
+    Testimonies section
+*/
+#testimonies-section {
+    background-image: url("/images/herraduras-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
+.testimony-row {
+    padding-top: 150px;
+}
+
+
+.my-testimony-card {
+    background-color: var(--color-gold);
+    position: relative;
+    border: none;
+    border-radius: 15px;
+    max-width: 400px;
+    margin: 150px 0px 0px 0px;
+    height: calc(100% - 150px);
+}
+
+.my-testimony-image {
+    position: relative;
+    bottom: 125px;
+    margin-bottom: -115px;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+}
 
