@@ -5,7 +5,7 @@
         <h2 class="my-title-letter my-section-title text-center mb-5">TESTIMONIOS</h2>
 
         <!-- Testimonies -->
-        <div class="row g-4">
+        <div class="row g-4 mb-4">
             <div class="col">
                 <div class="my-testimony-card text-decoration-none text-center mx-auto">
                     <img src="{{ url('images/servicio1.jpeg') }}" class="my-testimony-image mx-auto d-block" alt="Card Image">
