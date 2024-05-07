@@ -428,7 +428,7 @@ p {
         text-align: center;
     }
     .allies-container > h2 {
-        margin-bottom: 10px; /* Adjust spacing between heading and images */
+        margin-bottom: 10px; 
     }
     .allies-container .allies-item {
         flex-direction: column !important;
