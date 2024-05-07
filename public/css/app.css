@@ -7,7 +7,8 @@
     --color-red-wine: #bf2f48;
 }
 
-html, body {
+html,
+body {
     overflow-x: hidden;
 }
 
@@ -20,7 +21,7 @@ h1 {
     color: var(--color-gold);
 }
 
-p {
+p, a {
     font-family: Alice, sans-serif;
     font-size: 16px;
     line-height: 1.5;
@@ -287,7 +288,6 @@ p {
     transform: scaleX(-1);
 }
 
-
 /*
     Teachers section
 */
@@ -322,7 +322,6 @@ p {
     text-align: center;
 }
 
-
 @media screen and (max-width: 985px) {
     .quote {
         font-size: 36px;
@@ -349,16 +348,19 @@ p {
     transform: translateY(-50%);
 }
 
-.owl-nav .owl-prev, .owl-nav .owl-next {
+.owl-nav .owl-prev,
+.owl-nav .owl-next {
     color: red !important;
 }
 
-.owl-nav .owl-prev:hover, .owl-nav .owl-next:hover {
+.owl-nav .owl-prev:hover,
+.owl-nav .owl-next:hover {
     background: none !important;
     outline: none !important;
 }
 
-.owl-nav .owl-prev i, .owl-nav .owl-next i {
+.owl-nav .owl-prev i,
+.owl-nav .owl-next i {
     font-size: 70px;
     opacity: 0.2;
 }
@@ -376,7 +378,6 @@ p {
 .testimony-row {
     padding-top: 150px;
 }
-
 
 .my-testimony-card {
     background-color: var(--color-gold);
@@ -428,7 +429,7 @@ p {
         text-align: center;
     }
     .allies-container > h2 {
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
     }
     .allies-container .allies-item {
         flex-direction: column !important;
@@ -438,4 +439,69 @@ p {
 
 #first-ally-item {
     margin-left: 0;
+}
+
+/*
+    Footer section
+*/
+
+#footer {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)),
+        url("/images/footer.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.direction {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.icon {
+    margin-right: 5px;
+}
+
+.media-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.media {
+    width: 40px;
+    height: 40px;
+}
+
+.divider {
+    width: 300px;
+    height: 10px;
+}
+
+.links-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    row-gap: 5px;
+    column-gap: 25px;
+}
+
+@media screen and (max-width: 500px) {
+    .links-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+    }
+}
+
+.link {
+    text-decoration: none;
 }

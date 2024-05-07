@@ -5,15 +5,12 @@
 
 
 <!-- Hero section -->
-
 @include('subviews.landing.hero')
 
 <!-- Services section -->
-
 @include('subviews.landing.services')
 
 <!-- Teachers section -->
-
 @include('subviews.landing.teachers')
 
 <!-- Testimonies section -->
@@ -21,5 +18,8 @@
 
 <!-- Allies section -->
 @include('subviews.landing.allies')
+
+<!-- Footer section -->
+@include('subviews.footer')
 
 @endsection
