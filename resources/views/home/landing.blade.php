@@ -19,4 +19,7 @@
 <!-- Testimonies section -->
 @include('subviews.landing.testimonies')
 
+<!-- Allies section -->
+@include('subviews.landing.allies')
+
 @endsection
