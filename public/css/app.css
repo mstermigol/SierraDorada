@@ -326,7 +326,7 @@ p {
 @media screen and (max-width: 985px) {
     .quote {
         font-size: 36px;
-    }    
+    }
 }
 
 .item {
@@ -398,3 +398,44 @@ p {
     border-radius: 50%;
 }
 
+/*
+    Allies section
+*/
+
+#allies-section {
+    background-color: var(--color-red-wine);
+}
+
+.allies-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.allies-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0 1rem 2rem;
+}
+
+@media screen and (max-width: 542px) {
+    .allies-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .allies-container > h2 {
+        margin-bottom: 10px; 
+    }
+    .allies-container .allies-item {
+        flex-direction: column !important;
+        margin: auto !important;
+    }
+}
+
+#first-ally-item {
+    margin-left: 0;
+}

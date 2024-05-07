@@ -6,6 +6,8 @@ $(document).ready(function() {
         dots: false,
         stagePadding: 0,
         margin: 0,
+        lazyLoadEager: 1,
+        autoPlayHoverPause: true,
         navText: ["<i class='fa-solid fa-angle-left'></i>", "<i class='fa-solid fa-angle-right'></i>"],
         responsive: {
             0: {
