@@ -8,22 +8,28 @@
 
   <!-- Media -->
   <div class="media-container mt-4 mb-3">
-    <img src="{{ url('images/instagram.png') }}" alt="Instagram" class="media">
-    <img src="{{ url('images/facebook.png') }}" alt="Facebook" class="media">
-    <img src="{{ url('images/tiktok.png') }}" alt="Tiktok" class="media">
+    <a href="https://www.instagram.com/sierradorada_club/?hl=es" target="_blank">
+      <img src="{{ url('images/instagram.png') }}" alt="Instagram" class="media">
+    </a>
+    <a href="https://www.facebook.com/clubsierradorada" target="_blank">
+      <img src="{{ url('images/facebook.png') }}" alt="Facebook" class="media">
+    </a>
+    <a href="https://www.tiktok.com/@sierradorada_club1" target="_blank">
+      <img src="{{ url('images/tiktok.png') }}" alt="Tiktok" class="media">
+    </a>
   </div>
 
-    <!-- Divider -->
-    <img src="{{ url('images/divider.png') }}" alt="Divider" class="divider">
+  <!-- Divider -->
+  <img src="{{ url('images/divider.png') }}" alt="Divider" class="divider">
 
-    <!-- Links -->
-    <div class="links-container mt-2 mb-3">
-        <a href="#" class="my-subtitle-letter link nav-link">Nosotros</a>
-        <a href="#" class="my-subtitle-letter link nav-link">Servicios</a>
-        <a href="#" class="my-subtitle-letter link nav-link">Eventos</a>
-        <a href="#" class="my-subtitle-letter link nav-link">Caballos</a>
-        <a href="#" class="my-subtitle-letter link nav-link">Galeria</a>
-    </div>
+  <!-- Links -->
+  <div class="links-container mt-2 mb-3">
+    <a href="#" class="my-subtitle-letter link nav-link">Nosotros</a>
+    <a href="#" class="my-subtitle-letter link nav-link">Servicios</a>
+    <a href="#" class="my-subtitle-letter link nav-link">Eventos</a>
+    <a href="#" class="my-subtitle-letter link nav-link">Caballos</a>
+    <a href="#" class="my-subtitle-letter link nav-link">Galeria</a>
+  </div>
 
 
 
