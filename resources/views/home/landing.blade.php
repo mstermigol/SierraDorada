@@ -1,25 +1,31 @@
-
 @extends('layouts.app')
 @section('title', 'Club Sierra Dorada | Equitación | Chalaneria | Equinoterapia | Eventos')
 @section('content')
 
 
-<!-- Hero section -->
+  <!-- Hero section -->
+  @include('subviews.landing.hero')
 
-@include('subviews.landing.hero')
+  <!-- Services section -->
+  @include('subviews.landing.services')
 
-<!-- Services section -->
+  <!-- Teachers section -->
+  @include('subviews.landing.teachers')
 
-@include('subviews.landing.services')
+  <!-- Testimonies section -->
+  @include('subviews.landing.testimonies')
 
-<!-- Teachers section -->
+  <!-- Allies section -->
+  @include('subviews.landing.allies')
 
-@include('subviews.landing.teachers')
+  <!-- Footer section -->
+  @include('subviews.footer')
 
-<!-- Testimonies section -->
-@include('subviews.landing.testimonies')
-
-<!-- Allies section -->
-@include('subviews.landing.allies')
+  <!-- Whatsapp button -->
+  <div class="fab">
+    <a href="#" target="_blank">
+      <img src="{{ url('images/whatsapp-fixed.png') }}" alt="WhatsApp Logo">
+    </a>
+  </div>
 
 @endsection
