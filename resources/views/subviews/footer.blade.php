@@ -28,7 +28,7 @@
     <a href="#" class="my-subtitle-letter link nav-link">Servicios</a>
     <a href="#" class="my-subtitle-letter link nav-link">Eventos</a>
     <a href="#" class="my-subtitle-letter link nav-link">Caballos</a>
-    <a href="#" class="my-subtitle-letter link nav-link">Galeria</a>
+    <a href="#" class="my-subtitle-letter link nav-link last-link">Galeria</a>
   </div>
 
 
