@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Gallery extends Model
@@ -16,10 +16,9 @@ class Gallery extends Model
      * $this->attributes['created_at'] - string - contains the date of gallery creation
      * $this->attributes['updated_at'] - string - contains when the gallery was updated
      */
-
     public function getId(): string
     {
-        return $this->attributes["id"];
+        return $this->attributes['id'];
     }
 
     public function getName(): string

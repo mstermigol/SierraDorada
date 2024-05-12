@@ -15,7 +15,6 @@ class Testimony extends Model
      * $this->attributes['created_at'] - string - contains the date of testimony creation
      * $this->attributes['updated_at'] - string - contains when the testimony was updated
      */
-
     public function getId(): string
     {
         return $this->attributes['id'];

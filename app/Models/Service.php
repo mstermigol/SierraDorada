@@ -19,7 +19,6 @@ class Service extends Model
      * $this->attributes['created_at'] - string - contains the date of service creation
      * $this->attributes['updated_at'] - string - contains when the service was updated
      */
-
     public function getId(): string
     {
         return $this->attributes['id'];

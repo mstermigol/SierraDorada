@@ -15,7 +15,6 @@ class Horse extends Model
      * $this->attributes['created_at'] - string - contains the date of horse creation
      * $this->attributes['updated_at'] - string - contains when the horse was updated
      */
-
     public function getId(): string
     {
         return $this->attributes['id'];
