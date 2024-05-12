@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description_miniature');
+            $table->string('image_miniature');
+            $table->text('description');
+            $table->string('image');
+            $table->integer('price');
+            $table->boolean('in_landing');
             $table->timestamps();
         });
     }
