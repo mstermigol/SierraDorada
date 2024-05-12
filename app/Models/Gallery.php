@@ -19,7 +19,7 @@ class Gallery extends Model
 
     public function getId(): string
     {
-        return $this->attributes['id'];
+        return $this->attributes["id"];
     }
 
     public function getName(): string
