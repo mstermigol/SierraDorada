@@ -1,13 +1,26 @@
-function removeActiveClass() {
-    document.getElementById('sidebar').classList.remove('active');
-}
+const sidebar = document.getElementById('sidebar');
+const sidebarToggle = document.querySelector('.sidebar-toggle');
 
-window.addEventListener('resize', function() {
+const removeActiveClass = () => {
+    sidebar.classList.remove('active');
+};
+
+const debounce = (func, wait) => {
+    let timeout;
+    return () => {
+        clearTimeout(timeout);
+        timeout = setTimeout(func, wait);
+    };
+};
+
+const handleResize = () => {
     if (window.innerWidth > 768) {
         removeActiveClass();
     }
-});
+};
 
-document.querySelector('.sidebar-toggle').addEventListener('click', function() {
-    document.getElementById('sidebar').classList.toggle('active');
+window.addEventListener('resize', debounce(handleResize, 100));
+
+sidebarToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
 });
