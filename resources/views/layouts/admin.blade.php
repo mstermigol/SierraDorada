@@ -24,7 +24,25 @@
 
 <body>
 
-  <div id="sidebar">
+  <div id="sidebar" class="my-subtitle-letter">
+    <h2>Sierra Dorada</h2>
+    <ul>
+      <li class="@if (Request::segment(2) == 'galerias') active-sidebar-link @endif"><a href="#">Galerias</a></li>
+      <li class="@if (Request::segment(2) == 'eventos') active-sidebar-link @endif"><a href="#">Eventos</a></li>
+      <li class="@if (Request::segment(2) == 'usuarios') active-sidebar-link @endif"><a
+          href="{{ route('admin.user.index') }}">Usuarios</a></li>
+      <li class="@if (Request::segment(2) == 'caballos') active-sidebar-link @endif"><a href="#">Caballos</a></li>
+      <li class="@if (Request::segment(2) == 'profesores') active-sidebar-link @endif"><a href="#">Profesores</a></li>
+      <li class="@if (Request::segment(2) == 'servicios') active-sidebar-link @endif"><a href="#">Servicios</a></li>
+      <li class="@if (Request::segment(2) == 'testimonios') active-sidebar-link @endif"><a href="#">Testimonios</a></li>
+      <li>
+        <form id="logout" action="{{ route('logout') }}" method="POST">
+          @csrf
+          <button type="submit" class="logout-button">Salir <i class="bi bi-box-arrow-right ms-2"></i></button>
+
+        </form>
+      </li>
+    </ul>
 
 
   </div>
