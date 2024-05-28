@@ -33,7 +33,6 @@
     <button class="bg-gold navbar-toggler sidebar-toggle" type="button">
       <span class="navbar-toggler-icon"></span>
     </button>
-    hola
     @yield('content')
   </div>
 
