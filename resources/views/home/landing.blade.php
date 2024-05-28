@@ -22,10 +22,20 @@
   @include('subviews.footer')
 
   <!-- Whatsapp button -->
-  <div class="fab">
-    <a href="#" target="_blank">
-      <img src="{{ url('images/whatsapp-fixed.png') }}" alt="WhatsApp Logo">
-    </a>
-  </div>
+  @guest
+    <div class="fab">
+      <a href="#" target="_blank">
+        <img src="{{ url('images/whatsapp-fixed.png') }}" alt="WhatsApp Logo">
+      </a>
+    </div>
+  @else
+    <div class="fab">
+      <a href="{{route('admin.user.index')}}">
+        <img src="{{ url('images/admin.png') }}" alt="Admin">
+      </a>
+    </div>
+
+  @endguest
+
 
 @endsection
