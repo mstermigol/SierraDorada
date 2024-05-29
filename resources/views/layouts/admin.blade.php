@@ -55,6 +55,10 @@
       <i class="fas fa-bars"></i>
     </button>
     <span class="my-navbar-title my-subtitle-letter">@yield('section-title')</span>
+    <a class="my-navbar-constant-icon" aria-label="Menu" href="{{route('home.landing')}}">
+      <i class="fas fa-eye"></i>
+    </a>
+
   </nav>
 
   <div id="content">

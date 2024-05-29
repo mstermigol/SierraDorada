@@ -683,7 +683,7 @@ Admin layout
 
 .my-navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: #fbf8ee;
     color: var(--color-gold);
@@ -697,6 +697,7 @@ Admin layout
     flex: 1;
     text-align: center;
     font-weight: bold;
+    margin: 0 1rem;
 }
 
 .my-navbar-icon {
@@ -704,6 +705,16 @@ Admin layout
     background: none;
     border: none;
     cursor: pointer;
+    color: var(--color-gold);
+}
+
+.my-navbar-constant-icon {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-gold);
+    margin-right: 1rem;
 }
 
 .close-sidebar {
@@ -727,7 +738,6 @@ Admin layout
         display: block;
     }
     .my-navbar {
-        justify-content: space-between;
         margin-left: 0;
     }
 
@@ -737,6 +747,9 @@ Admin layout
 
     .close-sidebar {
         display: block;
+    }
+    .my-navbar-constant-icon {
+        margin-right: 0;
     }
 }
 
