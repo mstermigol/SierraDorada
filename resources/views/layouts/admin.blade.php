@@ -25,6 +25,9 @@
 <body>
 
   <div id="sidebar" class="my-subtitle-letter">
+    <button class="close-sidebar sidebar-toggle" aria-label="Close Sidebar">
+      <i class="fas fa-times"></i>
+    </button>
     <h2>Sierra Dorada</h2>
     <ul>
       <li class="@if (Request::segment(2) == 'galerias') active-sidebar-link @endif"><a href="#">Galerias</a></li>
@@ -47,10 +50,14 @@
 
   </div>
 
-  <div id="content">
-    <button class="bg-gold navbar-toggler sidebar-toggle" type="button">
-      <span class="navbar-toggler-icon"></span>
+  <nav class="my-navbar">
+    <button class="my-navbar-icon sidebar-toggle" aria-label="Menu">
+      <i class="fas fa-bars"></i>
     </button>
+    <span class="my-navbar-title my-subtitle-letter">@yield('section-title')</span>
+  </nav>
+
+  <div id="content">
     @yield('content')
   </div>
 

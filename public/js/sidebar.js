@@ -1,5 +1,5 @@
 const sidebar = document.getElementById('sidebar');
-const sidebarToggle = document.querySelector('.sidebar-toggle');
+const sidebarToggles = document.querySelectorAll('.sidebar-toggle');
 
 const removeActiveClass = () => {
     sidebar.classList.remove('active');
@@ -19,8 +19,18 @@ const handleResize = () => {
     }
 };
 
+const handleClickOutside = (event) => {
+    if (sidebar.classList.contains('active') && !sidebar.contains(event.target) && !Array.from(sidebarToggles).some(toggle => toggle.contains(event.target))) {
+        removeActiveClass();
+    }
+};
+
 window.addEventListener('resize', debounce(handleResize, 100));
 
-sidebarToggle.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
+sidebarToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+    });
 });
+
+document.addEventListener('click', handleClickOutside);

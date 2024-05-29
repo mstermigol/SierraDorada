@@ -8,7 +8,12 @@ Route::post('/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.landing');
 
-Route::middleware('auth')->prefix('admin')->group(function () {
-    Route::get('/usuarios', 'App\Http\Controllers\Admin\AdminUserController@index')->name('admin.user.index');
+Route::middleware('auth')
+    ->prefix('admin')
+    ->group(function () {
+        Route::get('/usuarios', 'App\Http\Controllers\Admin\AdminUserController@index')->name('admin.user.index');
+    });
 
+Route::fallback(function () {
+    return redirect()->route('home.landing');
 });

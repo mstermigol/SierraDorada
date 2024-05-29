@@ -1,5 +1,6 @@
 @extends('layouts.admin')
-@section('title', 'Club Sierra Dorada | Usuarios')
+@section('title', 'Admin -> Usuarios')
+@section('section-title', 'Usuarios')
 @section('content')
 
 
