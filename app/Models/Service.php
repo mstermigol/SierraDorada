@@ -13,12 +13,16 @@ class Service extends Model
      * $this->attributes['description_miniature'] - string - contains the description of the service miniature
      * $this->attributes['image_miniature'] - string - contains the image of the service miniature
      * $this->attributes['description'] - string - contains the description of the service
-     * $this->attributes['image'] - string - contains the image of the service
+     * $this->attributes['images'] - string[] - contains the image of the service
      * $this->attributes['price'] - int - contains the price of the service
      * $this->attributes['in_landing'] - bool - contains if the service is in the landing
      * $this->attributes['created_at'] - string - contains the date of service creation
      * $this->attributes['updated_at'] - string - contains when the service was updated
      */
+    protected $casts = [
+        'images' => 'array',
+    ];
+
     public function getId(): string
     {
         return $this->attributes['id'];
@@ -64,12 +68,12 @@ class Service extends Model
         $this->attributes['description'] = $description;
     }
 
-    public function getImage(): string
+    public function getImages(): array
     {
         return $this->attributes['image'];
     }
 
-    public function setImage(string $image): void
+    public function setImages(string $image): void
     {
         $this->attributes['image'] = $image;
     }

@@ -13,10 +13,14 @@ class Event extends Model
      * $this->attributes['description_miniature'] - string - contains the description of the event miniature
      * $this->attributes['image_miniature'] - string - contains the image of the event miniature
      * $this->attributes['description'] - string - contains the description of the event
-     * $this->attributes['image'] - string - contains the image of the event
+     * $this->attributes['images'] - string[] - contains the images of the event
      * $this->attributes['created_at'] - string - contains the date of event creation
      * $this->attributes['updated_at'] - string - contains when the event was updated
      */
+
+    protected $casts = [
+        'images' => 'array',
+    ];
     public function getId(): string
     {
         return $this->attributes['id'];
@@ -62,14 +66,14 @@ class Event extends Model
         $this->attributes['description'] = $description;
     }
 
-    public function getImage(): string
+    public function getImages(): array
     {
-        return $this->attributes['image'];
+        return $this->attributes['images'];
     }
 
-    public function setImage(string $image): void
+    public function setImages(array $images): void
     {
-        $this->attributes['image'] = $image;
+        $this->attributes['images'] = $images;
     }
 
     public function getCreatedAt(): string

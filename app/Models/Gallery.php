@@ -12,10 +12,14 @@ class Gallery extends Model
      * GALLERY ATTRIBUTES
      * $this->attributes['id'] - string - contains the gallery primary key (id)*
      * $this->attributes['name'] - string - contains the name of the gallery
-     * $this->images - Image[] - contains the images of the gallery
+     * $this->attributes['images'] - string[] - contains the images of the gallery
      * $this->attributes['created_at'] - string - contains the date of gallery creation
      * $this->attributes['updated_at'] - string - contains when the gallery was updated
      */
+
+    protected $casts = [
+        'images' => 'array',
+    ];
     public function getId(): string
     {
         return $this->attributes['id'];
@@ -31,19 +35,14 @@ class Gallery extends Model
         $this->attributes['name'] = $name;
     }
 
-    public function images(): HasMany
+    public function getImages(): array
     {
-        return $this->hasMany(Image::class);
+        return $this->attributes['images'];
     }
 
-    public function getImages(): Collection
+    public function setImages(array $images): void
     {
-        return $this->images;
-    }
-
-    public function setImages(Collection $images): void
-    {
-        $this->images = $images;
+        $this->attributes['images'] = $images;
     }
 
     public function getCreatedAt(): string
