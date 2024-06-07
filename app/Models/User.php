@@ -69,4 +69,18 @@ class User extends Authenticatable
             'email' => 'required|string|email|max:255|unique:users',
         ]);
     }
+
+    public static function validatePassword (Request $request): void
+    {
+        $request->validate([
+            'password' => 'required|string|min:8|max:255',
+        ]);
+    }
+
+    public static function validateEmail (Request $request): void
+    {
+        $request->validate([
+            'email' => 'required|string|email|max:255|unique:users',
+        ]);
+    }
 }

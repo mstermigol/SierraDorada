@@ -12,6 +12,10 @@ body {
     overflow-x: hidden;
 }
 
+td {
+    vertical-align: middle;
+}
+
 .active {
     color: var(--color-gold) !important;
 }
@@ -22,11 +26,23 @@ h1 {
 }
 
 p,
-a {
+a,
+td,
+th{
     font-family: Alice, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     color: white;
+}
+
+label {
+    font-family: Alice, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.color-black {
+    color: black;
 }
 
 .my-title-letter {
@@ -79,12 +95,8 @@ a {
     font-weight: bold;
 }
 
-.color-white {
-    color: white;
-}
-
 .color-gold {
-    color: var(--color-gold);
+    color: var(--color-gold) !important;
 }
 
 .color-gold-light {
@@ -108,9 +120,25 @@ a {
     background-color: var(--color-gold);
 }
 
+.bg-gold:active {
+    background-color: var(--color-gold-light) !important;
+}
+
 .bg-gold:hover {
     background-color: var(--color-gold-light);
     color: white;
+}
+
+.b-gold {
+    border: 1px solid var(--color-gold);
+}
+
+.b-gold:hover {
+    border: 1px solid var(--color-gold-light);
+}
+
+.b-gold:active {
+    border: 1px solid var(--color-gold-light) !important;
 }
 
 .btn-golden {
@@ -152,6 +180,14 @@ a {
 
 .btn-wine:active {
     background-color: var(--color-red-wine) !important;
+    color: white;
+}
+
+.b-radius-10 {
+    border-radius: 10px;
+}
+
+.color-white {
     color: white;
 }
 
@@ -587,8 +623,9 @@ Admin layout
 #sidebar {
     position: fixed;
     left: 0;
-    height: 100vh;
-    min-height: 100%;
+    top: 0;
+    bottom: 0;
+    height: 100%;
     width: 250px;
     background-color: var(--color-gold);
     padding: 15px;
@@ -647,17 +684,17 @@ Admin layout
 }
 
 .active-sidebar-link {
-    background-color: var(--color-gold-light); /* active color */
+    background-color: var(--color-gold-light);
 }
 
 #content {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     overflow-y: auto;
     margin-left: 250px;
-    padding: 15px;
+    padding: 1rem;
     transition: margin-left 0.5s ease;
 }
 
@@ -758,3 +795,18 @@ Admin layout
         width: 100%;
     }
 }
+
+/*
+    Admin users
+*/
+
+.truncate-email {
+    max-width: 150px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+

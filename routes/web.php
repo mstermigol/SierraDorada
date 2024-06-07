@@ -17,7 +17,7 @@ Route::middleware('auth')
             Route::post('/guardar', 'App\Http\Controllers\Admin\AdminUserController@save')->name('admin.user.save');
             Route::delete('/eliminar/{id}', 'App\Http\Controllers\Admin\AdminUserController@delete')->name('admin.user.delete');
             Route::get('/editar/{id}', 'App\Http\Controllers\Admin\AdminUserController@edit')->name('admin.user.edit');
-            Route::post('/actualizar/{id}', 'App\Http\Controllers\Admin\AdminUserController@update')->name('admin.user.update');
+            Route::patch('/actualizar/{id}', 'App\Http\Controllers\Admin\AdminUserController@update')->name('admin.user.update');
         });
     });
 

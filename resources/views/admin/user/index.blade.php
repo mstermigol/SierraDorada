@@ -5,6 +5,7 @@
   <div class="d-flex justify-content-end mb-3">
     <a href="{{ route('admin.user.create') }}" class="btn btn-success"><i class="fas fa-plus"></i></a>
   </div>
+
   <table class="table">
     <thead>
       <tr>
@@ -36,4 +37,8 @@
       @endforelse
     </tbody>
   </table>
+  <div class="">
+  {{ $viewData['users']->links() }}
+
+  </div>
 @endsection
