@@ -96,8 +96,6 @@ class AdminHorseController extends Controller
             $imageFileName = $imageLocalStorage->storeAndGetFileName($request, 'horses');
 
             $horse->setImage($imageFileName);
-        } else {
-            $horse->setImage($horse->getImage());
         }
 
         $horse->setName($request->input('name'));

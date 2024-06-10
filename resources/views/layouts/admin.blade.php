@@ -40,7 +40,8 @@
       <li class="@if (Request::segment(2) == 'profesores') active-sidebar-link @endif"><a
           href="{{ route('admin.teacher.index') }}">Profesores</a></li>
       <li class="@if (Request::segment(2) == 'servicios') active-sidebar-link @endif"><a href="#">Servicios</a></li>
-      <li class="@if (Request::segment(2) == 'testimonios') active-sidebar-link @endif"><a href="#">Testimonios</a></li>
+      <li class="@if (Request::segment(2) == 'testimonios') active-sidebar-link @endif"><a
+          href="{{ route('admin.testimony.index') }}">Testimonios</a></li>
       <li>
         <form id="logout" action="{{ route('logout') }}" method="POST">
           @csrf

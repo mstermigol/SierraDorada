@@ -61,7 +61,7 @@ class AdminTeacherController extends Controller
 
             $teacher->delete();
         } catch (Exception $e) {
-            return redirect()->route('admin.teacher.index')->with('error', 'No se pudo eliminar el profesor');
+            return redirect()->route('admin.teacher.index');
         }
 
         return redirect()->route('admin.teacher.index');
@@ -76,7 +76,7 @@ class AdminTeacherController extends Controller
 
             return view('admin.teacher.edit')->with('viewData', $viewData);
         } catch (Exception $e) {
-            return redirect()->route('admin.teacher.index')->with('error', 'No se pudo encontrar el profesor');
+            return redirect()->route('admin.teacher.index');
         }
     }
 
@@ -112,7 +112,7 @@ class AdminTeacherController extends Controller
 
             return view('admin.teacher.show')->with('viewData', $viewData);
         } catch (Exception $e) {
-            return redirect()->route('admin.teacher.index')->with('error', 'No se pudo encontrar el profesor');
+            return redirect()->route('admin.teacher.index');
         }
     }
 }

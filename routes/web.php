@@ -47,6 +47,7 @@ Route::middleware('auth')
             Route::delete('/eliminar/{id}', 'App\Http\Controllers\Admin\AdminTestimonyController@delete')->name('admin.testimony.delete');
             Route::get('/editar/{id}', 'App\Http\Controllers\Admin\AdminTestimonyController@edit')->name('admin.testimony.edit');
             Route::patch('/actualizar/{id}', 'App\Http\Controllers\Admin\AdminTestimonyController@update')->name('admin.testimony.update');
+            Route::get('/{id}', 'App\Http\Controllers\Admin\AdminTestimonyController@show')->name('admin.testimony.show');
         });
 
 
