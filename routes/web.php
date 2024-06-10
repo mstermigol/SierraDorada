@@ -29,6 +29,27 @@ Route::middleware('auth')
             Route::patch('/actualizar/{id}', 'App\Http\Controllers\Admin\AdminHorseController@update')->name('admin.horse.update');
             Route::get('/{id}', 'App\Http\Controllers\Admin\AdminHorseController@show')->name('admin.horse.show');
         });
+
+        Route::prefix('profesores')->group(function () {
+            Route::get('/', 'App\Http\Controllers\Admin\AdminTeacherController@index')->name('admin.teacher.index');
+            Route::get('/crear', 'App\Http\Controllers\Admin\AdminTeacherController@create')->name('admin.teacher.create');
+            Route::post('/guardar', 'App\Http\Controllers\Admin\AdminTeacherController@save')->name('admin.teacher.save');
+            Route::delete('/eliminar/{id}', 'App\Http\Controllers\Admin\AdminTeacherController@delete')->name('admin.teacher.delete');
+            Route::get('/editar/{id}', 'App\Http\Controllers\Admin\AdminTeacherController@edit')->name('admin.teacher.edit');
+            Route::patch('/actualizar/{id}', 'App\Http\Controllers\Admin\AdminTeacherController@update')->name('admin.teacher.update');
+            Route::get('/{id}', 'App\Http\Controllers\Admin\AdminTeacherController@show')->name('admin.teacher.show');
+        });
+
+        Route::prefix('testimonios')->group(function () {
+            Route::get('/', 'App\Http\Controllers\Admin\AdminTestimonyController@index')->name('admin.testimony.index');
+            Route::get('/crear', 'App\Http\Controllers\Admin\AdminTestimonyController@create')->name('admin.testimony.create');
+            Route::post('/guardar', 'App\Http\Controllers\Admin\AdminTestimonyController@save')->name('admin.testimony.save');
+            Route::delete('/eliminar/{id}', 'App\Http\Controllers\Admin\AdminTestimonyController@delete')->name('admin.testimony.delete');
+            Route::get('/editar/{id}', 'App\Http\Controllers\Admin\AdminTestimonyController@edit')->name('admin.testimony.edit');
+            Route::patch('/actualizar/{id}', 'App\Http\Controllers\Admin\AdminTestimonyController@update')->name('admin.testimony.update');
+        });
+
+
     });
 
 Route::fallback(function () {
