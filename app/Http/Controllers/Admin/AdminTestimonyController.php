@@ -36,6 +36,12 @@ class AdminTestimonyController extends Controller
 
     public function save(Request $request): RedirectResponse
     {
+        $existingTestimoniesCount = Testimony::count();
+
+        if ($existingTestimoniesCount >= 3) {
+            return redirect()->back()->withErrors(['error' => 'Cannot create more than 3 testimonies.']);
+        }
+
         Testimony::validate($request);
 
         $imagePath = new ImageLocalStorage();
