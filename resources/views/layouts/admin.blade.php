@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css">
-    
+
   <!-- Bootstrap stylesheet -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Main Stye sheet -->
@@ -35,7 +35,8 @@
       <li class="@if (Request::segment(2) == 'eventos') active-sidebar-link @endif"><a href="#">Eventos</a></li>
       <li class="@if (Request::segment(2) == 'usuarios') active-sidebar-link @endif"><a
           href="{{ route('admin.user.index') }}">Usuarios</a></li>
-      <li class="@if (Request::segment(2) == 'caballos') active-sidebar-link @endif"><a href="#">Caballos</a></li>
+      <li class="@if (Request::segment(2) == 'caballos') active-sidebar-link @endif"><a
+          href="{{ route('admin.horse.index') }}">Caballos</a></li>
       <li class="@if (Request::segment(2) == 'profesores') active-sidebar-link @endif"><a href="#">Profesores</a></li>
       <li class="@if (Request::segment(2) == 'servicios') active-sidebar-link @endif"><a href="#">Servicios</a></li>
       <li class="@if (Request::segment(2) == 'testimonios') active-sidebar-link @endif"><a href="#">Testimonios</a></li>
@@ -56,7 +57,7 @@
       <i class="fas fa-bars"></i>
     </button>
     <span class="my-navbar-title my-subtitle-letter">@yield('section-title')</span>
-    <a class="my-navbar-constant-icon" aria-label="Menu" href="{{route('home.landing')}}">
+    <a class="my-navbar-constant-icon" aria-label="Menu" href="{{ route('home.landing') }}">
       <i class="fas fa-eye"></i>
     </a>
 

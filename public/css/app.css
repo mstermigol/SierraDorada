@@ -191,6 +191,10 @@ label {
     color: white;
 }
 
+.max-200-ch {
+    max-width: 300px;
+}
+
 /*
 Navigation bar
 */

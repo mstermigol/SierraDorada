@@ -37,8 +37,8 @@
       @endforelse
     </tbody>
   </table>
-  <div class="">
+
   {{ $viewData['users']->links() }}
 
-  </div>
+
 @endsection
