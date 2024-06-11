@@ -40,11 +40,7 @@ class Handler extends ExceptionHandler
      public function render($request, Throwable $exception)
      {
          if ($exception instanceof PostTooLargeException) {
-             $errorMessages = ['File too large. Please upload a smaller file.'];
-             $errors = new MessageBag(['default' => $errorMessages]);
-             $previousUrl = URL::previous();
-             $viewName = app('router')->getRoutes()->match(app('request')->create($previousUrl))->getName();
-             return response()->view($viewName, ['errors' => $errors], 500);
+            return Response('File size is too large, try a smaller file!', 422);
          }
 
          return parent::render($request, $exception);
