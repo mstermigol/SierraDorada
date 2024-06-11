@@ -66,7 +66,7 @@ class Horse extends Model
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'image' => 'required|file|max:255|mimes:jpeg,png,jpg,svg',
+            'image' => 'required|file|mimes:jpeg,png,jpg,svg|max:2048',
             'description' => 'required|string|max:255',
         ]);
     }
@@ -79,7 +79,7 @@ class Horse extends Model
         ]);
         if ($request->hasFile('image')) {
             $request->validate([
-                'image' => 'required|file|max:255|mimes:jpeg,png,jpg,svg',
+                'image' => 'required|file|mimes:jpeg,png,jpg,svg|max:2048',
             ]);
         }
     }
