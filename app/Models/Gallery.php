@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
 
 class Gallery extends Model
 {
@@ -17,9 +16,6 @@ class Gallery extends Model
      * $this->attributes['updated_at'] - string - contains when the gallery was updated
      */
 
-    protected $casts = [
-        'images' => 'array',
-    ];
     public function getId(): string
     {
         return $this->attributes['id'];
@@ -37,12 +33,12 @@ class Gallery extends Model
 
     public function getImages(): array
     {
-        return $this->attributes['images'];
+        return json_decode($this->attributes['images'], true);
     }
 
     public function setImages(array $images): void
     {
-        $this->attributes['images'] = $images;
+        $this->attributes['images'] = json_encode($images);
     }
 
     public function getCreatedAt(): string
@@ -53,5 +49,27 @@ class Gallery extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'images' => 'required|array',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+        ]);
+    }
+
+    public static function validateUpdate(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+        if ($request->hasFile('images')) {
+            $request->validate([
+                'images' => 'required|array',
+                'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+            ]);
+        }
     }
 }

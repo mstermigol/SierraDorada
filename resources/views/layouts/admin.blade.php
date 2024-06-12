@@ -31,7 +31,8 @@
     </button>
     <h2>Sierra Dorada</h2>
     <ul>
-      <li class="@if (Request::segment(2) == 'galerias') active-sidebar-link @endif"><a href="#">Galerias</a></li>
+      <li class="@if (Request::segment(2) == 'galerias') active-sidebar-link @endif"><a
+          href="{{ route('admin.gallery.index') }}">Galerias</a></li>
       <li class="@if (Request::segment(2) == 'eventos') active-sidebar-link @endif"><a href="#">Eventos</a></li>
       <li class="@if (Request::segment(2) == 'usuarios') active-sidebar-link @endif"><a
           href="{{ route('admin.user.index') }}">Usuarios</a></li>

@@ -50,7 +50,15 @@ Route::middleware('auth')
             Route::get('/{id}', 'App\Http\Controllers\Admin\AdminTestimonyController@show')->name('admin.testimony.show');
         });
 
-
+        Route::prefix('galerias')->group(function () {
+            Route::get('/', 'App\Http\Controllers\Admin\AdminGalleryController@index')->name('admin.gallery.index');
+            Route::get('/crear', 'App\Http\Controllers\Admin\AdminGalleryController@create')->name('admin.gallery.create');
+            Route::post('/guardar', 'App\Http\Controllers\Admin\AdminGalleryController@save')->name('admin.gallery.save');
+            Route::delete('/eliminar/{id}', 'App\Http\Controllers\Admin\AdminGalleryController@delete')->name('admin.gallery.delete');
+            Route::get('/editar/{id}', 'App\Http\Controllers\Admin\AdminGalleryController@edit')->name('admin.gallery.edit');
+            Route::patch('/actualizar/{id}', 'App\Http\Controllers\Admin\AdminGalleryController@update')->name('admin.gallery.update');
+            Route::get('/{id}', 'App\Http\Controllers\Admin\AdminGalleryController@show')->name('admin.gallery.show');
+        });
     });
 
 Route::fallback(function () {

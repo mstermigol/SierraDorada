@@ -10,14 +10,25 @@ use Illuminate\Http\Request;
 
 class ImageLocalStorage
 {
-    public function storeAndGetFileName(Request $request, string $folder): ?string
+    public function storeAndGetFileName(Request $request, string $folder, string $inputName = 'image'): string | array | null
     {
-        if ($request->hasFile('image')) {
-            $filename = uniqid().'.'.$request->file('image')->extension();
-            $request->file('image')->storeAs('public/'.$folder, $filename);
-            return $filename;
+        if ($inputName === 'image') {
+            if ($request->hasFile($inputName)) {
+                $filename = uniqid() . '.' . $request->file($inputName)->extension();
+                $request->file($inputName)->storeAs('public/' . $folder, $filename);
+                return $filename;
+            }
+            return null;
+        } else {
+            $filenames = [];
+            if ($request->hasFile($inputName)) {
+                foreach ($request->file($inputName) as $image) {
+                    $filename = uniqid() . '.' . $image->extension();
+                    $image->storeAs('public/' . $folder, $filename);
+                    $filenames[] = $filename;
+                }
+            }
+            return $filenames;
         }
-
-        return null;
     }
 }
