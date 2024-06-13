@@ -25,7 +25,7 @@
         </a>
       @endforeach
     @else
-      <p>No hay imágenes disponibles.</p>
+      <p class="color-black text-center">No hay imágenes disponibles.</p>
     @endif
   </div>
 
