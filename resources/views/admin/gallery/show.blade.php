@@ -15,16 +15,18 @@
 
     <p class="bold color-black">Imágenes</p>
   </div>
-  @if (!empty($viewData['gallery']->getImages()))
-    <div class="row">
+
+  <div class="container d-flex flex-column">
+    @if (!empty($viewData['gallery']->getImages()))
       @foreach ($viewData['gallery']->getImages() as $image)
-        <div class="col">
-          <img src="{{ asset('storage/' . $viewData['folderPath'] . $image) }}" alt="Image" class="image-index">
-        </div>
+        <a class ="img-wrapper" href="{{ asset('storage/' . $viewData['folderPath'] . $image) }}" target="_blank">
+          <img src="{{ asset('storage/' . $viewData['folderPath'] . $image) }}" alt="Image"
+            class="img-fluid img-gallery">
+        </a>
       @endforeach
-    </div>
-  @else
-    <p>No hay imágenes disponibles.</p>
-  @endif
+    @else
+      <p>No hay imágenes disponibles.</p>
+    @endif
+  </div>
 
 @endsection

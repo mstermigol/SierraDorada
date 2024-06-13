@@ -801,7 +801,7 @@ Admin layout
 }
 
 /*
-    Admin users
+Admin users
 */
 
 .truncate-email {
@@ -815,12 +815,18 @@ Admin layout
 }
 
 /*
-    Images
+Images
 */
-.image-index {
-    display: block;
-    max-width: 350px;
-    min-width: 150px;
-    height: auto;
-    margin: auto;
+.img-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    width: 100%;
+    border: 1px solid var(--color-gold);
+    margin: 10px 0;
+}
+
+.img-gallery {
+    object-fit: contain !important;
 }
