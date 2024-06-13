@@ -13,6 +13,5 @@
     <p class="color-black">{{ $viewData['horse']->getDescription() }}</p>
     <p class="bold color-black">Imagen</p>
     <img src="{{ asset('storage/horses/' . $viewData['horse']->getImage()) }}" alt="{{ $viewData['horse']->getName() }}">
-
   </div>
 @endsection

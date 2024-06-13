@@ -28,7 +28,7 @@ h1 {
 p,
 a,
 td,
-th{
+th {
     font-family: Alice, sans-serif;
     font-size: 16px;
     line-height: 1.5;
@@ -814,3 +814,13 @@ Admin layout
     margin-bottom: 10px;
 }
 
+/*
+    Images
+*/
+.image-index {
+    display: block;
+    max-width: 350px;
+    min-width: 150px;
+    height: auto;
+    margin: auto;
+}

@@ -54,7 +54,7 @@ class Gallery extends Model
     public static function validate(Request $request): void
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:galleries,name',
             'images' => 'required|array',
             'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
         ]);
@@ -63,7 +63,7 @@ class Gallery extends Model
     public static function validateUpdate(Request $request): void
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:galleries,name',
         ]);
         if ($request->hasFile('images')) {
             $request->validate([

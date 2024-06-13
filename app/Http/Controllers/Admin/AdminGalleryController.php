@@ -41,7 +41,7 @@ class AdminGalleryController extends Controller
         $galleryName = $request->input('name');
 
         $imagesPath = new ImageLocalStorage();
-        $imagesPath = $imagesPath->storeAndGetFileName($request, 'galleries/'.$galleryName, 'images');
+        $imagesPath = $imagesPath->storeAndGetFileName($request, 'galleries/' . $galleryName, 'images');
         print_r($imagesPath);
         $newGallery = new Gallery();
         $newGallery->setName($galleryName);
@@ -52,6 +52,33 @@ class AdminGalleryController extends Controller
         return redirect()->route('admin.gallery.index');
     }
 
+    public function delete(string $id): RedirectResponse
+    {
+        try {
+            $gallery = Gallery::findOrFail($id);
+            $galleryName = $gallery->getName();
+            $folderPath = 'galleries/' . $galleryName;
 
+            if (Storage::disk('public')->exists($folderPath)) {
+                Storage::disk('public')->deleteDirectory($folderPath);
+            }
 
+            $gallery->delete();
+            return redirect()->route('admin.gallery.index');
+        } catch (Exception $e) {
+            return redirect()->route('admin.gallery.index')->with('error', 'No se pudo eliminar la galería');
+        }
+    }
+
+    public function show(string $id): View
+    {
+        $gallery = Gallery::findOrFail($id);
+        $galleryName = $gallery->getName();
+        $folderPath = 'galleries/' . $galleryName . '/';
+
+        $viewData = [];
+        $viewData['gallery'] = $gallery;
+        $viewData['folderPath'] = $folderPath;
+        return view('admin.gallery.show')->with('viewData', $viewData);
+    }
 }
