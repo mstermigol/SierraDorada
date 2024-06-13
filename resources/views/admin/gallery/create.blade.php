@@ -13,7 +13,7 @@
     <input class="form-control" type="text" id="name" name="name" value="{{ old('name') }}" required>
 
     <label for="images">Imágenes</label>
-    <input class="form-control" type="file" id="images" name="images[]" multiple required>
+    <input class="form-control" type="file" id="images" name="images[]" multiple>
 
     <button class="btn-golden b-radius-10 mt-2 color-white mb-3" type="submit">Crear</button>
 </form>
