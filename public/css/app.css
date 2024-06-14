@@ -141,6 +141,14 @@ label {
     border: 1px solid var(--color-gold-light) !important;
 }
 
+.my-disabled {
+    background-color: #a97c00;
+    color: lightgrey;
+    border: 1px solid #a97c00;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 .btn-golden {
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;

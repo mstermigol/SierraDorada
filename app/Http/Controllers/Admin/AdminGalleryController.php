@@ -42,7 +42,6 @@ class AdminGalleryController extends Controller
 
         $imagesPath = new ImageLocalStorage();
         $imagesPath = $imagesPath->storeAndGetFileName($request, 'galleries/' . $galleryName, 'images');
-        print_r($imagesPath);
         $newGallery = new Gallery();
         $newGallery->setName($galleryName);
         $newGallery->setImages($imagesPath);
@@ -80,5 +79,26 @@ class AdminGalleryController extends Controller
         $viewData['gallery'] = $gallery;
         $viewData['folderPath'] = $folderPath;
         return view('admin.gallery.show')->with('viewData', $viewData);
+    }
+
+    public function edit(string $id): View|RedirectResponse
+    {
+        try {
+            $gallery = Gallery::findOrFail($id);
+            $viewData = [];
+            $viewData['gallery'] = $gallery;
+
+            return view('admin.gallery.edit')->with('viewData', $viewData);
+        } catch (Exception $e) {
+            return redirect()->route('admin.gallery.index');
+        }
+    }
+
+    public function update(Request $request, string $id): RedirectResponse
+    {
+        $gallery = Gallery::findOrFail($id);
+
+        Horse::validateUpdate($request);
+
     }
 }
