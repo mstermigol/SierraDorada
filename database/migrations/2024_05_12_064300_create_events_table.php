@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description_miniature');
             $table->string('image_miniature');
             $table->text('description');
-            $table->json('images');
+            $table->json('images')->nullable();
             $table->timestamps();
         });
     }
