@@ -106,7 +106,10 @@ class AdminGalleryController extends Controller
             Gallery::validateName($request);
         }
 
-        Gallery::validateImages($request);
+        if($request->hasFile('images') && $request->input('images') ==! null){
+            Gallery::validateImages($request);
+        }
+
 
 
         $previousImages = $gallery->getImages();
@@ -114,12 +117,14 @@ class AdminGalleryController extends Controller
             $previousImages = [];
         }
 
-        if ($request->hasFile('deletedImages')) {
-            $deletedImages = $request->file('deletedImages');
+
+        if ($request->has('deletedImages')) {
+            $deletedImages = json_decode($request->input('deletedImages'), true);
 
             foreach ($deletedImages as $deletedImage) {
                 $imagePath = 'galleries/' . $gallery->getName() . '/' . $deletedImage;
-                if (($key = array_search($imagePath, $previousImages)) !== false) {
+
+                if (($key = array_search($deletedImage, $previousImages)) !== false) {
                     unset($previousImages[$key]);
 
                     if (Storage::disk('public')->exists($imagePath)) {
@@ -141,6 +146,8 @@ class AdminGalleryController extends Controller
             $allImages = array_merge($previousImages, $newImages);
 
             $gallery->setImages($allImages);
+        } else {
+            $gallery->setImages($previousImages);
         }
 
         if ($request->has('name')) {

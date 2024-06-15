@@ -6,7 +6,13 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("galleryData").dataset.folderPath;
     const itemsPerPage = 8;
     let currentPage = 1;
-    const deletedImages = [];
+    let deletedImages = [];
+
+    const deletedImagesInput = document.getElementById("deletedImages");
+
+    function updateDeletedImagesInput() {
+        deletedImagesInput.value = JSON.stringify(deletedImages);
+    }
 
     function showImages(page) {
         const gallery = document.getElementById("gallery");
@@ -19,25 +25,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (paginatedImages.length > 0) {
             paginatedImages.forEach((image) => {
-                const imgWrapper = document.createElement("a");
-                imgWrapper.href = `${folderPath}/${image}`;
-                imgWrapper.target = "_blank";
-                imgWrapper.className = "img-wrapper";
+                if (!deletedImages.includes(image)) {
+                    const imgWrapper = document.createElement("a");
+                    imgWrapper.href = `${folderPath}/${image}`;
+                    imgWrapper.target = "_blank";
+                    imgWrapper.className = "img-wrapper";
+                    imgWrapper.style.position = "relative";
 
-                const img = document.createElement("img");
-                img.src = `${folderPath}/${image}`;
-                img.alt = "Image";
-                img.className = "img-fluid img-gallery";
+                    const img = document.createElement("img");
+                    img.src = `${folderPath}/${image}`;
+                    img.alt = "Image";
+                    img.className = "img-fluid img-gallery";
 
-                imgWrapper.appendChild(img);
-                gallery.appendChild(imgWrapper);
+                    const deleteButton = document.createElement("button");
+                    deleteButton.type = "button";
+                    deleteButton.className = "btn btn-danger me-1";
+                    deleteButton.style.position = "absolute";
+                    deleteButton.style.top = "5px";
+                    deleteButton.style.right = "5px";
+
+                    const deleteIcon = document.createElement("i");
+                    deleteIcon.className = "fas fa-trash-alt";
+
+                    deleteButton.appendChild(deleteIcon);
+
+                    deleteButton.addEventListener("click", (event) => {
+                        event.preventDefault();
+                        deletedImages.push(image);
+                        updateDeletedImagesInput();
+                        imgWrapper.style.display = "none";
+                        console.log("Deleted Images:", deletedImages);
+                    });
+
+                    imgWrapper.appendChild(img);
+                    imgWrapper.appendChild(deleteButton);
+                    gallery.appendChild(imgWrapper);
+                }
             });
             noImagesMessage.style.display = "none";
         } else {
             noImagesMessage.style.display = "block";
         }
 
-        // Disable buttons if on the first or last page
         const prevPageButton = document.getElementById("prevPage");
         const nextPageButton = document.getElementById("nextPage");
         prevPageButton.classList.toggle("my-disabled", page === 1);
