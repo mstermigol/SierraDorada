@@ -38,13 +38,13 @@ class AdminHorseController extends Controller
     {
         Horse::validate($request);
 
-        $imagePath = new ImageLocalStorage();
-        $imagePath = $imagePath->storeAndGetFileName($request, 'horses');
+        $imageName = new ImageLocalStorage();
+        $imageName = $imageName->storeAndGetFileName($request, 'horses');
 
         $newHorse = new Horse();
         $newHorse->setName($request->input('name'));
         $newHorse->setDescription($request->input('description'));
-        $newHorse->setImage($imagePath);
+        $newHorse->setImage($imageName);
 
         $newHorse->save();
 

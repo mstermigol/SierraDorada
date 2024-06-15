@@ -59,6 +59,16 @@ Route::middleware('auth')
             Route::patch('/actualizar/{id}', 'App\Http\Controllers\Admin\AdminGalleryController@update')->name('admin.gallery.update');
             Route::get('/{id}', 'App\Http\Controllers\Admin\AdminGalleryController@show')->name('admin.gallery.show');
         });
+
+        Route::prefix('eventos')->group(function () {
+            Route::get('/', 'App\Http\Controllers\Admin\AdminEventController@index')->name('admin.event.index');
+            Route::get('/crear', 'App\Http\Controllers\Admin\AdminEventController@create')->name('admin.event.create');
+            Route::post('/guardar', 'App\Http\Controllers\Admin\AdminEventController@save')->name('admin.event.save');
+            Route::delete('/eliminar/{id}', 'App\Http\Controllers\Admin\AdminEventController@delete')->name('admin.event.delete');
+            Route::get('/editar/{id}', 'App\Http\Controllers\Admin\AdminEventController@edit')->name('admin.event.edit');
+            Route::patch('/actualizar/{id}', 'App\Http\Controllers\Admin\AdminEventController@update')->name('admin.event.update');
+            Route::get('/{id}', 'App\Http\Controllers\Admin\AdminEventController@show')->name('admin.event.show');
+        });
     });
 
 Route::fallback(function () {

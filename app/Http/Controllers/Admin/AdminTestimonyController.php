@@ -44,13 +44,13 @@ class AdminTestimonyController extends Controller
 
         Testimony::validate($request);
 
-        $imagePath = new ImageLocalStorage();
-        $imagePath = $imagePath->storeAndGetFileName($request, 'testimonies');
+        $imageName = new ImageLocalStorage();
+        $imageName = $imageName->storeAndGetFileName($request, 'testimonies');
 
         $newTestimony = new Testimony();
         $newTestimony->setName($request->input('name'));
         $newTestimony->setTestimony($request->input('testimony'));
-        $newTestimony->setImage($imagePath);
+        $newTestimony->setImage($imageName);
 
         $newTestimony->save();
 
@@ -101,9 +101,9 @@ class AdminTestimonyController extends Controller
                 Storage::delete('public/testimonies/' . $testimony->image);
             }
 
-            $imagePath = new ImageLocalStorage();
-            $imagePath = $imagePath->storeAndGetFileName($request, 'testimonies');
-            $testimony->setImage($imagePath);
+            $imageName = new ImageLocalStorage();
+            $imageName = $imageName->storeAndGetFileName($request, 'testimonies');
+            $testimony->setImage($imageName);
         }
 
         $testimony->save();

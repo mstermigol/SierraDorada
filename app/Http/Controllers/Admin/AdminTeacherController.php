@@ -38,12 +38,12 @@ class AdminTeacherController extends Controller
     {
         Teacher::validate($request);
 
-        $imagePath = new ImageLocalStorage();
-        $imagePath = $imagePath->storeAndGetFileName($request, 'teachers');
+        $imageName = new ImageLocalStorage();
+        $imageName = $imageName->storeAndGetFileName($request, 'teachers');
 
         $newTeacher = new Teacher();
         $newTeacher->setName($request->input('name'));
-        $newTeacher->setImage($imagePath);
+        $newTeacher->setImage($imageName);
 
         $newTeacher->save();
 
@@ -93,9 +93,9 @@ class AdminTeacherController extends Controller
                 Storage::delete('public/teachers/' . $teacher->image);
             }
 
-            $imagePath = new ImageLocalStorage();
-            $imagePath = $imagePath->storeAndGetFileName($request, 'teachers');
-            $teacher->setImage($imagePath);
+            $imageName = new ImageLocalStorage();
+            $imageName = $imageName->storeAndGetFileName($request, 'teachers');
+            $teacher->setImage($imageName);
         }
 
         $teacher->save();

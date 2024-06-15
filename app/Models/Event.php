@@ -68,12 +68,12 @@ class Event extends Model
 
     public function getImages(): array
     {
-        return $this->attributes['images'];
+        return json_decode($this->attributes['images'], true);
     }
 
     public function setImages(array $images): void
     {
-        $this->attributes['images'] = $images;
+        $this->attributes['images'] = json_encode($images);
     }
 
     public function getCreatedAt(): string
@@ -84,5 +84,40 @@ class Event extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function validate($request): void
+    {
+        if ($request->has('title')) {
+            $request->validate([
+                'title' => 'required|string|max:255',
+            ]);
+        }
+
+        if ($request->has('descriptionMiniature')) {
+            $request->validate([
+                'descriptionMiniature' => 'required|string',
+            ]);
+        }
+
+        if ($request->hasFile('imageMiniature')) {
+            $request->validate([
+                'imageMiniature' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+            ]);
+        }
+
+        if ($request->has('description')) {
+            $request->validate([
+                'description' => 'required|string',
+            ]);
+        }
+
+        if ($request->hasFile('images')) {
+            $request->validate([
+                'images' => 'required|array',
+                'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+            ]);
+        }
+
     }
 }

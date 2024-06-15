@@ -40,11 +40,11 @@ class AdminGalleryController extends Controller
 
         $galleryName = $request->input('name');
 
-        $imagesPath = new ImageLocalStorage();
-        $imagesPath = $imagesPath->storeAndGetFileName($request, 'galleries/' . $galleryName, 'images');
+        $imagesName = new ImageLocalStorage();
+        $imagesName = $imagesName->storeAndGetFileName($request, 'galleries/' . $galleryName, 'images');
         $newGallery = new Gallery();
         $newGallery->setName($galleryName);
-        $newGallery->setImages($imagesPath);
+        $newGallery->setImages($imagesName);
 
         $newGallery->save();
 
@@ -65,7 +65,7 @@ class AdminGalleryController extends Controller
             $gallery->delete();
             return redirect()->route('admin.gallery.index');
         } catch (Exception $e) {
-            return redirect()->route('admin.gallery.index')->with('error', 'No se pudo eliminar la galería');
+            return redirect()->route('admin.gallery.index');
         }
     }
 

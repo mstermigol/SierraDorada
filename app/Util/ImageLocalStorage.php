@@ -20,15 +20,23 @@ class ImageLocalStorage
             }
             return null;
         } else {
-            $filenames = [];
             if ($request->hasFile($inputName)) {
-                foreach ($request->file($inputName) as $image) {
-                    $filename = uniqid() . '.' . $image->extension();
-                    $image->storeAs('public/' . $folder, $filename);
-                    $filenames[] = $filename;
+                $files = $request->file($inputName);
+                if (is_array($files)) {
+                    $filenames = [];
+                    foreach ($files as $image) {
+                        $filename = uniqid() . '.' . $image->extension();
+                        $image->storeAs('public/' . $folder, $filename);
+                        $filenames[] = $filename;
+                    }
+                    return $filenames;
+                } else {
+                    $filename = uniqid() . '.' . $files->extension();
+                    $files->storeAs('public/' . $folder, $filename);
+                    return $filename;
                 }
             }
-            return $filenames;
+            return [];
         }
     }
 }
