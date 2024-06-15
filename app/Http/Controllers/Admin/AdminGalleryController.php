@@ -85,8 +85,12 @@ class AdminGalleryController extends Controller
     {
         try {
             $gallery = Gallery::findOrFail($id);
+            $galleryName = $gallery->getName();
+            $folderPath = 'galleries/' . $galleryName . '/';
+
             $viewData = [];
             $viewData['gallery'] = $gallery;
+            $viewData['folderPath'] = $folderPath;
 
             return view('admin.gallery.edit')->with('viewData', $viewData);
         } catch (Exception $e) {
@@ -98,7 +102,60 @@ class AdminGalleryController extends Controller
     {
         $gallery = Gallery::findOrFail($id);
 
-        Horse::validateUpdate($request);
+        if($gallery->getName() ==! $request->input('name')){
+            Gallery::validateName($request);
+        }
 
+        Gallery::validateImages($request);
+
+
+        $previousImages = $gallery->getImages();
+        if (!is_array($previousImages)) {
+            $previousImages = [];
+        }
+
+        if ($request->hasFile('deletedImages')) {
+            $deletedImages = $request->file('deletedImages');
+
+            foreach ($deletedImages as $deletedImage) {
+                $imagePath = 'galleries/' . $gallery->getName() . '/' . $deletedImage;
+                if (($key = array_search($imagePath, $previousImages)) !== false) {
+                    unset($previousImages[$key]);
+
+                    if (Storage::disk('public')->exists($imagePath)) {
+                        Storage::disk('public')->delete($imagePath);
+                    }
+                }
+            }
+
+            $previousImages = array_values($previousImages);
+        }
+
+        if ($request->hasFile('images')) {
+            $galleryName = $gallery->getName();
+            $folderPath = 'galleries/' . $galleryName;
+
+            $imageLocalStorage = new ImageLocalStorage();
+            $newImages = $imageLocalStorage->storeAndGetFileName($request, $folderPath, 'images');
+
+            $allImages = array_merge($previousImages, $newImages);
+
+            $gallery->setImages($allImages);
+        }
+
+        if ($request->has('name')) {
+            $galleryName = $gallery->getName();
+            $newName = $request->input('name');
+            $newFolderPath = 'galleries/' . $newName;
+            $folderPath = 'galleries/' . $galleryName;
+            if (Storage::disk('public')->exists($folderPath)) {
+                Storage::disk('public')->move($folderPath, $newFolderPath);
+            }
+            $gallery->setName($request->input('name'));
+        }
+
+        $gallery->save();
+
+        return redirect()->route('admin.gallery.index');
     }
 }

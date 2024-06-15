@@ -63,4 +63,19 @@ class Gallery extends Model
             ]);
         }
     }
+
+    public static function validateName(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255|unique:galleries,name',
+        ]);
+    }
+
+    public static function validateImages(Request $request): void
+    {
+        $request->validate([
+            'images' => 'required|array',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+        ]);
+    }
 }
