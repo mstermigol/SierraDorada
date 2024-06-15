@@ -80,14 +80,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const prevPageButton = document.getElementById("prevPage");
         const nextPageButton = document.getElementById("nextPage");
 
-        prevPageButton.addEventListener("click", () => {
+        prevPageButton.addEventListener("click", (event) => {
+            event.preventDefault();
             if (currentPage > 1) {
                 currentPage--;
                 showImages(currentPage);
             }
         });
 
-        nextPageButton.addEventListener("click", () => {
+        nextPageButton.addEventListener("click", (event) => {
+            event.preventDefault();
             if (currentPage * itemsPerPage < images.length) {
                 currentPage++;
                 showImages(currentPage);
