@@ -102,38 +102,37 @@ class AdminGalleryController extends Controller
     {
         $gallery = Gallery::findOrFail($id);
 
-        if($gallery->getName() ==! $request->input('name')){
+        if ($gallery->getName() == !$request->input('name')) {
             Gallery::validateName($request);
         }
 
-        if($request->hasFile('images') && $request->input('images') ==! null){
+        if ($request->hasFile('images') && $request->input('images') == !null) {
             Gallery::validateImages($request);
         }
-
-
 
         $previousImages = $gallery->getImages();
         if (!is_array($previousImages)) {
             $previousImages = [];
         }
 
-
         if ($request->has('deletedImages')) {
             $deletedImages = json_decode($request->input('deletedImages'), true);
 
-            foreach ($deletedImages as $deletedImage) {
-                $imagePath = 'galleries/' . $gallery->getName() . '/' . $deletedImage;
+            if (!empty($deletedImages)) {
+                foreach ($deletedImages as $deletedImage) {
+                    $imagePath = 'galleries/' . $gallery->getName() . '/' . $deletedImage;
 
-                if (($key = array_search($deletedImage, $previousImages)) !== false) {
-                    unset($previousImages[$key]);
+                    if (($key = array_search($deletedImage, $previousImages)) !== false) {
+                        unset($previousImages[$key]);
 
-                    if (Storage::disk('public')->exists($imagePath)) {
-                        Storage::disk('public')->delete($imagePath);
+                        if (Storage::disk('public')->exists($imagePath)) {
+                            Storage::disk('public')->delete($imagePath);
+                        }
                     }
                 }
-            }
 
-            $previousImages = array_values($previousImages);
+                $previousImages = array_values($previousImages);
+            }
         }
 
         if ($request->hasFile('images')) {
