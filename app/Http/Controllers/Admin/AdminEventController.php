@@ -130,7 +130,7 @@ class AdminEventController extends Controller
         }
 
         if ($request->hasFile('imageMiniature')) {
-            if ($request->file('imageMiniature') ==! null){
+            if ($request->file('imageMiniature') !== null){
                 Storage::delete('public/' . $folderMiniaturePath . $event->getImageMiniature());
             }
 
