@@ -69,6 +69,16 @@ Route::middleware('auth')
             Route::patch('/actualizar/{id}', 'App\Http\Controllers\Admin\AdminEventController@update')->name('admin.event.update');
             Route::get('/{id}', 'App\Http\Controllers\Admin\AdminEventController@show')->name('admin.event.show');
         });
+
+        Route::prefix('servicios')->group(function () {
+            Route::get('/', 'App\Http\Controllers\Admin\AdminServiceController@index')->name('admin.service.index');
+            Route::get('/crear', 'App\Http\Controllers\Admin\AdminServiceController@create')->name('admin.service.create');
+            Route::post('/guardar', 'App\Http\Controllers\Admin\AdminServiceController@save')->name('admin.service.save');
+            Route::delete('/eliminar/{id}', 'App\Http\Controllers\Admin\AdminServiceController@delete')->name('admin.service.delete');
+            Route::get('/editar/{id}', 'App\Http\Controllers\Admin\AdminServiceController@edit')->name('admin.service.edit');
+            Route::patch('/actualizar/{id}', 'App\Http\Controllers\Admin\AdminServiceController@update')->name('admin.service.update');
+            Route::get('/{id}', 'App\Http\Controllers\Admin\AdminServiceController@show')->name('admin.service.show');
+        });
     });
 
 Route::fallback(function () {

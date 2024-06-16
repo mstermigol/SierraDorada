@@ -41,7 +41,8 @@
           href="{{ route('admin.horse.index') }}">Caballos</a></li>
       <li class="@if (Request::segment(2) == 'profesores') active-sidebar-link @endif"><a
           href="{{ route('admin.teacher.index') }}">Profesores</a></li>
-      <li class="@if (Request::segment(2) == 'servicios') active-sidebar-link @endif"><a href="#">Servicios</a></li>
+      <li class="@if (Request::segment(2) == 'servicios') active-sidebar-link @endif"><a
+          href="{{ route('admin.service.index') }}">Servicios</a></li>
       <li class="@if (Request::segment(2) == 'testimonios') active-sidebar-link @endif"><a
           href="{{ route('admin.testimony.index') }}">Testimonios</a></li>
       <li>
