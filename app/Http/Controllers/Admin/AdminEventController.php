@@ -130,8 +130,8 @@ class AdminEventController extends Controller
         }
 
         if ($request->hasFile('imageMiniature')) {
-            if ($event->image_miniature) {
-                Storage::delete('public/' . $folderMiniaturePath . $event->image_miniature);
+            if ($request->file('imageMiniature') ==! null){
+                Storage::delete('public/' . $folderMiniaturePath . $event->getImageMiniature());
             }
 
             $imageMiniatureName = new ImageLocalStorage();
@@ -173,7 +173,7 @@ class AdminEventController extends Controller
             $event->setImages($previousImages);
         }
 
-        if ($request->has('name')) {
+        if ($request->has('title')) {
             $eventTitle = $event->getTitle();
             $newName = $request->input('title');
             $newFolderPath = 'events/' . $newName;
