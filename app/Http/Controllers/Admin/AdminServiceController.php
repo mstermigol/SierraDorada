@@ -38,6 +38,11 @@ class AdminServiceController extends Controller
     {
         Service::validate($request);
 
+        $inLanding = $request->input('inLanding');
+        if ($inLanding === '1' && Service::where('in_landing', '1')->count() >= 3){
+            return redirect()->back()->withErrors(['inLanding' => 'There can only be 3 events maximum in the landing page.']);
+        }
+
         $serviceName = $request->input('name');
 
         $imageMiniatureName = new ImageLocalStorage();
@@ -114,6 +119,11 @@ class AdminServiceController extends Controller
         $service = Service::findOrFail($id);
 
         Service::validate($request);
+
+        $inLanding = $request->input('inLanding');
+        if ($inLanding === '1' && Service::where('in_landing', '1')->count() >= 3){
+            return redirect()->back()->withErrors(['inLanding' => 'There can only be 3 events maximum in the landing page.']);
+        }
 
         $service->setName($request->input('name'));
         $service->setDescriptionMiniature($request->input('descriptionMiniature'));
