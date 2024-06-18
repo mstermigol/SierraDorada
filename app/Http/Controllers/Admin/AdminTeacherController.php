@@ -69,15 +69,12 @@ class AdminTeacherController extends Controller
 
     public function edit(string $id): View|RedirectResponse
     {
-        try {
             $teacher = Teacher::findOrFail($id);
             $viewData = [];
             $viewData['teacher'] = $teacher;
 
             return view('admin.teacher.edit')->with('viewData', $viewData);
-        } catch (Exception $e) {
-            return redirect()->route('admin.teacher.index');
-        }
+
     }
 
     public function update(Request $request, string $id): RedirectResponse

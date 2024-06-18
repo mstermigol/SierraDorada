@@ -94,7 +94,7 @@ class AdminServiceController extends Controller
 
     public function edit(string $id): View
     {
-        try{
+
         $service = Service::findOrFail($id);
         $serviceName = $service->getName();
         $folderPath = 'services/' . $serviceName . '/images/';
@@ -106,9 +106,7 @@ class AdminServiceController extends Controller
         $viewData['miniature'] = $folderMiniaturePath;
 
         return view('admin.service.edit')->with('viewData', $viewData);
-        } catch (Exception $e) {
-            return redirect()->route('admin.service.index');
-        }
+
     }
 
     public function update(Request $request, string $id): RedirectResponse

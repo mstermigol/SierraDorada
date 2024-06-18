@@ -70,15 +70,13 @@ class AdminHorseController extends Controller
 
     public function edit(string $id): View|RedirectResponse
     {
-        try {
+
             $horse = Horse::findOrFail($id);
             $viewData = [];
             $viewData['horse'] = $horse;
 
             return view('admin.horse.edit')->with('viewData', $viewData);
-        } catch (Exception $e) {
-            return redirect()->route('admin.horse.index');
-        }
+
     }
 
     public function update(Request $request, string $id): RedirectResponse

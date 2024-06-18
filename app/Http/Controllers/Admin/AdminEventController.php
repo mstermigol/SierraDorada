@@ -93,7 +93,6 @@ class AdminEventController extends Controller
 
     public function edit(string $id): View|RedirectResponse
     {
-        try {
             $event = Event::findOrFail($id);
             $eventTitle = $event->getTitle();
             $folderPath = 'events/' . $eventTitle . '/images/';
@@ -106,9 +105,6 @@ class AdminEventController extends Controller
             $viewData['miniature'] = $folderMiniaturePath;
 
             return view('admin.event.edit')->with('viewData', $viewData);
-        } catch (Exception $e) {
-            return redirect()->route('admin.event.index');
-        }
     }
 
     public function update(Request $request, string $id): RedirectResponse

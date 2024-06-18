@@ -59,15 +59,12 @@ class AdminUserController extends Controller
 
     public function edit(string $id): View|RedirectResponse
     {
-        try {
             $user = User::findOrFail($id);
             $viewData = [];
             $viewData['user'] = $user;
 
             return view('admin.user.edit')->with('viewData', $viewData);
-        } catch (Exception $e) {
-            return redirect()->route('admin.user.index');
-        }
+
     }
 
     public function update(Request $request, string $id): RedirectResponse

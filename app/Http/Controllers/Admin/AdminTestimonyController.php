@@ -76,15 +76,11 @@ class AdminTestimonyController extends Controller
 
     public function edit(string $id): View|RedirectResponse
     {
-        try {
             $testimony = Testimony::findOrFail($id);
             $viewData = [];
             $viewData['testimony'] = $testimony;
 
             return view('admin.testimony.edit')->with('viewData', $viewData);
-        } catch (Exception $e) {
-            return redirect()->route('admin.testimony.index');
-        }
     }
 
     public function update(Request $request, string $id): RedirectResponse

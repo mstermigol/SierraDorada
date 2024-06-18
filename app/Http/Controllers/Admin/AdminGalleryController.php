@@ -83,7 +83,6 @@ class AdminGalleryController extends Controller
 
     public function edit(string $id): View|RedirectResponse
     {
-        try {
             $gallery = Gallery::findOrFail($id);
             $galleryName = $gallery->getName();
             $folderPath = 'galleries/' . $galleryName . '/';
@@ -93,9 +92,7 @@ class AdminGalleryController extends Controller
             $viewData['folderPath'] = $folderPath;
 
             return view('admin.gallery.edit')->with('viewData', $viewData);
-        } catch (Exception $e) {
-            return redirect()->route('admin.gallery.index');
-        }
+
     }
 
     public function update(Request $request, string $id): RedirectResponse
