@@ -123,7 +123,7 @@ class AdminServiceController extends Controller
         Service::validate($request);
 
         $inLanding = $request->input('inLanding');
-        if ($inLanding === '1' && Service::where('in_landing', '1')->count() >= 3 && $service->getInLanding() === 0){
+        if ($inLanding === '1' && Service::where('in_landing', '1')->count() >= 3 && $service->getInLanding() === 0) {
             return redirect()->back()->withErrors(['inLanding' => 'There can only be 3 events maximum in the landing page.']);
         }
 
