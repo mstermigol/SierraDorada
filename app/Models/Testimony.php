@@ -59,4 +59,27 @@ class Testimony extends Model
     {
         return $this->attributes['updated_at'];
     }
+
+    public static function validate($request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'testimony' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+        ]);
+    }
+
+    public static function validateUpdate($request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'testimony' => 'required|string',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+            ]);
+        }
+    }
 }

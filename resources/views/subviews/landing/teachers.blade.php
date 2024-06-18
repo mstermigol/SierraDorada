@@ -35,7 +35,7 @@
     </div>
 
     <!-- Quote -->
-    <div class="container-fluid d-flex justify-content-center mt-5 mb-4">
+    <div class="container-fluid d-flex justify-content-center mt-5">
         <p class="color-gold quote">“Construyendo sueños al lomo del caballo”</p>
     </div>
 </section>

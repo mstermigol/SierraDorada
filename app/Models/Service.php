@@ -13,12 +13,16 @@ class Service extends Model
      * $this->attributes['description_miniature'] - string - contains the description of the service miniature
      * $this->attributes['image_miniature'] - string - contains the image of the service miniature
      * $this->attributes['description'] - string - contains the description of the service
-     * $this->attributes['image'] - string - contains the image of the service
+     * $this->attributes['images'] - string[] - contains the image of the service
      * $this->attributes['price'] - int - contains the price of the service
      * $this->attributes['in_landing'] - bool - contains if the service is in the landing
      * $this->attributes['created_at'] - string - contains the date of service creation
      * $this->attributes['updated_at'] - string - contains when the service was updated
      */
+    protected $casts = [
+        'images' => 'array',
+    ];
+
     public function getId(): string
     {
         return $this->attributes['id'];
@@ -64,14 +68,14 @@ class Service extends Model
         $this->attributes['description'] = $description;
     }
 
-    public function getImage(): string
+    public function getImages(): array
     {
-        return $this->attributes['image'];
+        return json_decode($this->attributes['images'], true);
     }
 
-    public function setImage(string $image): void
+    public function setImages(array $image): void
     {
-        $this->attributes['image'] = $image;
+        $this->attributes['images'] = json_encode($image);
     }
 
     public function getPrice(): int
@@ -102,5 +106,51 @@ class Service extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function validate($request): void
+    {
+        if($request->has('name')) {
+            $request->validate([
+                'name' => 'required|string|max:255',
+            ]);
+        }
+
+        if($request->has('descriptionMiniature')) {
+            $request->validate([
+                'descriptionMiniature' => 'required|string|max:255',
+            ]);
+        }
+
+        if($request->has('imageMiniature')) {
+            $request->validate([
+                'imageMiniature' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+            ]);
+        }
+
+        if($request->has('description')) {
+            $request->validate([
+                'description' => 'required|string',
+            ]);
+        }
+
+        if($request->has('images')) {
+            $request->validate([
+                'images' => 'required|array',
+                'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+            ]);
+        }
+
+        if($request->has('price')) {
+            $request->validate([
+                'price' => 'required|integer',
+            ]);
+        }
+
+        if($request->has('inLanding')) {
+            $request->validate([
+                'inLanding' => 'required|boolean',
+            ]);
+        }
     }
 }

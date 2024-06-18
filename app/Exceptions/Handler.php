@@ -3,7 +3,11 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Exceptions\PostTooLargeException;
 use Throwable;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\MessageBag;
+
 
 class Handler extends ExceptionHandler
 {
@@ -12,11 +16,7 @@ class Handler extends ExceptionHandler
      *
      * @var array<int, string>
      */
-    protected $dontFlash = [
-        'current_password',
-        'password',
-        'password_confirmation',
-    ];
+    protected $dontFlash = ['current_password', 'password', 'password_confirmation'];
 
     /**
      * Register the exception handling callbacks for the application.
@@ -27,4 +27,25 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable  $exception
+     * @return \Illuminate\Http\Response
+     */
+
+
+     public function render($request, Throwable $exception)
+     {
+         if ($exception instanceof PostTooLargeException) {
+            return Response('File size is too large, try a smaller file!', 422);
+         }
+
+         return parent::render($request, $exception);
+     }
+
+
+
 }

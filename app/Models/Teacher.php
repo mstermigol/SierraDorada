@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Teacher extends Model
 {
@@ -47,5 +48,25 @@ class Teacher extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+    }
+
+    public static function validateUpdate(Request $request): void
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+        }
     }
 }
