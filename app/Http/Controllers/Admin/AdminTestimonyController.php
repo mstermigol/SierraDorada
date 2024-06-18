@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 use App\Models\Testimony;
+use App\Util\ImageLocalStorage;
+use Exception;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
-use App\Util\ImageLocalStorage;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Exception;
+use Illuminate\View\View;
 
 class AdminTestimonyController extends Controller
 {
@@ -63,7 +64,7 @@ class AdminTestimonyController extends Controller
             $testimony = Testimony::findOrFail($id);
 
             if ($testimony->image) {
-                Storage::delete('public/testimonies/' . $testimony->image);
+                Storage::delete('public/testimonies/'.$testimony->image);
             }
 
             $testimony->delete();
@@ -76,11 +77,11 @@ class AdminTestimonyController extends Controller
 
     public function edit(string $id): View|RedirectResponse
     {
-            $testimony = Testimony::findOrFail($id);
-            $viewData = [];
-            $viewData['testimony'] = $testimony;
+        $testimony = Testimony::findOrFail($id);
+        $viewData = [];
+        $viewData['testimony'] = $testimony;
 
-            return view('admin.testimony.edit')->with('viewData', $viewData);
+        return view('admin.testimony.edit')->with('viewData', $viewData);
     }
 
     public function update(Request $request, string $id): RedirectResponse
@@ -94,7 +95,7 @@ class AdminTestimonyController extends Controller
 
         if ($request->hasFile('image')) {
             if ($testimony->image) {
-                Storage::delete('public/testimonies/' . $testimony->image);
+                Storage::delete('public/testimonies/'.$testimony->image);
             }
 
             $imageName = new ImageLocalStorage();

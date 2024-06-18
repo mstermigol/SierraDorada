@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 use App\Models\Gallery;
+use App\Util\ImageLocalStorage;
+use Exception;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
-use App\Util\ImageLocalStorage;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Exception;
+use Illuminate\View\View;
 
 class AdminGalleryController extends Controller
 {
@@ -41,7 +42,7 @@ class AdminGalleryController extends Controller
         $galleryName = $request->input('name');
 
         $imagesName = new ImageLocalStorage();
-        $imagesName = $imagesName->storeAndGetFileName($request, 'galleries/' . $galleryName, 'images');
+        $imagesName = $imagesName->storeAndGetFileName($request, 'galleries/'.$galleryName, 'images');
         $newGallery = new Gallery();
         $newGallery->setName($galleryName);
         $newGallery->setImages($imagesName);
@@ -56,13 +57,14 @@ class AdminGalleryController extends Controller
         try {
             $gallery = Gallery::findOrFail($id);
             $galleryName = $gallery->getName();
-            $folderPath = 'galleries/' . $galleryName;
+            $folderPath = 'galleries/'.$galleryName;
 
             if (Storage::disk('public')->exists($folderPath)) {
                 Storage::disk('public')->deleteDirectory($folderPath);
             }
 
             $gallery->delete();
+
             return redirect()->route('admin.gallery.index');
         } catch (Exception $e) {
             return redirect()->route('admin.gallery.index');
@@ -73,25 +75,26 @@ class AdminGalleryController extends Controller
     {
         $gallery = Gallery::findOrFail($id);
         $galleryName = $gallery->getName();
-        $folderPath = 'galleries/' . $galleryName . '/';
+        $folderPath = 'galleries/'.$galleryName.'/';
 
         $viewData = [];
         $viewData['gallery'] = $gallery;
         $viewData['folderPath'] = $folderPath;
+
         return view('admin.gallery.show')->with('viewData', $viewData);
     }
 
     public function edit(string $id): View|RedirectResponse
     {
-            $gallery = Gallery::findOrFail($id);
-            $galleryName = $gallery->getName();
-            $folderPath = 'galleries/' . $galleryName . '/';
+        $gallery = Gallery::findOrFail($id);
+        $galleryName = $gallery->getName();
+        $folderPath = 'galleries/'.$galleryName.'/';
 
-            $viewData = [];
-            $viewData['gallery'] = $gallery;
-            $viewData['folderPath'] = $folderPath;
+        $viewData = [];
+        $viewData['gallery'] = $gallery;
+        $viewData['folderPath'] = $folderPath;
 
-            return view('admin.gallery.edit')->with('viewData', $viewData);
+        return view('admin.gallery.edit')->with('viewData', $viewData);
 
     }
 
@@ -99,25 +102,25 @@ class AdminGalleryController extends Controller
     {
         $gallery = Gallery::findOrFail($id);
 
-        if ($gallery->getName() == !$request->input('name')) {
+        if ($gallery->getName() == ! $request->input('name')) {
             Gallery::validateName($request);
         }
 
-        if ($request->hasFile('images') && $request->input('images') == !null) {
+        if ($request->hasFile('images') && $request->input('images') == ! null) {
             Gallery::validateImages($request);
         }
 
         $previousImages = $gallery->getImages();
-        if (!is_array($previousImages)) {
+        if (! is_array($previousImages)) {
             $previousImages = [];
         }
 
         if ($request->has('deletedImages')) {
             $deletedImages = json_decode($request->input('deletedImages'), true);
 
-            if (!empty($deletedImages)) {
+            if (! empty($deletedImages)) {
                 foreach ($deletedImages as $deletedImage) {
-                    $imagePath = 'galleries/' . $gallery->getName() . '/' . $deletedImage;
+                    $imagePath = 'galleries/'.$gallery->getName().'/'.$deletedImage;
 
                     if (($key = array_search($deletedImage, $previousImages)) !== false) {
                         unset($previousImages[$key]);
@@ -134,7 +137,7 @@ class AdminGalleryController extends Controller
 
         if ($request->hasFile('images')) {
             $galleryName = $gallery->getName();
-            $folderPath = 'galleries/' . $galleryName;
+            $folderPath = 'galleries/'.$galleryName;
 
             $imageLocalStorage = new ImageLocalStorage();
             $newImages = $imageLocalStorage->storeAndGetFileName($request, $folderPath, 'images');
@@ -149,8 +152,8 @@ class AdminGalleryController extends Controller
         if ($request->has('name')) {
             $galleryName = $gallery->getName();
             $newName = $request->input('name');
-            $newFolderPath = 'galleries/' . $newName;
-            $folderPath = 'galleries/' . $galleryName;
+            $newFolderPath = 'galleries/'.$newName;
+            $folderPath = 'galleries/'.$galleryName;
             if (Storage::disk('public')->exists($folderPath)) {
                 Storage::disk('public')->move($folderPath, $newFolderPath);
             }

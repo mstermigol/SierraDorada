@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 use App\Models\Event;
+use App\Util\ImageLocalStorage;
+use Exception;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
-use App\Util\ImageLocalStorage;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Exception;
+use Illuminate\View\View;
 
 class AdminEventController extends Controller
 {
@@ -41,11 +42,10 @@ class AdminEventController extends Controller
         $eventTitle = $request->input('title');
 
         $imageMiniatureName = new ImageLocalStorage();
-        $imageMiniatureName = $imageMiniatureName->storeAndGetFileName($request, 'events/' . $eventTitle, 'imageMiniature');
-
+        $imageMiniatureName = $imageMiniatureName->storeAndGetFileName($request, 'events/'.$eventTitle, 'imageMiniature');
 
         $imagesName = new ImageLocalStorage();
-        $imagesName = $imagesName->storeAndGetFileName($request, 'events/' . $eventTitle . '/images', 'images');
+        $imagesName = $imagesName->storeAndGetFileName($request, 'events/'.$eventTitle.'/images', 'images');
         $newEvent = new Event();
         $newEvent->setTitle($eventTitle);
         $newEvent->setDescriptionMiniature($request->input('descriptionMiniature'));
@@ -63,13 +63,14 @@ class AdminEventController extends Controller
         try {
             $event = Event::findOrFail($id);
             $eventTitle = $event->getTitle();
-            $folderPath = 'events/' . $eventTitle;
+            $folderPath = 'events/'.$eventTitle;
 
             if (Storage::disk('public')->exists($folderPath)) {
                 Storage::disk('public')->deleteDirectory($folderPath);
             }
 
             $event->delete();
+
             return redirect()->route('admin.event.index');
         } catch (Exception $e) {
             return redirect()->route('admin.event.index');
@@ -80,8 +81,8 @@ class AdminEventController extends Controller
     {
         $event = Event::findOrFail($id);
         $eventTitle = $event->getTitle();
-        $folderPath = 'events/' . $eventTitle . '/images/';
-        $folderMiniaturePath = 'events/' . $eventTitle . '/';
+        $folderPath = 'events/'.$eventTitle.'/images/';
+        $folderMiniaturePath = 'events/'.$eventTitle.'/';
 
         $viewData = [];
         $viewData['event'] = $event;
@@ -93,18 +94,17 @@ class AdminEventController extends Controller
 
     public function edit(string $id): View|RedirectResponse
     {
-            $event = Event::findOrFail($id);
-            $eventTitle = $event->getTitle();
-            $folderPath = 'events/' . $eventTitle . '/images/';
-            $folderMiniaturePath = 'events/' . $eventTitle . '/';
+        $event = Event::findOrFail($id);
+        $eventTitle = $event->getTitle();
+        $folderPath = 'events/'.$eventTitle.'/images/';
+        $folderMiniaturePath = 'events/'.$eventTitle.'/';
 
+        $viewData = [];
+        $viewData['event'] = $event;
+        $viewData['images'] = $folderPath;
+        $viewData['miniature'] = $folderMiniaturePath;
 
-            $viewData = [];
-            $viewData['event'] = $event;
-            $viewData['images'] = $folderPath;
-            $viewData['miniature'] = $folderMiniaturePath;
-
-            return view('admin.event.edit')->with('viewData', $viewData);
+        return view('admin.event.edit')->with('viewData', $viewData);
     }
 
     public function update(Request $request, string $id): RedirectResponse
@@ -117,17 +117,17 @@ class AdminEventController extends Controller
         $event->setDescription($request->input('description'));
 
         $eventTitle = $event->getTitle();
-        $folderPath = 'events/' . $eventTitle . '/images/';
-        $folderMiniaturePath = 'events/' . $eventTitle . '/';
+        $folderPath = 'events/'.$eventTitle.'/images/';
+        $folderMiniaturePath = 'events/'.$eventTitle.'/';
 
         $previousImages = $event->getImages();
-        if (!is_array($previousImages)) {
+        if (! is_array($previousImages)) {
             $previousImages = [];
         }
 
         if ($request->hasFile('imageMiniature')) {
-            if ($request->file('imageMiniature') !== null){
-                Storage::delete('public/' . $folderMiniaturePath . $event->getImageMiniature());
+            if ($request->file('imageMiniature') !== null) {
+                Storage::delete('public/'.$folderMiniaturePath.$event->getImageMiniature());
             }
 
             $imageMiniatureName = new ImageLocalStorage();
@@ -136,12 +136,12 @@ class AdminEventController extends Controller
             $event->setImageMiniature($imageMiniatureName);
         }
 
-        if ($request->has('deletedImages')){
+        if ($request->has('deletedImages')) {
             $deletedImages = json_decode($request->input('deletedImages'));
 
-            if (!empty($deletedImages)) {
+            if (! empty($deletedImages)) {
                 foreach ($deletedImages as $deletedImage) {
-                    $imagePath = $folderPath . $deletedImage;
+                    $imagePath = $folderPath.$deletedImage;
 
                     if (($key = array_search($deletedImage, $previousImages)) !== false) {
                         unset($previousImages[$key]);
@@ -158,7 +158,7 @@ class AdminEventController extends Controller
 
         if ($request->hasFile('images')) {
             $eventTitle = $event->getTitle();
-            $folderPath = 'events/' . $eventTitle . '/images/';
+            $folderPath = 'events/'.$eventTitle.'/images/';
 
             $imageLocalStorage = new ImageLocalStorage();
             $imagesName = $imageLocalStorage->storeAndGetFileName($request, $folderPath, 'images');
@@ -172,8 +172,8 @@ class AdminEventController extends Controller
         if ($request->has('title')) {
             $eventTitle = $event->getTitle();
             $newName = $request->input('title');
-            $newFolderPath = 'events/' . $newName;
-            $folderPath = 'events/' . $eventTitle;
+            $newFolderPath = 'events/'.$newName;
+            $folderPath = 'events/'.$eventTitle;
             if (Storage::disk('public')->exists($folderPath)) {
                 Storage::disk('public')->move($folderPath, $newFolderPath);
             }
@@ -184,5 +184,4 @@ class AdminEventController extends Controller
 
         return redirect()->route('admin.event.index');
     }
-
 }

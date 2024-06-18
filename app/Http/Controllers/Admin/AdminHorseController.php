@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 use App\Models\Horse;
+use App\Util\ImageLocalStorage;
+use Exception;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
-use App\Util\ImageLocalStorage;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Exception;
+use Illuminate\View\View;
 
 class AdminHorseController extends Controller
 {
@@ -57,7 +58,7 @@ class AdminHorseController extends Controller
             $horse = Horse::findOrFail($id);
 
             if ($horse->image) {
-                Storage::delete('public/horses/' . $horse->image);
+                Storage::delete('public/horses/'.$horse->image);
             }
 
             $horse->delete();
@@ -71,11 +72,11 @@ class AdminHorseController extends Controller
     public function edit(string $id): View|RedirectResponse
     {
 
-            $horse = Horse::findOrFail($id);
-            $viewData = [];
-            $viewData['horse'] = $horse;
+        $horse = Horse::findOrFail($id);
+        $viewData = [];
+        $viewData['horse'] = $horse;
 
-            return view('admin.horse.edit')->with('viewData', $viewData);
+        return view('admin.horse.edit')->with('viewData', $viewData);
 
     }
 
@@ -87,7 +88,7 @@ class AdminHorseController extends Controller
 
         if ($request->hasFile('image')) {
             if ($horse->image) {
-                Storage::delete('public/horses/' . $horse->image);
+                Storage::delete('public/horses/'.$horse->image);
             }
 
             $imageLocalStorage = new ImageLocalStorage();
@@ -98,7 +99,6 @@ class AdminHorseController extends Controller
 
         $horse->setName($request->input('name'));
         $horse->setDescription($request->input('description'));
-
 
         $horse->save();
 

@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 use App\Models\User;
+use Exception;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
-use Exception;
+use Illuminate\View\View;
 
 class AdminUserController extends Controller
 {
@@ -59,11 +60,11 @@ class AdminUserController extends Controller
 
     public function edit(string $id): View|RedirectResponse
     {
-            $user = User::findOrFail($id);
-            $viewData = [];
-            $viewData['user'] = $user;
+        $user = User::findOrFail($id);
+        $viewData = [];
+        $viewData['user'] = $user;
 
-            return view('admin.user.edit')->with('viewData', $viewData);
+        return view('admin.user.edit')->with('viewData', $viewData);
 
     }
 

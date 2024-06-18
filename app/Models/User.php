@@ -19,8 +19,8 @@ class User extends Authenticatable
      * $this->attributes['created_at'] - string - contains the date of user creation
      * $this->attributes['updated_at'] - string - contains when the user was updated
      */
-
     protected $fillable = ['email', 'password'];
+
     protected $hidden = ['password', 'remember_token'];
 
     protected $casts = [
@@ -62,7 +62,7 @@ class User extends Authenticatable
         return $this->attributes['updated_at'];
     }
 
-    public static function validate (Request $request): void
+    public static function validate(Request $request): void
     {
         $request->validate([
             'password' => 'required|string|min:8|max:255',
@@ -70,14 +70,14 @@ class User extends Authenticatable
         ]);
     }
 
-    public static function validatePassword (Request $request): void
+    public static function validatePassword(Request $request): void
     {
         $request->validate([
             'password' => 'required|string|min:8|max:255',
         ]);
     }
 
-    public static function validateEmail (Request $request): void
+    public static function validateEmail(Request $request): void
     {
         $request->validate([
             'email' => 'required|string|email|max:255|unique:users',

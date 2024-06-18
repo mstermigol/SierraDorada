@@ -110,44 +110,44 @@ class Service extends Model
 
     public static function validate($request): void
     {
-        if($request->has('name')) {
+        if ($request->has('name')) {
             $request->validate([
                 'name' => 'required|string|max:255',
             ]);
         }
 
-        if($request->has('descriptionMiniature')) {
+        if ($request->has('descriptionMiniature')) {
             $request->validate([
                 'descriptionMiniature' => 'required|string|max:255',
             ]);
         }
 
-        if($request->has('imageMiniature')) {
+        if ($request->has('imageMiniature')) {
             $request->validate([
                 'imageMiniature' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
             ]);
         }
 
-        if($request->has('description')) {
+        if ($request->has('description')) {
             $request->validate([
                 'description' => 'required|string',
             ]);
         }
 
-        if($request->has('images')) {
+        if ($request->has('images')) {
             $request->validate([
                 'images' => 'required|array',
                 'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
             ]);
         }
 
-        if($request->has('price')) {
+        if ($request->has('price')) {
             $request->validate([
                 'price' => 'required|integer',
             ]);
         }
 
-        if($request->has('inLanding')) {
+        if ($request->has('inLanding')) {
             $request->validate([
                 'inLanding' => 'required|boolean',
             ]);

@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 use App\Models\Teacher;
+use App\Util\ImageLocalStorage;
+use Exception;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
-use App\Util\ImageLocalStorage;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Exception;
+use Illuminate\View\View;
 
 class AdminTeacherController extends Controller
 {
@@ -56,7 +57,7 @@ class AdminTeacherController extends Controller
             $teacher = Teacher::findOrFail($id);
 
             if ($teacher->image) {
-                Storage::delete('public/teachers/' . $teacher->image);
+                Storage::delete('public/teachers/'.$teacher->image);
             }
 
             $teacher->delete();
@@ -69,11 +70,11 @@ class AdminTeacherController extends Controller
 
     public function edit(string $id): View|RedirectResponse
     {
-            $teacher = Teacher::findOrFail($id);
-            $viewData = [];
-            $viewData['teacher'] = $teacher;
+        $teacher = Teacher::findOrFail($id);
+        $viewData = [];
+        $viewData['teacher'] = $teacher;
 
-            return view('admin.teacher.edit')->with('viewData', $viewData);
+        return view('admin.teacher.edit')->with('viewData', $viewData);
 
     }
 
@@ -87,7 +88,7 @@ class AdminTeacherController extends Controller
 
         if ($request->hasFile('image')) {
             if ($teacher->image) {
-                Storage::delete('public/teachers/' . $teacher->image);
+                Storage::delete('public/teachers/'.$teacher->image);
             }
 
             $imageName = new ImageLocalStorage();

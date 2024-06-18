@@ -17,10 +17,10 @@ class Event extends Model
      * $this->attributes['created_at'] - string - contains the date of event creation
      * $this->attributes['updated_at'] - string - contains when the event was updated
      */
-
     protected $casts = [
         'images' => 'array',
     ];
+
     public function getId(): string
     {
         return $this->attributes['id'];
