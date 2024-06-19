@@ -12,24 +12,24 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="navbar-item">
-          <a class="nav-link mx-lg-4 mx-md-3 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == '#') active @endif"
+          <a class="nav-link mx-lg-4 mx-md-3 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == 'nosotros') active @endif"
             href="#">Nosotros</a>
         </li>
         <li class="navbar-item">
-          <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == '#') active @endif"
+          <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == 'servicios') active @endif"
             href="{{ route('home.service.index') }}">Servicios</a>
         </li>
         <li class="navbar-item">
-          <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == '#') active @endif"
+          <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == 'eventos') active @endif"
             href="{{ route('home.event.index') }}">Eventos</a>
         </li>
         <li class="navbar-item">
-          <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == '#4') active @endif"
+          <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == 'caballos') active @endif"
             href="#4">Caballos</a>
         </li>
         <li class="navbar-item">
-          <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == '#5') active @endif"
-            href="#5">Galeria</a>
+          <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == 'galerias') active @endif"
+            href="#5">Galerias</a>
         </li>
       </ul>
     </div>
