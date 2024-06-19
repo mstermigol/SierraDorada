@@ -85,6 +85,11 @@ Route::prefix('servicios')->group(function () {
     Route::get('/', 'App\Http\Controllers\ServiceController@index')->name('home.service.index');
     Route::get('/{id}', 'App\Http\Controllers\ServiceController@show')->name('home.service.show');
 });
+
+Route::prefix('eventos')->group(function () {
+    Route::get('/', 'App\Http\Controllers\EventController@index')->name('home.event.index');
+    Route::get('/{id}', 'App\Http\Controllers\EventController@show')->name('home.event.show');
+});
 Route::fallback(function () {
     return redirect()->route('home.landing');
 });

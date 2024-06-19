@@ -24,7 +24,7 @@
 
         <!-- Button -->
         <div class="d-flex justify-content-center mt-4">
-          <a href="#" class="btn btn-wine">
+          <a href="{{ route('home.service.index')}}" class="btn btn-wine">
             <h2 class="text-white m-0 p-0">Ver mas</h2>
           </a>
         </div>

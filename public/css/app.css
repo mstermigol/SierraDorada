@@ -12,6 +12,10 @@ body {
     overflow-x: hidden;
 }
 
+.vh-100 {
+    min-height: 100vh;
+}
+
 td {
     vertical-align: middle;
 }
@@ -593,11 +597,12 @@ Floating whatsapp button
 .fab {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 25px;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .fab img {

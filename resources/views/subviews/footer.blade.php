@@ -25,8 +25,8 @@
   <!-- Links -->
   <div class="links-container mt-2 mb-3">
     <a href="#" class="my-subtitle-letter link nav-link">Nosotros</a>
-    <a href="#" class="my-subtitle-letter link nav-link">Servicios</a>
-    <a href="#" class="my-subtitle-letter link nav-link">Eventos</a>
+    <a href="{{ route('home.service.index') }}" class="my-subtitle-letter link nav-link">Servicios</a>
+    <a href="{{ route('home.event.index') }}" class="my-subtitle-letter link nav-link">Eventos</a>
     <a href="#" class="my-subtitle-letter link nav-link">Caballos</a>
     <a href="#" class="my-subtitle-letter link nav-link last-link">Galeria</a>
   </div>
