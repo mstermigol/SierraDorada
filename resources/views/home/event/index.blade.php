@@ -1,12 +1,13 @@
 @extends('layouts.app')
 @section('title', 'Club Sierra Dorada Eventos')
 @section('content')
+    <div>
 
-    <div class="vh-100">
+    <div class="my-vh-100">
   <!-- Navbar -->
   @include('subviews.navbarOther')
 
-  <div class="px-3 pt-4 pb-4 h-100">
+  <div class="px-3 pt-4 pb-4 flex-grow-1">
     <!-- Services title -->
     <div class="container-fluid p-0 mb-3 sections-arrow-title">
       <a href="{{ route('home.landing') }}" class="btn btn-primary bg-gold b-gold mb-3">
@@ -31,9 +32,10 @@
       @endforeach
     </div>
   </div>
-@include('subviews.footer')
 
 </div>
 
+@include('subviews.footer')
+</div>
 
 @endsection

@@ -12,8 +12,10 @@ body {
     overflow-x: hidden;
 }
 
-.vh-100 {
+.my-vh-100 {
+    height:fit-content;
     min-height: 100vh;
+    position: relative !important;
 }
 
 td {
