@@ -39,9 +39,21 @@
       <script src="{{ asset('/js/carousel.js') }}"></script>
       @yield('content')
 
-      <footer>
+      <!-- Whatsapp button -->
+      @guest
+        <div class="fab">
+          <a href="#" target="_blank">
+            <img src="{{ url('images/whatsapp-fixed.png') }}" alt="WhatsApp Logo">
+          </a>
+        </div>
+      @else
+        <div class="fab">
+          <a href="{{ route('admin.user.index') }}">
+            <img src="{{ url('images/admin.png') }}" alt="Admin">
+          </a>
+        </div>
 
-      </footer>
+      @endguest
 
     </body>
 

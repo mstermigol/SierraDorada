@@ -41,15 +41,17 @@ class AdminServiceController extends Controller
 
         $inLanding = $request->input('inLanding');
         if ($inLanding === '1' && Service::where('in_landing', '1')->count() >= 3) {
-            return redirect()->back()->withErrors(['inLanding' => 'There can only be 3 events maximum in the landing page.']);
+            return redirect()
+                ->back()
+                ->withErrors(['inLanding' => 'There can only be 3 events maximum in the landing page.']);
         }
 
         $serviceName = $request->input('name');
 
         $imageMiniatureName = new ImageLocalStorage();
-        $imageMiniatureName = $imageMiniatureName->storeAndGetFileName($request, 'services/'.$serviceName, 'imageMiniature');
+        $imageMiniatureName = $imageMiniatureName->storeAndGetFileName($request, 'services/' . $serviceName, 'imageMiniature');
         $imagesName = new ImageLocalStorage();
-        $imagesName = $imagesName->storeAndGetFileName($request, 'services/'.$serviceName.'/images', 'images');
+        $imagesName = $imagesName->storeAndGetFileName($request, 'services/' . $serviceName . '/images', 'images');
         $newService = new Service();
         $newService->setName($serviceName);
         $newService->setDescriptionMiniature($request->input('descriptionMiniature'));
@@ -69,7 +71,7 @@ class AdminServiceController extends Controller
         try {
             $service = Service::find($id);
             $serviceName = $service->getName();
-            $folderPath = 'services/'.$serviceName;
+            $folderPath = 'services/' . $serviceName;
 
             if (Storage::disk('public')->exists($folderPath)) {
                 Storage::disk('public')->deleteDirectory($folderPath);
@@ -85,11 +87,10 @@ class AdminServiceController extends Controller
 
     public function show(string $id): View
     {
-
         $service = Service::findOrFail($id);
         $serviceName = $service->getName();
-        $folderPath = 'services/'.$serviceName.'/images/';
-        $folderMiniaturePath = 'services/'.$serviceName.'/';
+        $folderPath = 'services/' . $serviceName . '/images/';
+        $folderMiniaturePath = 'services/' . $serviceName . '/';
 
         $viewData = [];
         $viewData['service'] = $service;
@@ -101,11 +102,10 @@ class AdminServiceController extends Controller
 
     public function edit(string $id): View
     {
-
         $service = Service::findOrFail($id);
         $serviceName = $service->getName();
-        $folderPath = 'services/'.$serviceName.'/images/';
-        $folderMiniaturePath = 'services/'.$serviceName.'/';
+        $folderPath = 'services/' . $serviceName . '/images/';
+        $folderMiniaturePath = 'services/' . $serviceName . '/';
 
         $viewData = [];
         $viewData['service'] = $service;
@@ -113,7 +113,6 @@ class AdminServiceController extends Controller
         $viewData['miniature'] = $folderMiniaturePath;
 
         return view('admin.service.edit')->with('viewData', $viewData);
-
     }
 
     public function update(Request $request, string $id): RedirectResponse
@@ -124,27 +123,28 @@ class AdminServiceController extends Controller
 
         $inLanding = $request->input('inLanding');
         if ($inLanding === '1' && Service::where('in_landing', '1')->count() >= 3 && $service->getInLanding() === 0) {
-            return redirect()->back()->withErrors(['inLanding' => 'There can only be 3 events maximum in the landing page.']);
+            return redirect()
+                ->back()
+                ->withErrors(['inLanding' => 'There can only be 3 events maximum in the landing page.']);
         }
 
-        $service->setName($request->input('name'));
         $service->setDescriptionMiniature($request->input('descriptionMiniature'));
         $service->setDescription($request->input('description'));
         $service->setPrice($request->input('price'));
         $service->setInLanding($request->input('inLanding'));
 
         $serviceName = $service->getName();
-        $folderPath = 'services/'.$serviceName.'/images/';
-        $folderMiniaturePath = 'services/'.$serviceName.'/';
+        $folderPath = 'services/' . $serviceName . '/images/';
+        $folderMiniaturePath = 'services/' . $serviceName . '/';
 
         $previousImages = $service->getImages();
-        if (! is_array($previousImages)) {
+        if (!is_array($previousImages)) {
             $previousImages = [];
         }
 
         if ($request->hasFile('imageMiniature')) {
             if ($request->file('imageMiniature') !== null) {
-                Storage::disk('public')->delete($folderMiniaturePath.$service->getImageMiniature());
+                Storage::disk('public')->delete($folderMiniaturePath . $service->getImageMiniature());
             }
 
             $imageMiniatureName = new ImageLocalStorage();
@@ -156,9 +156,9 @@ class AdminServiceController extends Controller
         if ($request->has('deletedImages')) {
             $deletedImages = json_decode($request->input('deletedImages'));
 
-            if (! empty($deletedImages)) {
+            if (!empty($deletedImages)) {
                 foreach ($deletedImages as $deletedImage) {
-                    $imagePath = $folderPath.$deletedImage;
+                    $imagePath = $folderPath . $deletedImage;
 
                     if (($key = array_search($deletedImage, $previousImages)) !== false) {
                         unset($previousImages[$key]);
@@ -175,7 +175,7 @@ class AdminServiceController extends Controller
 
         if ($request->hasFile('images')) {
             $serviceName = $service->getName();
-            $folderPath = 'services/'.$serviceName.'/images/';
+            $folderPath = 'services/' . $serviceName . '/images/';
 
             $imageLocalStorage = new ImageLocalStorage();
             $imagesName = $imageLocalStorage->storeAndGetFileName($request, $folderPath, 'images');

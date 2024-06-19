@@ -81,6 +81,10 @@ Route::middleware('auth')
         });
     });
 
+Route::prefix('servicios')->group(function () {
+    Route::get('/', 'App\Http\Controllers\ServiceController@index')->name('home.service.index');
+    Route::get('/{id}', 'App\Http\Controllers\ServiceController@show')->name('home.service.show');
+});
 Route::fallback(function () {
     return redirect()->route('home.landing');
 });

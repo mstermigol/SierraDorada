@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md mt-0 mx-2 mx-sm-5">
+<nav id="navbarOther" class="navbar navbar-expand-md mt-0 px-2 px-sm-5">
     <div class="container-fluid">
         <a class="navbar-brand text-white" href="{{ route('home.landing') }}">
             <img src="{{ asset('images/logo-sierra-nb.png') }}" alt="Club Sierra Dorada" width="120">
@@ -17,7 +17,7 @@
                 </li>
                 <li class="navbar-item">
                     <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == '#') active @endif"
-                        href="{{ route('home.service.index') }}">Servicios</a>
+                        href="#">Servicios</a>
                 </li>
                 <li class="navbar-item">
                     <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == '#') active @endif"
