@@ -522,6 +522,22 @@ Allies section
     margin-left: 0;
 }
 
+
+
+.image-auto {
+    max-height: 450px;
+    object-fit: contain;
+    align-self: center;
+}
+
+.item-show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    width: 100%;
+}
+
 /*
 Footer section
 */
@@ -862,4 +878,15 @@ Images
     justify-content: space-between;
     align-items: center;
     position: relative;
+}
+
+.show-container {
+    background-color: var(--color-gold);
+    padding: 20px;
+    max-width: 700px;
+    border-radius: 15px;
+}
+
+.border-10 {
+    border-radius: 10px !important;
 }

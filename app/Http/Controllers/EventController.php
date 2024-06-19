@@ -16,4 +16,14 @@ class EventController extends Controller
 
         return view('home.event.index')->with('viewData', $viewData);
     }
+
+    public function show(string $id): View
+    {
+        $event = Event::find($id);
+
+        $viewData = [];
+        $viewData['event'] = $event;
+
+        return view('home.event.show')->with('viewData', $viewData);
+    }
 }

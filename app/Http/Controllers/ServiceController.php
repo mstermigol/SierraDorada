@@ -16,4 +16,14 @@ class ServiceController extends Controller
 
         return view('home.service.index')->with('viewData', $viewData);
     }
+
+    public function show(string $id): View
+    {
+        $service = Service::find($id);
+
+        $viewData = [];
+        $viewData['service'] = $service;
+
+        return view('home.service.show')->with('viewData', $viewData);
+    }
 }

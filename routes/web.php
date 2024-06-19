@@ -90,6 +90,7 @@ Route::prefix('eventos')->group(function () {
     Route::get('/', 'App\Http\Controllers\EventController@index')->name('home.event.index');
     Route::get('/{id}', 'App\Http\Controllers\EventController@show')->name('home.event.show');
 });
+
 Route::fallback(function () {
     return redirect()->route('home.landing');
 });
