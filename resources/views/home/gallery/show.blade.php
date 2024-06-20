@@ -4,7 +4,7 @@
   <div>
     <div class="my-vh-100">
       @include('subviews.navbarOther')
-      <div class="container-fluid p-0 mb-3 mt-3 mx-4 sections-arrow-title">
+      <div class="container-fluid p-0 mb-3 mt-4 mx-4 sections-arrow-title">
         <a href="{{ route('home.gallery.index') }}" class="btn btn-primary bg-gold b-gold mb-3">
           <i class="fas fa-arrow-left"></i>
         </a>

@@ -68,6 +68,7 @@ label {
     font-size: 45px;
     line-height: 0.8;
     letter-spacing: 8px;
+    text-transform: uppercase;
 }
 
 .my-section-subtitle {
@@ -122,6 +123,10 @@ label {
 .bg-red-wine:hover {
     background-color: #a61b34;
     color: white;
+}
+
+.bg-gold-static {
+    background-color: var(--color-gold);
 }
 
 .bg-gold {
