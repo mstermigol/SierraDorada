@@ -12,6 +12,8 @@ body {
     overflow-x: hidden;
 }
 
+
+
 .my-vh-100 {
     height:fit-content;
     min-height: 100vh;
@@ -891,6 +893,10 @@ Images
     border-radius: 10px !important;
 }
 
+.border-15 {
+    border-radius: 15px !important;
+}
+
 /*
     Galleries
 */
@@ -934,3 +940,27 @@ Images
         column-count: 1;
     }
 }
+
+/*
+    Horses
+*/
+
+.arch {
+    max-width: 250px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end    ;
+    align-items: center;
+    padding: 0px 10px 5px 10px;
+}
+
+.arch img {
+    margin-top: -15px;
+    width: 200px;
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+    clip-path: path('M 0,150 C 0,0 200,0 200,150 L 200,350 L 0,350 Z');
+}
+

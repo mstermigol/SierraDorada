@@ -54,7 +54,7 @@ class Teacher extends Model
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:5120',
         ]);
     }
 
@@ -65,7 +65,7 @@ class Teacher extends Model
         ]);
         if ($request->hasFile('image')) {
             $request->validate([
-                'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'image' => 'required|file|mimes:jpeg,png,jpg,gif,svg|max:5120',
             ]);
         }
     }

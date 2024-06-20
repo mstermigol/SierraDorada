@@ -124,7 +124,7 @@ class Service extends Model
 
         if ($request->has('imageMiniature')) {
             $request->validate([
-                'imageMiniature' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+                'imageMiniature' => 'required|image|mimes:jpeg,png,jpg,svg|max:5120',
             ]);
         }
 
@@ -137,7 +137,7 @@ class Service extends Model
         if ($request->has('images')) {
             $request->validate([
                 'images' => 'required|array',
-                'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+                'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:5120',
             ]);
         }
 

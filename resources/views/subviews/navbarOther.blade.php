@@ -25,7 +25,7 @@
         </li>
         <li class="navbar-item">
           <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == 'caballos') active @endif"
-            href="#4">Caballos</a>
+            href="{{ route('home.horse.index') }}">Caballos</a>
         </li>
         <li class="navbar-item">
           <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == 'galerias') active @endif"
