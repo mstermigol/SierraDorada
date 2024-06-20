@@ -87,7 +87,7 @@ class AdminHorseController extends Controller
         Horse::validateUpdate($request);
 
         if ($request->hasFile('image')) {
-            if ($request->file('image') !== null){
+            if ($request->file('image') !== null) {
                 Storage::delete('public/horses/'.$horse->image);
             }
 

@@ -49,9 +49,9 @@ class AdminServiceController extends Controller
         $serviceName = $request->input('name');
 
         $imageMiniatureName = new ImageLocalStorage();
-        $imageMiniatureName = $imageMiniatureName->storeAndGetFileName($request, 'services/' . $serviceName, 'imageMiniature');
+        $imageMiniatureName = $imageMiniatureName->storeAndGetFileName($request, 'services/'.$serviceName, 'imageMiniature');
         $imagesName = new ImageLocalStorage();
-        $imagesName = $imagesName->storeAndGetFileName($request, 'services/' . $serviceName . '/images', 'images');
+        $imagesName = $imagesName->storeAndGetFileName($request, 'services/'.$serviceName.'/images', 'images');
         $newService = new Service();
         $newService->setName($serviceName);
         $newService->setDescriptionMiniature($request->input('descriptionMiniature'));
@@ -71,7 +71,7 @@ class AdminServiceController extends Controller
         try {
             $service = Service::find($id);
             $serviceName = $service->getName();
-            $folderPath = 'services/' . $serviceName;
+            $folderPath = 'services/'.$serviceName;
 
             if (Storage::disk('public')->exists($folderPath)) {
                 Storage::disk('public')->deleteDirectory($folderPath);
@@ -89,8 +89,8 @@ class AdminServiceController extends Controller
     {
         $service = Service::findOrFail($id);
         $serviceName = $service->getName();
-        $folderPath = 'services/' . $serviceName . '/images/';
-        $folderMiniaturePath = 'services/' . $serviceName . '/';
+        $folderPath = 'services/'.$serviceName.'/images/';
+        $folderMiniaturePath = 'services/'.$serviceName.'/';
 
         $viewData = [];
         $viewData['service'] = $service;
@@ -104,8 +104,8 @@ class AdminServiceController extends Controller
     {
         $service = Service::findOrFail($id);
         $serviceName = $service->getName();
-        $folderPath = 'services/' . $serviceName . '/images/';
-        $folderMiniaturePath = 'services/' . $serviceName . '/';
+        $folderPath = 'services/'.$serviceName.'/images/';
+        $folderMiniaturePath = 'services/'.$serviceName.'/';
 
         $viewData = [];
         $viewData['service'] = $service;
@@ -134,17 +134,17 @@ class AdminServiceController extends Controller
         $service->setInLanding($request->input('inLanding'));
 
         $serviceName = $service->getName();
-        $folderPath = 'services/' . $serviceName . '/images/';
-        $folderMiniaturePath = 'services/' . $serviceName . '/';
+        $folderPath = 'services/'.$serviceName.'/images/';
+        $folderMiniaturePath = 'services/'.$serviceName.'/';
 
         $previousImages = $service->getImages();
-        if (!is_array($previousImages)) {
+        if (! is_array($previousImages)) {
             $previousImages = [];
         }
 
         if ($request->hasFile('imageMiniature')) {
             if ($request->file('imageMiniature') !== null) {
-                Storage::disk('public')->delete($folderMiniaturePath . $service->getImageMiniature());
+                Storage::disk('public')->delete($folderMiniaturePath.$service->getImageMiniature());
             }
 
             $imageMiniatureName = new ImageLocalStorage();
@@ -156,9 +156,9 @@ class AdminServiceController extends Controller
         if ($request->has('deletedImages')) {
             $deletedImages = json_decode($request->input('deletedImages'));
 
-            if (!empty($deletedImages)) {
+            if (! empty($deletedImages)) {
                 foreach ($deletedImages as $deletedImage) {
-                    $imagePath = $folderPath . $deletedImage;
+                    $imagePath = $folderPath.$deletedImage;
 
                     if (($key = array_search($deletedImage, $previousImages)) !== false) {
                         unset($previousImages[$key]);
@@ -175,7 +175,7 @@ class AdminServiceController extends Controller
 
         if ($request->hasFile('images')) {
             $serviceName = $service->getName();
-            $folderPath = 'services/' . $serviceName . '/images/';
+            $folderPath = 'services/'.$serviceName.'/images/';
 
             $imageLocalStorage = new ImageLocalStorage();
             $imagesName = $imageLocalStorage->storeAndGetFileName($request, $folderPath, 'images');
