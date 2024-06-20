@@ -29,7 +29,7 @@
         </li>
         <li class="navbar-item">
           <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == '#5') active @endif"
-            href="#5">Galerias</a>
+            href="{{ route('home.gallery.index') }}">Galerias</a>
         </li>
       </ul>
     </div>

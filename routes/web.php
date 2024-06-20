@@ -91,6 +91,11 @@ Route::prefix('eventos')->group(function () {
     Route::get('/{id}', 'App\Http\Controllers\EventController@show')->name('home.event.show');
 });
 
+Route::prefix('galerias')->group(function () {
+    Route::get('/', 'App\Http\Controllers\GalleryController@index')->name('home.gallery.index');
+    Route::get('/{id}', 'App\Http\Controllers\GalleryController@show')->name('home.gallery.show');
+});
+
 Route::fallback(function () {
     return redirect()->route('home.landing');
 });

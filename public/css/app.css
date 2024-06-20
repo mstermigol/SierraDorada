@@ -890,3 +890,47 @@ Images
 .border-10 {
     border-radius: 10px !important;
 }
+
+/*
+    Galleries
+*/
+
+.masonry-container {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 15px;
+    -moz-column-gap: 15px;
+    column-gap: 15px;
+}
+
+.masonry-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.masonry-item img {
+    display: block;
+    width: 100%;
+}
+
+.masonry-item span {
+    font-family: sans-serif;
+    display: block;
+    padding: 10px;
+}
+
+@media (max-width: 1200px) {
+    .masonry-container {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 800px) {
+    .masonry-container {
+        column-count: 1;
+    }
+}
