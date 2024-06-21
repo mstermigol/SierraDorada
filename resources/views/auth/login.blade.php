@@ -10,6 +10,7 @@
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="shortcut icon" href="{{ asset('images/logo-sierra-pag.png') }}" type="image/x-icon">
   <title>Admin -> Club Sierra Dorada</title>
 </head>
 

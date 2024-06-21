@@ -13,7 +13,7 @@
       <ul class="navbar-nav">
         <li class="navbar-item">
           <a class="nav-link mx-lg-4 mx-md-3 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == '#') active @endif"
-            href="#">Nosotros</a>
+            href="{{ route('home.about.index') }}">Nosotros</a>
         </li>
         <li class="navbar-item">
           <a class="nav-link mx-lg-4 mx-md-2 mx-sm-1 my-subtitle-letter @if (Request::segment(1) == '#') active @endif"

@@ -969,3 +969,29 @@ Images
     clip-path: path('M 0,150 C 0,0 200,0 200,150 L 200,350 L 0,350 Z');
 }
 
+/*
+    About
+*/
+
+.image-container-about {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Allow vertical stacking of image and caption */
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image {
+    width: auto;
+    max-height: 450px; /* Constrain the image height */
+    object-fit: contain;
+    object-position: top;
+}
+
+.image-caption {
+    margin-top: 10px; /* Space between image and caption */
+    font-size: 1rem; /* Adjust the font size as needed */
+    color: #000; /* Adjust the text color as needed */
+    text-align: center; /* Center the text */
+}
+

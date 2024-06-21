@@ -98,6 +98,8 @@ Route::prefix('galerias')->group(function () {
 
 Route::get('/caballos', 'App\Http\Controllers\HorseController@index')->name('home.horse.index');
 
+Route::get('/nosotros', 'App\Http\Controllers\AboutController@index')->name('home.about.index');
+
 Route::fallback(function () {
     return redirect()->route('home.landing');
 });
