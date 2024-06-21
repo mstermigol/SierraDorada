@@ -976,22 +976,32 @@ Images
 .image-container-about {
     position: relative;
     display: flex;
-    flex-direction: column; /* Allow vertical stacking of image and caption */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .about-image {
     width: auto;
-    max-height: 450px; /* Constrain the image height */
+    max-height: 450px;
     object-fit: contain;
     object-position: top;
 }
 
 .image-caption {
-    margin-top: 10px; /* Space between image and caption */
-    font-size: 1rem; /* Adjust the font size as needed */
-    color: #000; /* Adjust the text color as needed */
-    text-align: center; /* Center the text */
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
 }
 
+
+
+
+.empty-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #000;
+}

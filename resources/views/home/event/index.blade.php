@@ -18,18 +18,24 @@
 
     <!-- Services index -->
     <div class="row g-4 mb-4">
-      @foreach ($viewData['events'] as $event)
-        <div class="col-md-6 col-lg-4">
-          <a href="{{ route('home.event.show', ['id' => $event->getId()]) }}" class="card text-decoration-none h-100 my-service-card mx-auto">
-            <img src="{{ asset('storage/' . 'events/' . $event->getTitle() . '/' . $event->getImageMiniature()) }}"
-              class="card-img-top my-service-image" alt="Card Image">
-            <div class="card-body my-service-card-body">
-              <h4 class="card-title my-subtitle-letter bold color-white text-center">{{ $event->getTitle() }}</h4>
-              <p class="card-text px-3 text-center">{{ $event->getDescriptionMiniature() }}</p>
-            </div>
-          </a>
+      @if (count($viewData['events']) > 0)
+        @foreach ($viewData['events'] as $event)
+          <div class="col-md-6 col-lg-4">
+            <a href="{{ route('home.event.show', ['id' => $event->getId()]) }}" class="card text-decoration-none h-100 my-service-card mx-auto">
+              <img src="{{ asset('storage/' . 'events/' . $event->getTitle() . '/' . $event->getImageMiniature()) }}"
+                class="card-img-top my-service-image" alt="Card Image">
+              <div class="card-body my-service-card-body">
+                <h4 class="card-title my-subtitle-letter bold color-white text-center">{{ $event->getTitle() }}</h4>
+                <p class="card-text px-3 text-center">{{ $event->getDescriptionMiniature() }}</p>
+              </div>
+            </a>
+          </div>
+        @endforeach
+      @else
+        <div class="empty-message">
+          <p class="text-center color-black">No hay eventos por el momento. Revisa de nuevo más tarde.</p>
         </div>
-      @endforeach
+      @endif
     </div>
   </div>
 
