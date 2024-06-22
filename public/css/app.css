@@ -988,6 +988,17 @@ Images
     flex-wrap: nowrap;
 }
 
+.yellow-line {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    border-radius: 15px;
+    background-color: var(--color-gold);
+}
+
 @media screen and (max-width: 840px) {
     .my-row {
         flex-direction: column;
@@ -996,6 +1007,10 @@ Images
 
     .reverse {
         flex-direction: column-reverse;
+    }
+
+    .yellow-line {
+        display: none;
     }
 
 }
