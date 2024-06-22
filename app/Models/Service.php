@@ -82,6 +82,7 @@ class Service extends Model
     {
         $price = $this->attributes['price'];
         $formattedPrice = number_format($price, 0, '.', ',');
+
         return $formattedPrice;
     }
 
