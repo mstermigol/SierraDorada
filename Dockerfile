@@ -18,6 +18,7 @@ RUN chown -R www-data:www-data storage
 RUN chmod -R 777 storage
 RUN chown -R www-data:www-data database
 RUN chmod -R 777 database
+RUN chmod -R 777 database/database.sqlite
 RUN php artisan migrate --seed --force
 RUN php artisan storage:link
 RUN a2enmod rewrite
