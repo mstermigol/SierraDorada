@@ -973,6 +973,33 @@ Images
     About
 */
 
+.bg-gold-light {
+    background-color: #fbf8ee;
+}
+
+.my-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15vw;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    flex-wrap: nowrap;
+}
+
+@media screen and (max-width: 840px) {
+    .my-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .reverse {
+        flex-direction: column-reverse;
+    }
+
+}
+
 .image-container-about {
     position: relative;
     display: flex;
@@ -986,6 +1013,7 @@ Images
     max-height: 450px;
     object-fit: contain;
     object-position: top;
+    margin: 0px 15px;
 }
 
 .image-caption {
@@ -993,6 +1021,32 @@ Images
     font-size: 1rem;
     color: #000;
     text-align: center;
+}
+
+.about-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-text {
+    max-width: 360px;
+    border: 2px solid var(--color-gold);
+    padding: 15px 15px;
+    border-radius: 10px;
+
+}
+
+.about-title {
+    padding: 10px;
+    background-color: var(--color-gold);
+    border-radius: 15px;
+}
+
+.justify {
+    text-align: justify;
 }
 
 
