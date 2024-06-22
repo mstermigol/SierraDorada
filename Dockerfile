@@ -15,7 +15,7 @@ RUN composer install \
 
 RUN php artisan key:generate
 RUN chown -R www-data:www-data storage
-RUN chmod -R 755 storage
+RUN chmod -R 777 storage
 RUN php artisan storage:link
 RUN mkdir -p database && touch database/database.sqlite
 RUN chown -R www-data:www-data database
