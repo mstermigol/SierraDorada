@@ -19,7 +19,7 @@ RUN chmod -R 777 storage
 RUN php artisan storage:link
 RUN mkdir -p database && touch database/database.sqlite
 RUN chown -R www-data:www-data database
-RUN chmod -R 775 database && chmod 664 database/database.sqlite
+RUN chmod -R 777 database && chmod 777 database/database.sqlite
 RUN php artisan migrate --seed --force
 RUN chmod 666 database/database.sqlite
 RUN a2enmod rewrite
