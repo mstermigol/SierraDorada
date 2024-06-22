@@ -78,9 +78,11 @@ class Service extends Model
         $this->attributes['images'] = json_encode($image);
     }
 
-    public function getPrice(): int
+    public function getPrice(): string
     {
-        return $this->attributes['price'];
+        $price = $this->attributes['price'];
+        $formattedPrice = number_format($price, 0, '.', ',');
+        return $formattedPrice;
     }
 
     public function setPrice(int $price): void
