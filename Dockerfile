@@ -17,10 +17,5 @@ RUN php artisan key:generate
 RUN chown -R www-data:www-data storage
 RUN chmod -R 777 storage
 RUN php artisan storage:link
-RUN php artisan migrate --seed --force
-RUN chown -R www-data:www-data storage/app
-RUN chmod -R 777 storage/app/db.sqlite
 RUN a2enmod rewrite
 RUN sed -i 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
-RUN service apache2 restart
-
