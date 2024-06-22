@@ -16,9 +16,9 @@
             Somos un club de chalanería para adultos y niños ubicado en el municipio
             de La Estrella. Nos dedicamos a fomentar el amor y respeto por los caballos.
         </P>
-        <button class="btn btn-golden mt-3 mb-5">
+        <a class="btn btn-golden mt-3 mb-5" href="https://wa.me/3017355436?text=%C2%A1Hola%21%20Estoy%20interesad%40%20en%20unirme%20a%20la%20familia%20Sierra%20Dorada">
             <h2 class="text-white m-0 p-0">Inscríbete</h2>
-        </button>
+        </a>
 
     </div>
 </section>

@@ -42,7 +42,7 @@
       <!-- Whatsapp button -->
       @guest
         <div class="fab">
-          <a href="#" target="_blank">
+          <a href="https://wa.me/3017355436?text=%C2%A1Hola%21%20Estoy%20interesad%40%20en%20unirme%20a%20la%20familia%20Sierra%20Dorada" target="_blank">
             <img src="{{ url('images/whatsapp-fixed.png') }}" alt="WhatsApp Logo">
           </a>
         </div>

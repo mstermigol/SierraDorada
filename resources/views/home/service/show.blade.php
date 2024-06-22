@@ -21,15 +21,18 @@
           <p><strong>Precio:</strong> ${{ $viewData['service']->getPrice() }} mensuales</p>
           <!-- Button -->
           <div class="mt-2">
-            <a href="#" class="btn btn-wine border-10">
-              <p class="text-white m-0 p-0">Inscribete</p>
+            <a href="https://wa.me/3017355436?text=%C2%A1Hola%21%20Estoy%20interesad%40%20en%20el%20servicio%20de%20{{ urlencode($viewData['service']->getName()) }}"
+              class="btn btn-wine border-10">
+              <p class="text-white m-0 p-0">Inscríbete</p>
             </a>
           </div>
         </div>
         <!-- Carousel -->
         <div class="owl-carousel owl-theme">
           @foreach ($viewData['service']->getImages() as $image)
-            <div class="item-show"><img src="{{ asset('storage/services/' . $viewData['service']->getName().'/images/'.$image) }}" class="image-auto"></div>
+            <div class="item-show"><img
+                src="{{ asset('storage/services/' . $viewData['service']->getName() . '/images/' . $image) }}"
+                class="image-auto"></div>
           @endforeach
         </div>
 
