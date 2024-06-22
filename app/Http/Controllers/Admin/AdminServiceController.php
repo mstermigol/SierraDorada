@@ -41,7 +41,9 @@ class AdminServiceController extends Controller
 
         $inLanding = $request->input('inLanding');
         if ($inLanding === '1' && Service::where('in_landing', '1')->count() >= 3) {
-            return redirect()->back()->withErrors(['inLanding' => 'There can only be 3 events maximum in the landing page.']);
+            return redirect()
+                ->back()
+                ->withErrors(['inLanding' => 'There can only be 3 events maximum in the landing page.']);
         }
 
         $serviceName = $request->input('name');
@@ -85,7 +87,6 @@ class AdminServiceController extends Controller
 
     public function show(string $id): View
     {
-
         $service = Service::findOrFail($id);
         $serviceName = $service->getName();
         $folderPath = 'services/'.$serviceName.'/images/';
@@ -101,7 +102,6 @@ class AdminServiceController extends Controller
 
     public function edit(string $id): View
     {
-
         $service = Service::findOrFail($id);
         $serviceName = $service->getName();
         $folderPath = 'services/'.$serviceName.'/images/';
@@ -113,7 +113,6 @@ class AdminServiceController extends Controller
         $viewData['miniature'] = $folderMiniaturePath;
 
         return view('admin.service.edit')->with('viewData', $viewData);
-
     }
 
     public function update(Request $request, string $id): RedirectResponse
@@ -124,10 +123,11 @@ class AdminServiceController extends Controller
 
         $inLanding = $request->input('inLanding');
         if ($inLanding === '1' && Service::where('in_landing', '1')->count() >= 3 && $service->getInLanding() === 0) {
-            return redirect()->back()->withErrors(['inLanding' => 'There can only be 3 events maximum in the landing page.']);
+            return redirect()
+                ->back()
+                ->withErrors(['inLanding' => 'There can only be 3 events maximum in the landing page.']);
         }
 
-        $service->setName($request->input('name'));
         $service->setDescriptionMiniature($request->input('descriptionMiniature'));
         $service->setDescription($request->input('description'));
         $service->setPrice($request->input('price'));

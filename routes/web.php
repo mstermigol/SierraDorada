@@ -81,6 +81,25 @@ Route::middleware('auth')
         });
     });
 
+Route::prefix('servicios')->group(function () {
+    Route::get('/', 'App\Http\Controllers\ServiceController@index')->name('home.service.index');
+    Route::get('/{id}', 'App\Http\Controllers\ServiceController@show')->name('home.service.show');
+});
+
+Route::prefix('eventos')->group(function () {
+    Route::get('/', 'App\Http\Controllers\EventController@index')->name('home.event.index');
+    Route::get('/{id}', 'App\Http\Controllers\EventController@show')->name('home.event.show');
+});
+
+Route::prefix('galerias')->group(function () {
+    Route::get('/', 'App\Http\Controllers\GalleryController@index')->name('home.gallery.index');
+    Route::get('/{id}', 'App\Http\Controllers\GalleryController@show')->name('home.gallery.show');
+});
+
+Route::get('/caballos', 'App\Http\Controllers\HorseController@index')->name('home.horse.index');
+
+Route::get('/nosotros', 'App\Http\Controllers\AboutController@index')->name('home.about.index');
+
 Route::fallback(function () {
     return redirect()->route('home.landing');
 });

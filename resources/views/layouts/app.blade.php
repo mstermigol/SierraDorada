@@ -20,6 +20,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
         integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="shortcut icon" href="{{ asset('images/logo-sierra-pag.png') }}" type="image/x-icon">
       <title>@yield('title', 'Club Sierra Dorada')</title>
     </head>
 
@@ -36,12 +37,23 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
       <!-- Carousel custom JS -->
-      <script src="{{ asset('/js/carousel.js') }}"></script>
       @yield('content')
 
-      <footer>
+      <!-- Whatsapp button -->
+      @guest
+        <div class="fab">
+          <a href="https://wa.me/3017355436?text=%C2%A1Hola%21%20Estoy%20interesad%40%20en%20unirme%20a%20la%20familia%20Sierra%20Dorada" target="_blank">
+            <img src="{{ url('images/whatsapp-fixed.png') }}" alt="WhatsApp Logo">
+          </a>
+        </div>
+      @else
+        <div class="fab">
+          <a href="{{ route('admin.user.index') }}">
+            <img src="{{ url('images/admin.png') }}" alt="Admin">
+          </a>
+        </div>
 
-      </footer>
+      @endguest
 
     </body>
 

@@ -102,7 +102,7 @@ class Event extends Model
 
         if ($request->hasFile('imageMiniature')) {
             $request->validate([
-                'imageMiniature' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+                'imageMiniature' => 'required|image|mimes:jpeg,png,jpg,svg|max:5120',
             ]);
         }
 
@@ -115,7 +115,7 @@ class Event extends Model
         if ($request->hasFile('images')) {
             $request->validate([
                 'images' => 'required|array',
-                'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+                'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:5120',
             ]);
         }
 

@@ -94,7 +94,7 @@ class AdminTestimonyController extends Controller
         $testimony->setTestimony($request->input('testimony'));
 
         if ($request->hasFile('image')) {
-            if ($testimony->image) {
+            if ($request->file('image') !== null) {
                 Storage::delete('public/testimonies/'.$testimony->image);
             }
 

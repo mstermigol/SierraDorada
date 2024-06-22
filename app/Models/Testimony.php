@@ -65,7 +65,7 @@ class Testimony extends Model
         $request->validate([
             'name' => 'required|string|max:255',
             'testimony' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:5120',
         ]);
     }
 
@@ -78,7 +78,7 @@ class Testimony extends Model
 
         if ($request->hasFile('image')) {
             $request->validate([
-                'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+                'image' => 'required|image|mimes:jpeg,png,jpg,svg|max:5120',
             ]);
         }
     }

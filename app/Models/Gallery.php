@@ -58,7 +58,7 @@ class Gallery extends Model
         if ($request->hasFile('images')) {
             $request->validate([
                 'images' => 'required|array',
-                'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+                'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:5120',
             ]);
         }
     }
@@ -74,7 +74,7 @@ class Gallery extends Model
     {
         $request->validate([
             'images' => 'required|array',
-            'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:5120',
         ]);
     }
 }

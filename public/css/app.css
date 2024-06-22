@@ -12,6 +12,14 @@ body {
     overflow-x: hidden;
 }
 
+
+
+.my-vh-100 {
+    height:fit-content;
+    min-height: 100vh;
+    position: relative !important;
+}
+
 td {
     vertical-align: middle;
 }
@@ -60,6 +68,7 @@ label {
     font-size: 45px;
     line-height: 0.8;
     letter-spacing: 8px;
+    text-transform: uppercase;
 }
 
 .my-section-subtitle {
@@ -114,6 +123,10 @@ label {
 .bg-red-wine:hover {
     background-color: #a61b34;
     color: white;
+}
+
+.bg-gold-static {
+    background-color: var(--color-gold);
 }
 
 .bg-gold {
@@ -516,6 +529,22 @@ Allies section
     margin-left: 0;
 }
 
+
+
+.image-auto {
+    max-height: 450px;
+    object-fit: contain;
+    align-self: center;
+}
+
+.item-show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    width: 100%;
+}
+
 /*
 Footer section
 */
@@ -593,11 +622,12 @@ Floating whatsapp button
 .fab {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 25px;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }
 
 .fab img {
@@ -837,4 +867,210 @@ Images
 
 .img-gallery {
     object-fit: contain !important;
+}
+
+/*
+    Services
+*/
+
+#navbarOther {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("/images/navbar.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.sections-arrow-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.show-container {
+    background-color: var(--color-gold);
+    padding: 20px;
+    max-width: 700px;
+    border-radius: 15px;
+}
+
+.border-10 {
+    border-radius: 10px !important;
+}
+
+.border-15 {
+    border-radius: 15px !important;
+}
+
+/*
+    Galleries
+*/
+
+.masonry-container {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 15px;
+    -moz-column-gap: 15px;
+    column-gap: 15px;
+}
+
+.masonry-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.masonry-item img {
+    display: block;
+    width: 100%;
+}
+
+.masonry-item span {
+    font-family: sans-serif;
+    display: block;
+    padding: 10px;
+}
+
+@media (max-width: 1200px) {
+    .masonry-container {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 800px) {
+    .masonry-container {
+        column-count: 1;
+    }
+}
+
+/*
+    Horses
+*/
+
+.arch {
+    max-width: 250px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end    ;
+    align-items: center;
+    padding: 0px 10px 5px 10px;
+}
+
+.arch img {
+    margin-top: -15px;
+    width: 200px;
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+    clip-path: path('M 0,150 C 0,0 200,0 200,150 L 200,350 L 0,350 Z');
+}
+
+/*
+    About
+*/
+
+.bg-gold-light {
+    background-color: #fbf8ee;
+}
+
+.my-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15vw;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    flex-wrap: nowrap;
+}
+
+.yellow-line {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    border-radius: 15px;
+    background-color: var(--color-gold);
+}
+
+@media screen and (max-width: 840px) {
+    .my-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .reverse {
+        flex-direction: column-reverse;
+    }
+
+    .yellow-line {
+        display: none;
+    }
+
+}
+
+.image-container-about {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-image {
+    width: auto;
+    max-height: 450px;
+    object-fit: contain;
+    object-position: top;
+    margin: 0px 15px;
+}
+
+.image-caption {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #000;
+    text-align: center;
+}
+
+.about-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-text {
+    max-width: 360px;
+    border: 2px solid var(--color-gold);
+    padding: 15px 15px;
+    border-radius: 10px;
+
+}
+
+.about-title {
+    padding: 10px;
+    background-color: var(--color-gold);
+    border-radius: 15px;
+}
+
+.justify {
+    text-align: justify;
+}
+
+
+
+
+.empty-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #000;
 }

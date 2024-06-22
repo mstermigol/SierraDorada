@@ -87,7 +87,7 @@ class AdminTeacherController extends Controller
         $teacher->setName($request->input('name'));
 
         if ($request->hasFile('image')) {
-            if ($teacher->image) {
+            if ($request->file('image') !== null) {
                 Storage::delete('public/teachers/'.$teacher->image);
             }
 
