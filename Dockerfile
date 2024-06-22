@@ -16,6 +16,7 @@ RUN composer install \
 RUN php artisan key:generate
 RUN chown -R www-data:www-data storage
 RUN chmod -R 777 storage
+RUN mkdir -p storage/app && touch storage/app/db.sqlite
 RUN php artisan migrate --seed --force
 RUN chown -R www-data:www-data storage/app
 RUN chmod -R 777 storage/app/db.sqlite
