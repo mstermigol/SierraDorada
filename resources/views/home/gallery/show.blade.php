@@ -15,10 +15,10 @@
         @if (!empty($viewData['gallery']->getImages()))
           <div class="masonry-container">
             @foreach ($viewData['gallery']->getImages() as $image)
-              <div class="masonry-item">
+              <a class="masonry-item" target="_blank" href="{{ asset('storage/galleries/' . $viewData['gallery']->getName() . '/' . $image) }}">
                 <img src="{{ asset('storage/galleries/' . $viewData['gallery']->getName() . '/' . $image) }}" loading="lazy"
                   alt="Image">
-              </div>
+              </a>
             @endforeach
           </div>
         @else
