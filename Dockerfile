@@ -17,6 +17,9 @@ RUN php artisan key:generate
 RUN chown -R www-data:www-data storage
 RUN chmod -R 777 storage
 RUN php artisan storage:link
+RUN php artisan route:cache
+RUN php artisan view:cache
+RUN php artisan config:cache
 RUN mkdir -p database && touch database/database.sqlite
 RUN chown -R www-data:www-data database
 RUN chmod -R 775 database && chmod 664 database/database.sqlite

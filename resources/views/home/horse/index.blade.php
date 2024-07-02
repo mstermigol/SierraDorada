@@ -17,7 +17,7 @@
             @foreach ($viewData['horses'] as $horse)
               <div class="col-md-4 col-lg-3">
                 <div class="arch border-gold border-15 mx-auto">
-                  <img src="{{ asset('storage/horses/' . $horse->getImage()) }}" alt="{{ $horse->getName() }}">
+                  <img src="{{ asset('storage/horses/' . $horse->getImage()) }}" alt="{{ $horse->getName() }}" loading="lazy">
                   <p class="d-block color-white bg-gold-static border-10 text-center p-1 mt-3 mb-2">{{ $horse->getName() }}</p>
                   <p class="color-black m-0 text-center">{{ $horse->getDescription() }}</p>
                 </div>
