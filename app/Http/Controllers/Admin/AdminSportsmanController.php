@@ -119,5 +119,4 @@ class AdminSportsmanController extends Controller
             return redirect()->route('admin.sportsman.index');
         }
     }
-
 }

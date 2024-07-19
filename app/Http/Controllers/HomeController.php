@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Models\Sportsman;
 use App\Models\Teacher;
 use App\Models\Testimony;
-use App\Models\Sportsman;
-
 use Illuminate\View\View;
 
 class HomeController extends Controller
