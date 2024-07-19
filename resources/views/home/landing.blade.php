@@ -15,10 +15,15 @@
   <!-- Testimonies section -->
   @include('subviews.landing.testimonies')
 
+  <!-- Sportsman section -->
+  @include('subviews.landing.sportsman')
+
   <!-- Allies section -->
   @include('subviews.landing.allies')
 
   <!-- Footer section -->
   @include('subviews.footer')
+
+
 
 @endsection

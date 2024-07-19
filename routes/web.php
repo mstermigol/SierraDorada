@@ -79,6 +79,16 @@ Route::middleware('auth')
             Route::patch('/actualizar/{id}', 'App\Http\Controllers\Admin\AdminServiceController@update')->name('admin.service.update');
             Route::get('/{id}', 'App\Http\Controllers\Admin\AdminServiceController@show')->name('admin.service.show');
         });
+
+        Route::prefix('deportista')->group(function () {
+            Route::get('/', 'App\Http\Controllers\Admin\AdminSportsmanController@index')->name('admin.sportsman.index');
+            Route::get('/crear', 'App\Http\Controllers\Admin\AdminSportsmanController@create')->name('admin.sportsman.create');
+            Route::post('/guardar', 'App\Http\Controllers\Admin\AdminSportsmanController@save')->name('admin.sportsman.save');
+            Route::delete('/eliminar/{id}', 'App\Http\Controllers\Admin\AdminSportsmanController@delete')->name('admin.sportsman.delete');
+            Route::get('/editar/{id}', 'App\Http\Controllers\Admin\AdminSportsmanController@edit')->name('admin.sportsman.edit');
+            Route::patch('/actualizar/{id}', 'App\Http\Controllers\Admin\AdminSportsmanController@update')->name('admin.sportsman.update');
+            Route::get('/{id}', 'App\Http\Controllers\Admin\AdminSportsmanController@show')->name('admin.sportsman.show');
+        });
     });
 
 Route::prefix('servicios')->group(function () {

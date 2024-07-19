@@ -19,7 +19,7 @@ class ServiceController extends Controller
 
     public function show(string $id): View
     {
-        $service = Service::find($id);
+        $service = Service::findOrFail($id);
 
         $viewData = [];
         $viewData['service'] = $service;

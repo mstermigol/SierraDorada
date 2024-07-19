@@ -19,7 +19,7 @@ class GalleryController extends Controller
 
     public function show(string $id): View
     {
-        $gallery = Gallery::find($id);
+        $gallery = Gallery::findOrFail($id);
 
         $viewData = [];
         $viewData['gallery'] = $gallery;

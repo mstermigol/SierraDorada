@@ -19,7 +19,7 @@ class EventController extends Controller
 
     public function show(string $id): View
     {
-        $event = Event::find($id);
+        $event = Event::findOrFail($id);
 
         $viewData = [];
         $viewData['event'] = $event;

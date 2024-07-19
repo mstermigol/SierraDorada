@@ -69,7 +69,7 @@ class AdminServiceController extends Controller
     public function delete(string $id): RedirectResponse
     {
         try {
-            $service = Service::find($id);
+            $service = Service::findOrFail($id);
             $serviceName = $service->getName();
             $folderPath = 'services/'.$serviceName;
 

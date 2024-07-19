@@ -9,7 +9,8 @@
         <div class="row g-4">
           @foreach ($viewData['services'] as $service)
             <div class="col-md">
-              <a href="{{ route('home.service.show', ['id' => $service->getId()]) }}" class="card text-decoration-none h-100 my-service-card mx-auto">
+              <a href="{{ route('home.service.show', ['id' => $service->getId()]) }}"
+                class="card text-decoration-none h-100 my-service-card mx-auto">
                 <img
                   src="{{ asset('storage/' . 'services/' . $service->getName() . '/' . $service->getImageMiniature()) }}"
                   class="card-img-top my-service-image" alt="Card Image">
@@ -24,7 +25,7 @@
 
         <!-- Button -->
         <div class="d-flex justify-content-center mt-4">
-          <a href="{{ route('home.service.index')}}" class="btn btn-wine">
+          <a href="{{ route('home.service.index') }}" class="btn btn-wine">
             <h2 class="text-white m-0 p-0">Ver más</h2>
           </a>
         </div>
