@@ -4,6 +4,8 @@
     <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description"
+        content="Somos un club de chalanería para adultos y niños ubicado en el municipio de La Estrella. Nos dedicamos a fomentar el amor y respeto por los caballos." />
       <!-- Bootstrap stylesheet -->
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
       <!-- Main Stye sheet -->
@@ -20,7 +22,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
         integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="shortcut icon" href="{{ asset('images/logo-sierra-pag.png') }}" type="image/x-icon">
+      <link rel="shortcut icon" href="{{ asset('images/logo-sierra-pag.png') }}" type="image/x-icon">
       <title>@yield('title', 'Club Sierra Dorada')</title>
     </head>
 
@@ -42,7 +44,8 @@
       <!-- Whatsapp button -->
       @guest
         <div class="fab">
-          <a href="https://wa.me/3017355436?text=%C2%A1Hola%21%20Estoy%20interesad%40%20en%20unirme%20a%20la%20familia%20Sierra%20Dorada" target="_blank">
+          <a href="https://wa.me/3017355436?text=%C2%A1Hola%21%20Estoy%20interesad%40%20en%20unirme%20a%20la%20familia%20Sierra%20Dorada"
+            target="_blank">
             <img src="{{ url('images/whatsapp-fixed.png') }}" alt="WhatsApp Logo">
           </a>
         </div>
