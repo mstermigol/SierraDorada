@@ -9,7 +9,7 @@
         <div class="row g-4">
           @foreach ($viewData['services'] as $service)
             <div class="col-md">
-              <a href="{{ route('home.service.show', ['id' => $service->getId()]) }}"
+              <a href="{{ route('home.service.show', ['slug' => $service->getSlug()]) }}"
                 class="card text-decoration-none h-100 my-service-card mx-auto">
                 <img
                   src="{{ asset('storage/' . 'services/' . $service->getName() . '/' . $service->getImageMiniature()) }}"

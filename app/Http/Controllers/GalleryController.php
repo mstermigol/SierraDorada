@@ -17,9 +17,9 @@ class GalleryController extends Controller
         return view('home.gallery.index')->with('viewData', $viewData);
     }
 
-    public function show(string $id): View
+    public function show(string $slug): View
     {
-        $gallery = Gallery::findOrFail($id);
+        $gallery = Gallery::where('slug', $slug)->firstOrFail();
 
         $viewData = [];
         $viewData['gallery'] = $gallery;

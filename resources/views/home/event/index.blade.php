@@ -21,7 +21,7 @@
       @if (count($viewData['events']) > 0)
         @foreach ($viewData['events'] as $event)
           <div class="col-md-6 col-lg-4">
-            <a href="{{ route('home.event.show', ['id' => $event->getId()]) }}" class="card text-decoration-none h-100 my-service-card mx-auto">
+            <a href="{{ route('home.event.show', ['slug' => $event->getSlug()]) }}" class="card text-decoration-none h-100 my-service-card mx-auto">
               <img src="{{ asset('storage/' . 'events/' . $event->getTitle() . '/' . $event->getImageMiniature()) }}"
                 class="card-img-top my-service-image" alt="Card Image">
               <div class="card-body my-service-card-body">

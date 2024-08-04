@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Event extends Model
 {
@@ -10,6 +11,7 @@ class Event extends Model
      * EVENT ATTRIBUTES
      * $this->attributes['id'] - string - contains the event primary key (id)
      * $this->attributes['title'] - string - contains the title of the event
+     * $this->attributes['slug'] - string - contains the slug of the event
      * $this->attributes['description_miniature'] - string - contains the description of the event miniature
      * $this->attributes['image_miniature'] - string - contains the image of the event miniature
      * $this->attributes['description'] - string - contains the description of the event
@@ -34,6 +36,16 @@ class Event extends Model
     public function setTitle(string $title): void
     {
         $this->attributes['title'] = $title;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->attributes['slug'];
+    }
+
+    public function setSlug(string $slug): void
+    {
+        $this->attributes['slug'] = Str::slug($slug);
     }
 
     public function getDescriptionMiniature(): string

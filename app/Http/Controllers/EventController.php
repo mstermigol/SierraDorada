@@ -17,9 +17,9 @@ class EventController extends Controller
         return view('home.event.index')->with('viewData', $viewData);
     }
 
-    public function show(string $id): View
+    public function show(string $slug): View
     {
-        $event = Event::findOrFail($id);
+        $event = Event::where('slug', $slug)->firstOrFail();
 
         $viewData = [];
         $viewData['event'] = $event;

@@ -54,6 +54,7 @@ class AdminServiceController extends Controller
         $imagesName = $imagesName->storeAndGetFileName($request, 'services/'.$serviceName.'/images', 'images');
         $newService = new Service();
         $newService->setName($serviceName);
+        $newService->setSlug($serviceName);
         $newService->setDescriptionMiniature($request->input('descriptionMiniature'));
         $newService->setImageMiniature($imageMiniatureName);
         $newService->setDescription($request->input('description'));
@@ -195,6 +196,7 @@ class AdminServiceController extends Controller
                 Storage::disk('public')->move($folderPath, $newFolderPath);
             }
             $service->setName($request->input('name'));
+            $service->setSlug($request->input('name'));
         }
 
         $service->save();

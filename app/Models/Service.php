@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Service extends Model
 {
@@ -10,6 +11,7 @@ class Service extends Model
      * SERVICE ATTRIBUTES
      * $this->attributes['id'] - string - contains the service primary key (id)
      * $this->attributes['name'] - string - contains the name of the service
+     * $this->attributes['slug'] - string - contains the slug of the service
      * $this->attributes['description_miniature'] - string - contains the description of the service miniature
      * $this->attributes['image_miniature'] - string - contains the image of the service miniature
      * $this->attributes['description'] - string - contains the description of the service
@@ -36,6 +38,16 @@ class Service extends Model
     public function setName(string $name): void
     {
         $this->attributes['name'] = $name;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->attributes['slug'];
+    }
+
+    public function setSlug(string $slug): void
+    {
+        $this->attributes['slug'] = Str::slug($slug);
     }
 
     public function getDescriptionMiniature(): string

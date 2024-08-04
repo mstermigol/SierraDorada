@@ -48,6 +48,7 @@ class AdminEventController extends Controller
         $imagesName = $imagesName->storeAndGetFileName($request, 'events/'.$eventTitle.'/images', 'images');
         $newEvent = new Event();
         $newEvent->setTitle($eventTitle);
+        $newEvent->setSlug($eventTitle);
         $newEvent->setDescriptionMiniature($request->input('descriptionMiniature'));
         $newEvent->setImageMiniature($imageMiniatureName);
         $newEvent->setDescription($request->input('description'));
@@ -178,6 +179,7 @@ class AdminEventController extends Controller
                 Storage::disk('public')->move($folderPath, $newFolderPath);
             }
             $event->setTitle($request->input('title'));
+            $event->setSlug($request->input('title'));
         }
 
         $event->save();

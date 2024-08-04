@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class Gallery extends Model
@@ -11,6 +12,7 @@ class Gallery extends Model
      * GALLERY ATTRIBUTES
      * $this->attributes['id'] - string - contains the gallery primary key (id)*
      * $this->attributes['name'] - string - contains the name of the gallery
+     * $this->attributes['slug'] - string - contains the slug of the gallery
      * $this->attributes['images'] - string[] - contains the images of the gallery
      * $this->attributes['created_at'] - string - contains the date of gallery creation
      * $this->attributes['updated_at'] - string - contains when the gallery was updated
@@ -28,6 +30,16 @@ class Gallery extends Model
     public function setName(string $name): void
     {
         $this->attributes['name'] = $name;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->attributes['slug'];
+    }
+
+    public function setSlug(string $slug): void
+    {
+        $this->attributes['slug'] = Str::slug($slug);
     }
 
     public function getImages(): array

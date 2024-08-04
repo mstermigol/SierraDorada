@@ -17,9 +17,9 @@ class ServiceController extends Controller
         return view('home.service.index')->with('viewData', $viewData);
     }
 
-    public function show(string $id): View
+    public function show(string $slug): View
     {
-        $service = Service::findOrFail($id);
+        $service = Service::where('slug', $slug)->firstOrFail();
 
         $viewData = [];
         $viewData['service'] = $service;

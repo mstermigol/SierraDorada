@@ -21,7 +21,7 @@
           @if (count($viewData['galleries']) > 0)
             @foreach ($viewData['galleries'] as $gallery)
               <div class="col-md-6 col-lg-4">
-                <a href="{{ route('home.gallery.show', ['id' => $gallery->getId()]) }}"
+                <a href="{{ route('home.gallery.show', ['slug' => $gallery->getSlug()]) }}"
                   class="card text-decoration-none h-100 my-service-card mx-auto">
                   <img
                     src="{{ empty($gallery->getImages()) ? asset('images/logo-sierra-nb.png') : asset('storage/' . 'galleries/' . $gallery->getName() . '/' . $gallery->getImages()[0]) }}"

@@ -40,11 +40,11 @@ class AdminGalleryController extends Controller
         Gallery::validate($request);
 
         $galleryName = $request->input('name');
-
         $imagesName = new ImageLocalStorage();
         $imagesName = $imagesName->storeAndGetFileName($request, 'galleries/'.$galleryName, 'images');
         $newGallery = new Gallery();
         $newGallery->setName($galleryName);
+        $newGallery->setSlug($galleryName);
         $newGallery->setImages($imagesName);
 
         $newGallery->save();
@@ -158,6 +158,7 @@ class AdminGalleryController extends Controller
                 Storage::disk('public')->move($folderPath, $newFolderPath);
             }
             $gallery->setName($request->input('name'));
+            $gallery->setSlug($request->input('name'));
         }
 
         $gallery->save();
