@@ -17,8 +17,10 @@
     <p class="color-black">{{ $viewData['service']->getDescriptionMiniature() }}</p>
     <p class="bold color-black">Imagen miniatura</p>
     <img src="{{ asset('storage/' . $viewData['miniature']. $viewData['service']->getImageMiniature()) }}" alt="{{ $viewData['service']->getName() }}">
-    <p class="bold color-black">Precio</p>
-    <p class="color-black">{{ $viewData['service']->getPrice() }}</p>
+    <p class="bold color-black">Precio mensual en semana</p>
+    <p class="color-black">{{ $viewData['service']->getPriceWeekday() ?? 'N/A' }}</p>
+    <p class="bold color-black">Precio mensual en fin de semana</p>
+    <p class="color-black">{{ $viewData['service']->getPriceWeekend() ?? 'N/A' }}</p>
     <p class="bold color-black">¿Mostrar en landing?</p>
     <p class="color-black">{{ $viewData['service']->getInLanding() ? 'Sí' : 'No' }}</p>
     <p class="bold color-black">Descripción</p>

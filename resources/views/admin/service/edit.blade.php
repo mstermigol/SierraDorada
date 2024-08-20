@@ -25,9 +25,13 @@
     <label for="imageMiniature">Imagen miniatura</label>
     <input class="form-control" type="file" id="imageMiniature" name="imageMiniature">
 
-    <label for="price">Precio</label>
-    <input class="form-control" type="number" id="price" name="price" required step="1"
-        value="{{ old('price', $viewData['service']->getPrice()) }}">
+    <label for="priceWeekday">Precio mensual en semana (opcional)</label>
+    <input class="form-control" type="number" id="priceWeekday" name="priceWeekday" step="1"
+        value="{{ old('priceWeekday', $viewData['service']->getPriceWeekdayInt()) }}">
+
+    <label for="priceWeekend">Precio mensual en fin de semana (opcional)</label>
+    <input class="form-control" type="number" id="priceWeekend" name="priceWeekend" step="1"
+        value="{{ old('priceWeekend', $viewData['service']->getPriceWeekendInt()) }}">
 
     <label for="inLanding">¿Mostrar en landing?</label>
     <select class="form-control" id="inLanding" name="inLanding" required>

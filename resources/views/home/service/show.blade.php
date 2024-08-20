@@ -18,7 +18,14 @@
         <!-- Service show -->
         <div class="show-container mx-auto mx-5 mb-5">
           <p>{{ $viewData['service']->getDescription() }}</p>
-          <p><strong>Precio:</strong> ${{ $viewData['service']->getPrice() }} mensuales</p>
+          @if ($viewData['service']->getPriceWeekday())
+            <p><strong>Precio mensual en semana:</strong> ${{ $viewData['service']->getPriceWeekday() }}</p>
+          @endif
+
+          @if ($viewData['service']->getPriceWeekend())
+            <p><strong>Precio mensual en fin de semana:</strong> ${{ $viewData['service']->getPriceWeekend() }}</p>
+          @endif
+
           <!-- Button -->
           <div class="mt-2">
             <a href="https://wa.me/3017355436?text=%C2%A1Hola%21%20Estoy%20interesad%40%20en%20el%20servicio%20de%20{{ urlencode($viewData['service']->getName()) }}"
@@ -28,13 +35,16 @@
           </div>
         </div>
         <!-- Carousel -->
-        <div class="owl-carousel owl-theme">
-          @foreach ($viewData['service']->getImages() as $image)
-            <div class="item-show"><img
-                src="{{ asset('storage/services/' . $viewData['service']->getName() . '/images/' . $image) }}"
-                class="image-auto"></div>
-          @endforeach
-        </div>
+        @if (!empty($viewData['service']->getImages()))
+          <div class="owl-carousel owl-theme">
+            @foreach ($viewData['service']->getImages() as $image)
+              <div class="item-show">
+                <img src="{{ asset('storage/services/' . $viewData['service']->getName() . '/images/' . $image) }}"
+                  class="image-auto">
+              </div>
+            @endforeach
+          </div>
+        @endif
 
 
       </div>

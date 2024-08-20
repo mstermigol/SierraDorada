@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('image_miniature');
             $table->text('description');
             $table->json('images')->nullable();
-            $table->integer('price');
+            $table->integer('price_weekday')->nullable();
+            $table->integer('price_weekend')->nullable();
             $table->boolean('in_landing');
             $table->timestamps();
         });

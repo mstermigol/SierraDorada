@@ -16,7 +16,8 @@ class Service extends Model
      * $this->attributes['image_miniature'] - string - contains the image of the service miniature
      * $this->attributes['description'] - string - contains the description of the service
      * $this->attributes['images'] - string[] - contains the image of the service
-     * $this->attributes['price'] - int - contains the price of the service
+     * $this->attributes['price_weekday'] - int - contains the price of the service in weekdays
+     * $this->attributes['price_weekend'] - int - contains the price of the service in weekends
      * $this->attributes['in_landing'] - bool - contains if the service is in the landing
      * $this->attributes['created_at'] - string - contains the date of service creation
      * $this->attributes['updated_at'] - string - contains when the service was updated
@@ -90,18 +91,51 @@ class Service extends Model
         $this->attributes['images'] = json_encode($image);
     }
 
-    public function getPrice(): string
+    public function getPriceWeekday(): ?string
     {
-        $price = $this->attributes['price'];
+        $price = $this->attributes['price_weekday'];
+
+        if (is_null($price)) {
+            return null;
+        }
+
+        return number_format($price, 0, '.', ',');
+    }
+
+    public function getPriceWeekdayInt(): ?int
+    {
+        return $this->attributes['price_weekday'];
+    }
+
+    public function setPriceWeekday(?int $price): void
+    {
+        $this->attributes['price_weekday'] = $price;
+    }
+
+    public function getPriceWeekend(): ?string
+    {
+        $price = $this->attributes['price_weekend'];
+
+        if(is_null($price)) {
+            return null;
+        }
+
         $formattedPrice = number_format($price, 0, '.', ',');
 
         return $formattedPrice;
     }
 
-    public function setPrice(int $price): void
+    public function getPriceWeekendInt(): ?int
     {
-        $this->attributes['price'] = $price;
+        return $this->attributes['price_weekend'];
     }
+
+    public function setPriceWeekend(?int $price): void
+    {
+        $this->attributes['price_weekend'] = $price;
+    }
+
+
 
     public function getInLanding(): bool
     {
@@ -156,9 +190,15 @@ class Service extends Model
             ]);
         }
 
-        if ($request->has('price')) {
+        if ($request->has('priceWeekday')) {
             $request->validate([
-                'price' => 'required|integer',
+                'price' => 'integer|nullable',
+            ]);
+        }
+
+        if ($request->has('priceWeekend')) {
+            $request->validate([
+                'price' => 'integer|nullable',
             ]);
         }
 

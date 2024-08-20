@@ -59,7 +59,8 @@ class AdminServiceController extends Controller
         $newService->setImageMiniature($imageMiniatureName);
         $newService->setDescription($request->input('description'));
         $newService->setImages($imagesName);
-        $newService->setPrice($request->input('price'));
+        $newService->setPriceWeekday($request->input('priceWeekday'));
+        $newService->setPriceWeekend($request->input('priceWeekend'));
         $newService->setInLanding($request->input('inLanding'));
 
         $newService->save();
@@ -131,7 +132,8 @@ class AdminServiceController extends Controller
 
         $service->setDescriptionMiniature($request->input('descriptionMiniature'));
         $service->setDescription($request->input('description'));
-        $service->setPrice($request->input('price'));
+        $service->setPriceWeekday($request->input('priceWeekday'));
+        $service->setPriceWeekend($request->input('priceWeekend'));
         $service->setInLanding($request->input('inLanding'));
 
         $serviceName = $service->getName();
