@@ -116,7 +116,7 @@ class Service extends Model
     {
         $price = $this->attributes['price_weekend'];
 
-        if(is_null($price)) {
+        if (is_null($price)) {
             return null;
         }
 
@@ -134,8 +134,6 @@ class Service extends Model
     {
         $this->attributes['price_weekend'] = $price;
     }
-
-
 
     public function getInLanding(): bool
     {
