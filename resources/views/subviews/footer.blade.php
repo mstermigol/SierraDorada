@@ -20,7 +20,7 @@
   </div>
 
   <!-- Divider -->
-  <img src="{{ url('images/divider.png') }}" alt="Divider" class="divider">
+  <img src="{{ url('images/divider.webp') }}" alt="Divider" class="divider">
 
   <!-- Links -->
   <div class="links-container mt-2 mb-3">

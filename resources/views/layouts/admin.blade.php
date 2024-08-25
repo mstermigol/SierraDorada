@@ -20,7 +20,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Main Stye sheet -->
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
-  <link rel="shortcut icon" href="{{ asset('images/logo-sierra-pag.png') }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('images/logo-sierra-pag.webp') }}" type="image/x-icon">
   <title>@yield('title', 'Club Sierra Dorada')</title>
 </head>
 

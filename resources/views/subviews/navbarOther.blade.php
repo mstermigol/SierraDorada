@@ -1,7 +1,7 @@
 <nav id="navbarOther" class="navbar navbar-expand-md mt-0 px-2 px-sm-5">
   <div class="container-fluid">
     <a class="navbar-brand text-white" href="{{ route('home.landing') }}">
-      <img src="{{ asset('images/logo-sierra-nb.png') }}" alt="Club Sierra Dorada" width="120">
+      <img src="{{ asset('images/logo-sierra-nb.webp') }}" alt="Club Sierra Dorada" width="120">
 
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Alternar navegación">

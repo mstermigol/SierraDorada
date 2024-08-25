@@ -16,7 +16,7 @@
         <div class="relative">
           <div class="my-row px-3 bg-gold-light">
             <div class="image-container-about">
-              <img src="{{ asset('images/alejandra.jpg') }}" alt="Alejandra Correa" class="about-image">
+              <img src="{{ asset('images/alejandra.webp') }}" alt="Alejandra Correa" class="about-image">
               <p class="image-caption bold">*Alejandra Correa, nuestra directora</p>
             </div>
             <div class="about-text-container color-black">
@@ -55,7 +55,7 @@
               </div>
             </div>
             <div class="image-container-about">
-              <img src="{{ asset('images/estudiante.jpeg') }}" alt="Sierra dorada" class="about-image">
+              <img src="{{ asset('images/estudiante.webp') }}" alt="Sierra dorada" class="about-image">
             </div>
           </div>
 
@@ -89,7 +89,7 @@
               </div>
             </div>
             <div class="image-container-about">
-              <img src="{{ asset('images/estudiante2.jpg') }}" alt="Sierra dorada" class="about-image">
+              <img src="{{ asset('images/estudiante2.webp') }}" alt="Sierra dorada" class="about-image">
             </div>
           </div>
 

@@ -32,10 +32,10 @@
 
         <!-- Background images -->
         <div class="my-left-horse">
-          <img src="{{ url('images/caballo-servicios.png') }}" alt="Caballo izquierdo">
+          <img src="{{ url('images/caballo-servicios.webp') }}" alt="Caballo izquierdo">
         </div>
         <div class="my-right-horse">
-          <img src="{{ url('images/caballo-servicios.png') }}" alt="Caballo derecho">
+          <img src="{{ url('images/caballo-servicios.webp') }}" alt="Caballo derecho">
         </div>
       </div>
     </section>

@@ -10,13 +10,13 @@
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-  <link rel="shortcut icon" href="{{ asset('images/logo-sierra-pag.png') }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('images/logo-sierra-pag.webp') }}" type="image/x-icon">
   <title>Admin -> Club Sierra Dorada</title>
 </head>
 
 <body>
   <div class="login-container">
-    <img src="{{ asset('images/logo-sierra-nb.png') }}" alt="Club Sierra Dorada" width="200">
+    <img src="{{ asset('images/logo-sierra-nb.webp') }}" alt="Club Sierra Dorada" width="200">
     <div class="login-container-forms">
       <div class="row justify-content-center">
         <div class="col-md-8">

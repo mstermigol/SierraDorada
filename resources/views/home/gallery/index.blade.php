@@ -24,7 +24,7 @@
                 <a href="{{ route('home.gallery.show', ['slug' => $gallery->getSlug()]) }}"
                   class="card text-decoration-none h-100 my-service-card mx-auto">
                   <img
-                    src="{{ empty($gallery->getImages()) ? asset('images/logo-sierra-nb.png') : asset('storage/' . 'galleries/' . $gallery->getName() . '/' . $gallery->getImages()[0]) }}"
+                    src="{{ empty($gallery->getImages()) ? asset('images/logo-sierra-nb.webp') : asset('storage/' . 'galleries/' . $gallery->getName() . '/' . $gallery->getImages()[0]) }}"
                     class="card-img-top my-service-image" alt="Card Image">
                   <div class="card-body my-service-card-body">
                     <h4 class="card-title

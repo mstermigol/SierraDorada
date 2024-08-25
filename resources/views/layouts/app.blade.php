@@ -10,7 +10,7 @@
       <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
       <!-- Font Awesome -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-      <link rel="shortcut icon" href="{{ asset('images/logo-sierra-pag.png') }}" type="image/x-icon">
+      <link rel="shortcut icon" href="{{ asset('images/logo-sierra-pag.webp') }}" type="image/x-icon">
       <title>@yield('title', 'Club Sierra Dorada')</title>
 
       @stack('head')
@@ -21,7 +21,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      
+
       <!-- Bootstrap JS -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
@@ -38,7 +38,7 @@
       @else
         <div class="fab">
           <a href="{{ route('admin.user.index') }}">
-            <img src="{{ url('images/admin.png') }}" alt="Admin">
+            <img src="{{ url('images/admin.webp') }}" alt="Admin">
           </a>
         </div>
 
