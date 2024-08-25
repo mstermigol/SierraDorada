@@ -4,7 +4,7 @@
       <img src="{{ asset('images/logo-sierra-nb.png') }}" alt="Club Sierra Dorada" width="120">
 
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Alternar navegación">
       <span class="fas fa-bars fa-2x" data-bs-toggle="collapse" data-bs-target="#navbarNav"></span>
 
     </button>
