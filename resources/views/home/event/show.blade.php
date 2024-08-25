@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Club Sierra Dorada Eventos')
+@section('title', 'Eventos | Club Sierra Dorada')
 @section('content')
   <div>
     <div class="my-vh-100">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Club de Chalanería Sierra Dorada - Equitación, Competición y Equinoterapia')
+@section('title', 'Club de Chalanería Sierra Dorada | Equitación, Competición y Equinoterapia')
 @section('content')
 
 
