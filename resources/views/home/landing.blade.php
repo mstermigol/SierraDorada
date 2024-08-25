@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('title', 'Club de Chalanería Sierra Dorada | Equitación, Competición y Equinoterapia')
+@push('head')
+  <meta name="description"
+    content="Somos un club de chalanería para adultos y niños ubicado en el municipio de La Estrella. Nos dedicamos a fomentar el amor y respeto por los caballos." />
+@endpush
 @section('content')
 
 

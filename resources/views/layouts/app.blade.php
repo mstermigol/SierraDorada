@@ -4,8 +4,6 @@
     <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="description"
-        content="Somos un club de chalanería para adultos y niños ubicado en el municipio de La Estrella. Nos dedicamos a fomentar el amor y respeto por los caballos." />
       <!-- Bootstrap stylesheet -->
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
       <!-- Main Stye sheet -->
@@ -24,6 +22,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
       <link rel="shortcut icon" href="{{ asset('images/logo-sierra-pag.png') }}" type="image/x-icon">
       <title>@yield('title', 'Club Sierra Dorada')</title>
+
+      @stack('head')
     </head>
 
     <body>

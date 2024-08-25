@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Galería | Club Sierra Dorada')
+@section('title', "{$viewData['gallery']->getName()} | Club Sierra Dorada")
 @section('content')
   <div>
     <div class="my-vh-100">
