@@ -3,7 +3,7 @@
   <section class="container-fluid pt-4 pb-3 relative" id="sportsman-section">
     <div class="container">
       <!-- Title -->
-      <h3 class="my-subtitle-letter my-section-subtitle text-center">MEJOR DEPORTISTA</h3>
+      <h2 class="my-subtitle-letter my-section-subtitle text-center">MEJOR DEPORTISTA</h2>
       <h2 class="my-title-letter my-section-title text-center mb-5">DEL MES</h2>
 
       <!-- Sportsman card -->
@@ -14,7 +14,7 @@
               <img src="{{ asset('storage/' . 'sportsman/' . $sportsman->getImage()) }}"
                 class="card-img-top my-service-image" alt="Card Image">
               <div class="card-body my-service-card-body">
-                <h4 class="card-title my-subtitle-letter bold color-white text-center">
+                <h3 class="card-title my-subtitle-letter bold color-white text-center">
                   {{ $sportsman->getName() }}</h4>
               </div>
             </div>

@@ -24,4 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    setTimeout(() => {
+        document.querySelectorAll('.owl-prev, .owl-next').forEach(button => {
+            button.setAttribute('role', 'button');
+            button.setAttribute('aria-label', button.classList.contains('owl-prev') ? 'Deslizar hacia atrás' : 'Deslizar hacia adelante');
+        });
+    }, 100);
 });

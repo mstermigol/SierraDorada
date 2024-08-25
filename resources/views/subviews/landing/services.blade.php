@@ -2,7 +2,7 @@
     <section class="container-fluid pt-4 pb-3 relative">
       <div class="container">
         <!-- Title -->
-        <h3 class="my-subtitle-letter my-section-subtitle text-center">NUESTROS</h3>
+        <h2 class="my-subtitle-letter my-section-subtitle text-center">NUESTROS</h2>
         <h2 class="my-title-letter my-section-title text-center mb-5">SERVICIOS</h2>
 
         <!-- Service cards -->
@@ -15,7 +15,7 @@
                   src="{{ asset('storage/' . 'services/' . $service->getName() . '/' . $service->getImageMiniature()) }}"
                   class="card-img-top my-service-image" alt="Card Image">
                 <div class="card-body my-service-card-body">
-                  <h4 class="card-title my-subtitle-letter bold color-white text-center">{{ $service->getName() }}</h4>
+                  <h3 class="card-title my-subtitle-letter bold color-white text-center">{{ $service->getName() }}</h4>
                   <p class="card-text px-3 text-center">{{ $service->getDescriptionMiniature() }}</p>
                 </div>
               </a>
@@ -32,10 +32,10 @@
 
         <!-- Background images -->
         <div class="my-left-horse">
-          <img src="{{ url('images/caballo-servicios.png') }}">
+          <img src="{{ url('images/caballo-servicios.png') }}" alt="Caballo izquierdo">
         </div>
         <div class="my-right-horse">
-          <img src="{{ url('images/caballo-servicios.png') }}">
+          <img src="{{ url('images/caballo-servicios.png') }}" alt="Caballo derecho">
         </div>
       </div>
     </section>

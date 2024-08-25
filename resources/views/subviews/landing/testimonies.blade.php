@@ -1,7 +1,7 @@
 <section class="container-fluid pt-4 pb-3 relative" id="testimonies-section">
     <div class="container">
         <!-- Title -->
-        <h3 class="my-subtitle-letter my-section-subtitle text-center">LEE NUESTROS</h3>
+        <h2 class="my-subtitle-letter my-section-subtitle text-center">LEE NUESTROS</h2>
         <h2 class="my-title-letter my-section-title text-center mb-5">TESTIMONIOS</h2>
 
         <!-- Testimonies -->
