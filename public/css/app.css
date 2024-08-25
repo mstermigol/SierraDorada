@@ -555,7 +555,7 @@ Footer section
 
 #footer {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)),
-        url("/images/footer.jpg");
+        url("/images/footer.webp");
     background-size: cover;
     background-position: center;
     color: white;

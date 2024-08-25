@@ -13,7 +13,7 @@
                 class="card text-decoration-none h-100 my-service-card mx-auto">
                 <img
                   src="{{ asset('storage/' . 'services/' . $service->getName() . '/' . $service->getImageMiniature()) }}"
-                  class="card-img-top my-service-image" alt="Card Image">
+                  class="card-img-top my-service-image" alt="Card Image" height="300">
                 <div class="card-body my-service-card-body">
                   <h3 class="card-title my-subtitle-letter bold color-white text-center">{{ $service->getName() }}</h4>
                   <p class="card-text px-3 text-center">{{ $service->getDescriptionMiniature() }}</p>
