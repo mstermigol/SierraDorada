@@ -3,7 +3,7 @@
 @section('section-title', 'Testimonios')
 @section('content')
   <div class="container-fluid p-0">
-    <a href="{{ route('admin.testimony.index') }}" class="btn btn-primary bg-gold b-gold mb-3"><i
+    <a href="{{ route('admin.testimony.index') }}" class="btn btn-primary bg-gold b-gold mb-3" aria-label="Atras"><i
         class="fas fa-arrow-left"></i></a>
   </div>
   <form class="d-flex flex-column mx-auto" action="{{ route('admin.testimony.save') }}" method="POST"

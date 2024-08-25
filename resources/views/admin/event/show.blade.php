@@ -5,7 +5,7 @@
 
 @section('content')
   <div class="container-fluid p-0">
-    <a href="{{ route('admin.event.index') }}" class="btn btn-primary bg-gold b-gold mb-3">
+    <a href="{{ route('admin.event.index') }}" class="btn btn-primary bg-gold b-gold mb-3" aria-label="Atras">
       <i class="fas fa-arrow-left"></i>
     </a>
   </div>

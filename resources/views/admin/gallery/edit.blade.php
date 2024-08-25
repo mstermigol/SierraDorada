@@ -3,7 +3,7 @@
 @section('section-title', 'Galería')
 @section('content')
   <div class="container-fluid p-0">
-    <a href="{{ route('admin.gallery.index') }}" class="btn btn-primary bg-gold b-gold mb-3"><i
+    <a href="{{ route('admin.gallery.index') }}" class="btn btn-primary bg-gold b-gold mb-3" aria-label="Atras"><i
         class="fas fa-arrow-left"></i></a>
   </div>
 

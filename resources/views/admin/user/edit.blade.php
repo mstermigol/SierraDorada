@@ -3,7 +3,7 @@
 @section('section-title', 'Usuarios')
 @section('content')
   <div class="container-fluid p-0">
-    <a href="{{ route('admin.user.index') }}" class="btn btn-primary bg-gold b-gold mb-3"><i class="fas fa-arrow-left"></i></a>
+    <a href="{{ route('admin.user.index') }}" class="btn btn-primary bg-gold b-gold mb-3" aria-label="Atras"><i class="fas fa-arrow-left"></i></a>
   </div>
   <form class="d-flex flex-column mx-auto" action="{{ route('admin.user.update', ['id' => $viewData['user']->getId()]) }}" method="POST">
     @csrf
@@ -17,7 +17,7 @@
 
     <button class="btn-golden b-radius-10 mt-2 color-white mb-3" type="submit">Actualizar</button>
   </form>
-  
+
   @if ($errors->any())
     <div class="alert alert-danger">
       <ul>
