@@ -33,7 +33,7 @@
     <label for="description">Descripción</label>
     <textarea class="form-control" id="description" name="description" required></textarea>
 
-    <label for="images">Imágenes (Max. 20 a la vez)</label>
+    <label for="images">Imágenes (Max. 20 a la vez) (opcional)</label>
     <input class="form-control" type="file" id="images" name="images[]" multiple>
 
     <button class="btn-golden b-radius-10 mt-2 color-white mb-3" type="submit">Crear</button>

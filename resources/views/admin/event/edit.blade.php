@@ -29,7 +29,7 @@
     <textarea class="form-control" id="description" name="description" rows="5"
       required>{{ old('description', $viewData['event']->getDescription()) }}</textarea>
 
-    <label for="images">Añade imagenes (Max. 20 a la vez)</label>
+    <label for="images">Añade imagenes (Max. 20 a la vez) (opcional)</label>
     <input class="form-control" type="file" id="images" name="images[]" multiple>
 
     <label for="gallery">Imagenes galeria (Puedes eliminar las que quieras)</label>

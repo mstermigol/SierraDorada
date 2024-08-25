@@ -46,7 +46,7 @@
     <label for="images">Imágenes (Max. 20 a la vez)</label>
     <input class="form-control" type="file" id="images" name="images[]" multiple>
 
-    <label for="gallery">Imágenes galería (Puedes eliminar las que quieras)</label>
+    <label for="gallery">Imágenes galería (Puedes eliminar las que quieras) (opcional)</label>
     <div class="container d-flex
         flex-column">
         @if (!empty($viewData['service']->getImages()))

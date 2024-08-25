@@ -18,7 +18,7 @@
     <input class="form-control" type="text" id="name" name="name"
       value="{{ old('name', $viewData['gallery']->getName()) }}" required>
 
-    <label for="images">Añade imagenes (Max. 20 a la vez)</label>
+    <label for="images">Añade imagenes (Max. 20 a la vez) (opcional)</label>
     <input class="form-control" type="file" id="images" name="images[]" multiple>
 
 
