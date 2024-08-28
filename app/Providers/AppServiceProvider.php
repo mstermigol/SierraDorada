@@ -4,6 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use App\Observers\ModelObserver;
+use App\Models\Event;
+use App\Models\Gallery;
+use App\Models\Service;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,5 +26,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useBootstrap();
+        Event::observe(ModelObserver::class);
+        Gallery::observe(ModelObserver::class);
+        Service::observe(ModelObserver::class);
     }
 }
