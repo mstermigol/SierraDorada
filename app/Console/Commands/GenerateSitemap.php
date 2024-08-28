@@ -2,14 +2,17 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Event;
+use App\Models\Gallery;
+use App\Models\Service;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
-use App\Models\{Event, Gallery, Service};
 
 class GenerateSitemap extends Command
 {
     protected $signature = 'sitemap:generate';
+
     protected $description = 'Generate the sitemap including dynamic slugs for various models';
 
     public function handle()
