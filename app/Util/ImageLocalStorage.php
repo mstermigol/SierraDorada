@@ -15,13 +15,13 @@ class ImageLocalStorage
     public function storeAndGetFileName(Request $request, string $folder, string $inputName = 'image'): string|array|null
     {
         try {
-            $this->ensureDirectoryExists('public/' . $folder);
+            $this->ensureDirectoryExists('public/'.$folder);
 
             if ($inputName === 'image') {
                 if ($request->hasFile($inputName)) {
                     $file = $request->file($inputName);
-                    $filename = uniqid() . '.' . $file->extension();
-                    $file->storeAs('public/' . $folder, $filename);
+                    $filename = uniqid().'.'.$file->extension();
+                    $file->storeAs('public/'.$folder, $filename);
 
                     return $filename;
                 }
@@ -33,15 +33,15 @@ class ImageLocalStorage
                     if (is_array($files)) {
                         $filenames = [];
                         foreach ($files as $image) {
-                            $filename = uniqid() . '.' . $image->extension();
-                            $image->storeAs('public/' . $folder, $filename);
+                            $filename = uniqid().'.'.$image->extension();
+                            $image->storeAs('public/'.$folder, $filename);
                             $filenames[] = $filename;
                         }
 
                         return $filenames;
                     } else {
-                        $filename = uniqid() . '.' . $files->extension();
-                        $files->storeAs('public/' . $folder, $filename);
+                        $filename = uniqid().'.'.$files->extension();
+                        $files->storeAs('public/'.$folder, $filename);
 
                         return $filename;
                     }
@@ -62,7 +62,7 @@ class ImageLocalStorage
     {
         $fullPath = Storage::disk('local')->path($path);
 
-        if (!is_dir($fullPath)) {
+        if (! is_dir($fullPath)) {
             mkdir($fullPath, 0755, true);
         } else {
             chmod($fullPath, 0755);
