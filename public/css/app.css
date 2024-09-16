@@ -69,10 +69,7 @@ label {
 
 .my-section-title {
     font-size: 45px;
-    line-height: 0.9
-
-
-    ;
+    line-height: 1;
     letter-spacing: 8px;
     text-transform: uppercase;
 }
