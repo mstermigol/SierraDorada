@@ -31,6 +31,9 @@ td {
 h2,
 h1 {
     color: var(--color-gold);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    overflow: hidden;
 }
 
 p,
@@ -66,7 +69,10 @@ label {
 
 .my-section-title {
     font-size: 45px;
-    line-height: 0.9;
+    line-height: 0.9
+
+
+    ;
     letter-spacing: 8px;
     text-transform: uppercase;
 }
